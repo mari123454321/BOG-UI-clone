@@ -58,14 +58,17 @@ body {
 
 /* personal auth page */
 
-.auth-BOG-logo {
+.auth-BOG-logo, .auth-BOG-manager-logo {
   margin: 16px 32px 16px 36px;
   width: 200px;
   height: auto;
   display: block;
 }
 .auth-BOG-logo > img {
-  width: 200px;
+  width: 200px; 
+}
+.auth-BOG-manager-logo>img{
+    width: 132px;
 }
 .login-personal {
   display: flex;
@@ -140,7 +143,6 @@ body {
   width: 525px;
   margin: 0 auto;
 }
-
 .personal-card-buttons {
   display: flex;
   flex-direction: column;

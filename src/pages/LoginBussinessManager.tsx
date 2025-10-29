@@ -1,10 +1,12 @@
-import AuthHeader from "../components/Login/AuthHeader";
+import { useLanguage } from "../context/LanguageContext";
+import LoginPageLayput from "../layouts/LoginPageLayout";
 
 export default function LoginBusinessManager(){
+    const {language} = useLanguage()
+    const logoUrl:string = language == "Geo" ? "https://webstatic.bog.ge/boglogo/grey_business_manager_geo.svg" : "https://webstatic.bog.ge/boglogo/grey_business_manager_eng.svg"
     return(
         <div>
-            <AuthHeader/>
-            <h1> Business manager login page </h1>
+            <LoginPageLayput logoUrl= {logoUrl}/>
         </div>
     )
 } 
