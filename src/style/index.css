@@ -203,6 +203,7 @@ body {
   justify-content: space-between;
   gap: 40px;
   align-items: center;
+  width: 100%;
 }
 
 .info-container {

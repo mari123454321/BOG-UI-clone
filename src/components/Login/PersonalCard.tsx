@@ -23,8 +23,6 @@ const translations = {
     }
 }
 
-type lang = "Geo" | "Eng"
-// use context for lang type
 
 export default function PersonalCard() {
     const { language } = useLanguage()
