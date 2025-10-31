@@ -63,17 +63,18 @@ body {
 
 /* personal auth page */
 
-.auth-BOG-logo, .auth-BOG-manager-logo {
+.auth-BOG-logo,
+.auth-BOG-manager-logo {
   margin: 16px 32px 16px 36px;
   width: 200px;
   height: auto;
   display: block;
 }
 .auth-BOG-logo > img {
-  width: 200px; 
+  width: 200px;
 }
-.auth-BOG-manager-logo>img{
-    width: 132px;
+.auth-BOG-manager-logo > img {
+  width: 132px;
 }
 .login-personal {
   display: flex;
@@ -155,7 +156,7 @@ body {
   gap: 10px;
 }
 
-.button1{
+.button1 {
   font-size: 16px;
   font-weight: 500;
   border: none;
@@ -182,62 +183,61 @@ body {
 
 /* **********************OPTIONS************************************ */
 
-.option-button-container{
+.option-button-container {
   padding: 16px;
+  margin: 16px 0px;
   display: flex;
   align-items: center;
-  border-radius:12px;
-  background-color: #EAEAEA;
-  max-width: 640px; 
-  
-  transition: transform 0.2s ease, background-color  0.5s ease;
+  border-radius: 12px;
+  background-color: #eaeaea;
+  max-width: 640px;
+
+  transition: transform 0.2s ease, background-color 0.5s ease;
 }
-.option-button-container:hover{
-  background-color: #E1E1E1;
+.option-button-container:hover {
+  background-color: #e1e1e1;
 }
 
-.options-button-content{
+.options-button-content {
   display: flex;
   justify-content: space-between;
   gap: 40px;
   align-items: center;
 }
 
-.info-container{
+.info-container {
   display: flex;
-  
 }
-.options-img-container > img{
+.options-img-container > img {
   width: 16px;
 }
 
-.options-img-container{
+.options-img-container {
   width: 50px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
   border-radius: 24px;
-  
 }
-.option-text{
+.option-text {
   margin-left: 12px;
   line-height: 1.5;
   /*  */
 }
-.option-text > h2{
+.option-text > h2 {
   color: #171717;
   font-size: 0.8rem;
   font-weight: 600;
 }
-.option-text > p{
+.option-text > p {
   margin-top: 4px;
-  color: #2D2D2D;
+  color: #2d2d2d;
   font-size: 0.75rem;
   font-weight: 500;
 }
-.options-button-content > button{
+.options-button-content > button {
   color: #929292;
   border: none;
   background-color: transparent;
@@ -249,8 +249,51 @@ body {
   align-items: center;
   border-radius: 24px;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color  0.5s ease;
+  transition: transform 0.2s ease, background-color 0.5s ease;
 }
 .options-button-content > button:hover {
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
 }
+
+/* *******************login main************************** */
+.PersonalCardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.login-header {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* not my code */
+@media (min-width: 1250px) {
+  .login-personal {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .login-personal-left {
+    width: 50%;
+    overflow-y: auto;
+    height: 100vh;
+  }
+
+  .login-personal-right {
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+  }
+
+  .login-personal-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/*  */

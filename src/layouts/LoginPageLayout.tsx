@@ -19,7 +19,7 @@ type Props = {
 
 export default function LoginPageLayput({logoUrl}:Props) {
     const location = useLocation()
-    const pathname = location.pathname as LoginPath
+    const pathname = (location.pathname as LoginPath) ?? "/personal"
 
     return (
         <div className="login-personal">
