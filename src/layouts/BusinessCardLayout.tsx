@@ -1,38 +1,29 @@
 import { useLanguage } from "../context/LanguageContext" 
+//type this
 
 const translations = {
     Geo: {
         login:{
-            title: "ინტერნეტბანკში შესვლა",
-            text: "შეიყვანეთ ან აღადგინეთ მომხმარებლის სახელი და პაროლი",
+            title: "ბიზნეს მენეჯერში შესვლა",
+            text: "შეიყვანეთ, ან აღადგინეთ თქვენი ბიზნეს ინტერნეტბანკის მომხმარებლის სახელი და პაროლი",
             icon: "+",    
         },
         register:{
-            title: "ინტერნეტბანკში შესვლა",
-            text: "შეიყვანეთ ან აღადგინეთ მომხმარებლის სახელი და პაროლი",
-            icon: "+",   
-        },
-        open:{
-            title: "პირველი ანგარიშის გახსნა",
-            text: "გახდით საქართველოს ბანკის ბიზნეს მომხმარებელი ონლაინ",
+            title: "ბიზნეს მენეჯერში რეგისტრაცია",
+            text: "თუ ჯერ არ ხართ საქართველოს ბანკის ბიზნეს მომხმარებელი, შეგიძლიათ მომენტალურად გახსნათ ანგარიში",
             icon: "+",   
         }
         
     },
     Eng: {
         login:{
-            title: "Log into Internet Banking",
-            text: "Enter or recover your username or password",
+            title: "Enter the Business Manager",
+            text: "Enter or restore your Business Internet Banking login and password",
             icon: "+",    
         },
         register:{
-            title: "Internet Banking registration",
-            text: "Register in Business Internet Banking online",
-            icon: "+",   
-        },
-        open:{
-            title: "Open your first account",
-            text: "Become Bank of Georgia’s business customer online",
+            title: "Registration in the Business Manager",
+            text: "If you are not already a Bank of Georgia business customer, you can instantly open an account",
             icon: "+",   
         }
     }
