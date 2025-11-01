@@ -1,12 +1,13 @@
 import { useLanguage } from "../context/LanguageContext";
 import LoginPageLayput from "../layouts/LoginPageLayout";
 
-export default function LoginBusiness(){
-    const {language} = useLanguage()
-    const logoUrl:string =  language == "Geo" ? "https://bonline.bog.ge/images/logo/logo_ka.svg" : "https://bonline.bog.ge/images/logo/logo_en.svg"
-    return(
+export default function LoginBusiness() {
+    const { language } = useLanguage()
+    const logoTitle = language == "Geo" ? "საქართველოს ბანკი" : "BANK OF GEORGIA"
+    const logoText = language == "Geo" ? "ბიზნესი" : "BUSINESS"
+    return (
         <div>
-            <LoginPageLayput logoUrl={logoUrl} />
+            <LoginPageLayput logoTitle={logoTitle} logoText={logoText} />
         </div>
     )
 }

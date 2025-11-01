@@ -1,7 +1,6 @@
 import { useLanguage } from "../../context/LanguageContext"
 import AuthOption from "./AuthOption"
 import { infoB } from "../../info"
-import { useLogin } from "../../context/LoginOptionClickedContext"
 import PersonalCard from "./PersonalCard"
 import { useState } from "react"
 

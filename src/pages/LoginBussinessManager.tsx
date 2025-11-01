@@ -3,10 +3,11 @@ import LoginPageLayput from "../layouts/LoginPageLayout";
 
 export default function LoginBusinessManager(){
     const {language} = useLanguage()
-    const logoUrl:string = language == "Geo" ? "https://webstatic.bog.ge/boglogo/grey_business_manager_geo.svg" : "https://webstatic.bog.ge/boglogo/grey_business_manager_eng.svg"
+    const logoTitle = language == "Geo" ? "ბიზნეს" : "BUSINESS"
+    const logoText = language=="Geo" ? "მენეჯერი" : "MANAGER"
     return(
         <div>
-            <LoginPageLayput logoUrl= {logoUrl}/>
+            <LoginPageLayput logoTitle={logoTitle} logoText={logoText}/>
         </div>
     )
 } 

@@ -4,11 +4,9 @@ body {
   font-family: "Mark GEO", inter, sans-serif;
   background-color: #f4f4f4;
 }
-/* arrow */
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
+
+
+/* * * * * * * **  ** * * * * HEADER* * * * * * **  ** * * * *  */
 .auth-header {
   display: flex;
   gap: 10px;
@@ -20,6 +18,8 @@ body {
   padding-right: 32px;
   border-bottom: 1px solid #e1e1e1;
   white-space: nowrap;
+  /* position: fixed;
+  width:50% */
 }
 
 .link {
@@ -61,21 +61,71 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-/* personal auth page */
+/* *************************AUTH LOGO STYLING****************************************** */
+/* classnames: 
+/manager - auth-BOG-manager-logo 
+/personal- auth-BOG-personal-logo
+/business- auth-BOG-business-logo
+/all paths- auth-BOG-logo
+img - auth-BOGlogo
+<h2> da span?
+*/
 
-.auth-BOG-logo,
-.auth-BOG-manager-logo {
+.auth-BOG-logo {
   margin: 16px 32px 16px 36px;
-  width: 200px;
-  height: auto;
-  display: block;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  cursor: default;
 }
-.auth-BOG-logo > img {
-  width: 200px;
+
+.auth-BOG-logo > div {
+  display: flex;
+  flex-direction: column;
 }
-.auth-BOG-manager-logo > img {
-  width: 132px;
+
+.auth-BOGlogo {
+  height: 42px;
 }
+/* personal page */
+.auth-BOG-personal-logo > div > h2 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* business */
+.auth-BOG-business-logo > div > h2 {
+  font-size: 0.79rem;
+  font-weight: 600;
+  color: #6e6f71;
+}
+.auth-BOG-business-logo > div > span {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #6e6f71;
+}
+/* manager */
+.auth-BOG-manager-logo {
+  gap: 4px;
+}
+.auth-BOG-manager-logo > div {
+  border-left: 1px solid #6f6f77;
+  padding-left: 6px;
+}
+.auth-BOG-manager-logo > div > h2 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #6f6f77;
+}
+.auth-BOG-manager-logo > div > span {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #6f6f77;
+}
+
+/* ***********************personal auth page*********************** */
+
 .login-personal {
   display: flex;
 }
@@ -182,7 +232,9 @@ body {
 }
 
 /* **********************OPTIONS************************************ */
-
+.cards-container {
+  margin: 20px;
+}
 .option-button-container {
   padding: 16px;
   margin: 16px 0px;
@@ -261,7 +313,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 50vh;
 }
 .login-header {
   font-size: 1.15rem;
@@ -298,3 +350,24 @@ body {
 }
 
 /*  */
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: #fc6719;
+}
+
+
+@media (max-width: 1250px) {
+  .auth-header {
+    width: 100%;
+  }
+  .login-personal-left {
+    width: 100%;
+  }
+  footer{
+    width: 100%;
+  }
+}

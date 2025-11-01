@@ -3,9 +3,10 @@ import LoginPageLayput from "../layouts/LoginPageLayout";
 
 
 export default function LoginPersonal() {
-    const {language} = useLanguage()
-    const logoUrl:string = language == "Geo"? "https://ibank.bog.ge/assets/segment-logos/rb/light/large_ka.svg" : "https://ibank.bog.ge/assets/segment-logos/rb/light/large_en.svg"
+    const { language } = useLanguage()
+    const logoTitle = language == "Geo" ? "საქართველოს ბანკი" : "BANK OF GEORGIA"
+
     return (
-        <LoginPageLayput logoUrl = {logoUrl} />
+        <LoginPageLayput logoTitle={logoTitle} />
     )
 }

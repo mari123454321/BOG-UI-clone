@@ -23,7 +23,7 @@ export default function BusinessManagerCard() {
     //render Options bellow passing above info as props
     return (
         <div className="cards-container">
-            {!login && <h1 className="login-headers">{info.header}</h1>}
+            {!login && <h1 className="login-header">{info.header}</h1>}
             {!login ? AuthOptions : <PersonalCard />}
         </div>
     )
