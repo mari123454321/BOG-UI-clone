@@ -3,8 +3,8 @@
 body {
   font-family: "Mark GEO", inter, sans-serif;
   background-color: #f4f4f4;
+  height: 100%;
 }
-
 
 /* * * * * * * **  ** * * * * HEADER* * * * * * **  ** * * * *  */
 .auth-header {
@@ -349,15 +349,71 @@ img - auth-BOGlogo
   }
 }
 
-/*  */
+/* ***********************FOOTER*********************** */
 
-footer {
+.auth-footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 50%;
-  background-color: #fc6719;
+  margin-left: 32px;
+  margin-right: 32px;
+  
 }
+
+.footer-top-text {
+  color: rgba(0, 0, 0, 0.92);
+  font-weight: normal;
+  font-size: 0.875;
+  line-height: 1.4em;
+  display: block;
+}
+
+.footer-quick-links {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 8px;
+  margin-top: 6px;
+  margin-bottom: 24px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4em;
+  color: rgba(0, 0, 0, 0.68);
+}
+
+.footer-quick-links li::before {
+  content: "";
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.68);
+  display: inline-block;
+  margin: 0 12px;
+  vertical-align: middle;
+}
+.footer-social-icons {
+  margin-right: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.footer-social-icons > a > img{
+  width: 15px;
+  padding: 0 8px;
+  margin-left: 4px;
+}
+.footer-download-links > a{
+  padding: 8px 16px;
+}
+.footer-content{
+  flex-wrap: wrap;
+  margin-top: 48px;
+  padding-top: 32px;
+  padding-bottom: 48px;
+  border-top: 1px solid #B2B2B2;
+
+}
+
 
 
 @media (max-width: 1250px) {
@@ -367,7 +423,7 @@ footer {
   .login-personal-left {
     width: 100%;
   }
-  footer{
+  .auth-footer {
     width: 100%;
   }
 }

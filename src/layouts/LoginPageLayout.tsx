@@ -4,7 +4,7 @@ import PersonalCard from "../components/Login/PersonalCard";
 import BusinessCard from "../components/Login/BusinessCard";
 import BusinessManagerCard from "../components/Login/BusinessManagerCard";
 import type { JSX } from "react";
-import AuthFooter from "../components/Login/AuthFooter";
+import Footer from "../components/common/Footer";
 
 type LoginPath = "/personal" | "/business" | "/manager"
 
@@ -37,7 +37,9 @@ export default function LoginPageLayput({ logoTitle, logoText }: Props) {
                 <main className="PersonalCardContainer">
                     {cards[pathname]}
                 </main>
-                <AuthFooter/>
+                <div className="auth-footer">
+                    <Footer/>   
+                </div>
             </div>
             <div className="login-personal-right">
                 <img src="https://ramad.bog.ge/s3/sso/images/c90514a2-f523-44f0-9e70-11960cb75582.jpg" alt="მობაილ ბანკის გათამაშება" />
