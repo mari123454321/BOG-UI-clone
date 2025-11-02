@@ -124,20 +124,20 @@ img - auth-BOGlogo
   color: #6f6f77;
 }
 
-/* ***********************personal auth page*********************** */
+/* *********************** auth page*********************** */
 
-.login-personal {
+.login {
   display: flex;
 }
-.login-personal-left {
+.login-left {
   width: 50%;
 }
-.login-personal-right {
+.login-right {
   width: 50%;
   height: 100vh;
   overflow: hidden;
 }
-.login-personal-right > img {
+.login-right > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -145,19 +145,20 @@ img - auth-BOGlogo
 }
 
 @media (max-width: 1250px) {
-  .login-personal-right {
+  .login-right {
     display: none;
   }
-  .login-personal-left {
+  .login-left {
     width: 100%;
   }
 }
-.personal-card {
-  max-width: 525px;
+.auth-card {
+  max-width: 640px;
   background-color: white;
   border-radius: 10px;
+  width: 640px;
 }
-.personal-card-title {
+.auth-card-title {
   height: 80px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -168,21 +169,26 @@ img - auth-BOGlogo
   font-size: 0.875rem;
   border-bottom: solid 1px #f4f4f4;
 }
-.personal-card-form-container {
+.auth-card-form-container {
   display: flex;
   justify-content: center;
-
-  margin: 32px 64px 0px 64px;
+  padding: 32px 64px 48px 64px;
+  border-radius: 10px;
+  margin-top: 50;
+  
+ 
 }
-.personal-card-qr > img {
+.auth-card-qr > img {
   height: 94px;
   width: 94px;
 }
 
-.personal-card-username,
-.personal-card-password {
+.auth-card-username,
+.auth-card-password {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .login-input {
@@ -192,14 +198,19 @@ img - auth-BOGlogo
   box-sizing: border-box;
   position: relative;
   padding: 16px;
-  width: 397px;
+  min-width: 397px;
   color: rgba(0, 0, 0, 0.68);
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
 }
-.card-container {
+/* .card-container {
   width: 525px;
   margin: 0 auto;
+} */
+.cards-container{
+  min-height: 510px;
 }
-.personal-card-buttons {
+.auth-card-buttons {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -207,11 +218,11 @@ img - auth-BOGlogo
 }
 
 .button1 {
-  font-size: 16px;
+  font-size: 0.875rem;
   font-weight: 500;
   border: none;
   border-radius: 3px;
-  padding: 12px 24px;
+  padding: 18px 24px;
   cursor: pointer;
   transition: all 0.25s ease;
   background: #fc6719;
@@ -221,15 +232,33 @@ img - auth-BOGlogo
 .button2 {
   background: transparent;
   color: #fc6719;
-  font-size: 16px;
+  font-size: 0.75rem;
   font-weight: 500;
   border: none;
   border-radius: 3px;
-  padding: 12px 24px;
+  padding: 8px 24px;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
+.auth-card-auth-methods{
+  display: flex;
+  margin-bottom: 48px;
+}
+.auth-save-username{
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+
+}
+
+.auth-forgot-password{
+  font-size: 0.875rem;
+  color:#ff8442;
+  font-weight: 500;
+}
+
 
 /* **********************OPTIONS************************************ */
 .cards-container {
@@ -243,7 +272,6 @@ img - auth-BOGlogo
   border-radius: 12px;
   background-color: #eaeaea;
   max-width: 640px;
-
   transition: transform 0.2s ease, background-color 0.5s ease;
 }
 .option-button-container:hover {
@@ -309,11 +337,11 @@ img - auth-BOGlogo
 }
 
 /* *******************login main************************** */
-.PersonalCardContainer {
+.authCardContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  margin: 32px;
 }
 .login-header {
   font-size: 1.15rem;
@@ -322,19 +350,19 @@ img - auth-BOGlogo
 
 /* not my code */
 @media (min-width: 1250px) {
-  .login-personal {
+  .login {
     display: flex;
     height: 100vh;
     overflow: hidden;
   }
 
-  .login-personal-left {
+  .login-left {
     width: 50%;
     overflow-y: auto;
     height: 100vh;
   }
 
-  .login-personal-right {
+  .login-right {
     width: 50%;
     height: 100vh;
     overflow: hidden;
@@ -342,12 +370,14 @@ img - auth-BOGlogo
     top: 0;
   }
 
-  .login-personal-right img {
+  .login-right img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 }
+
+
 
 /* ***********************FOOTER*********************** */
 
@@ -379,7 +409,7 @@ img - auth-BOGlogo
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.4em;
-  color: rgba(0, 0, 0, 0.68);
+  color: #4f4f4f;
   
 }
 .footer-quick-links li {
@@ -391,7 +421,7 @@ img - auth-BOGlogo
   width: 2px;
   height: 2px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.68);
+  background: #4f4f4f;
   display: inline-block;
   margin: 0 12px;
   vertical-align: middle;
@@ -417,7 +447,7 @@ img - auth-BOGlogo
   margin-top: 48px;
   padding-top: 32px;
   padding-bottom: 48px;
-  border-top: 1px solid #B2B2B2;
+  border-top: 1px solid #e3e3e3;
   display: flex;
   flex-direction: row;
 }
@@ -428,7 +458,7 @@ img - auth-BOGlogo
   .auth-header {
     width: 100%;
   }
-  .login-personal-left {
+  .login-left {
     width: 100%;
   }
   .auth-footer {
