@@ -202,14 +202,25 @@ img - auth-BOGlogo
   color: rgba(0, 0, 0, 0.68);
   border: 1px solid #d3d3d3;
   border-radius: 4px;
+  transition: all 0.5s ease;
+}
+.login-input:focus::placeholder{
+  font-size: 0.625rem;
+  color: #ff8442;
+  transition: all 0.2s ease;
+}
+.login-input:focus{
+  border: 1px solid #ff8442;
+  color: #ff8442;
+  outline: none;   
 }
 /* .card-container {
   width: 525px;
   margin: 0 auto;
 } */
-.cards-container{
+/* .cards-container{
   min-height: 510px;
-}
+} */
 .auth-card-buttons {
   display: flex;
   flex-direction: column;
@@ -342,6 +353,7 @@ img - auth-BOGlogo
   justify-content: center;
   align-items: center;
   margin: 32px;
+  min-height: 500px;
 }
 .login-header {
   font-size: 1.15rem;
