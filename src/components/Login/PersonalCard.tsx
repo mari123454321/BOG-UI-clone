@@ -1,5 +1,7 @@
 import { useLanguage } from "../../context/LanguageContext"
 import qr from "../../images/qr.png"
+import PageDoesNotExist from "../../pages/PageDoesNotExist"
+import { Link, useNavigate } from "react-router-dom"
 const translations = {
     Geo: {
         title: "ავტორიზაცია",
@@ -23,10 +25,34 @@ const translations = {
     }
 }
 
+const MyUsername = "mari"
+const MyPassword = "mari123"
 
 export default function PersonalCard() {
     const { language } = useLanguage()
     const currentLanguage = translations[language]
+    const navigate = useNavigate()
+
+
+    // function Login(formData: FormData) {
+    //     const username = formData.get("username")
+    //     const password = formData.get("password")
+    //     MyUsername === username && MyPassword === password ? navigate("/PageDoesNotExist") : navigate("/PageDoesNotExist")
+    // }
+
+    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault(); // stop page reload
+        const formData = new FormData(e.currentTarget);
+
+        const username = formData.get("username");
+        const password = formData.get("password");
+
+        if (username === MyUsername && password === MyPassword) {
+            navigate("/dashboard"); // success page
+        } else {
+            navigate("/PageDoesNotExist"); // or show error message instead
+        }
+    }
     return (
         <div className="card-container">
             <section className="auth-card">
@@ -35,7 +61,7 @@ export default function PersonalCard() {
                 </div>
 
                 <div className="auth-card-form-container">
-                    <form>
+                    <form onSubmit={handleSubmit} >
                         <div className="auth-card-auth-methods">
                             <div className="auth-card-input-container">
                                 <div className="auth-card-username">
@@ -47,10 +73,10 @@ export default function PersonalCard() {
                                 </div>
                                 <div className="auth-card-password">
                                     <input type="password" name="password" placeholder={currentLanguage.passwordPlaceholder} required className="login-input" />
-                                    <a href=""><span  className="auth-forgot-password">{currentLanguage.fotgot}</span></a> {/*droebiti*/}
+                                    <Link to={"/PageDoesNotExist"}><span className="auth-forgot-password">{currentLanguage.fotgot}</span></Link>
                                 </div>
                             </div>
-{/* 
+                            {/* 
                             <div className="auth-card-qr">
                                 <img src={qr} alt="QR" />
                                 <p>{currentLanguage.QRtext}</p>
@@ -58,7 +84,7 @@ export default function PersonalCard() {
                         </div>
 
                         <div className="auth-card-buttons">
-                            <button className="button1">{currentLanguage.button1}</button>
+                            <button className="button1" type="submit">{currentLanguage.button1}</button>
                             <button className="button2">{currentLanguage.button2}</button>
 
                         </div>

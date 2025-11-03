@@ -17,7 +17,7 @@ export default function AuthCarousel({ images, autoSlide = false, autoSlideInter
         if (!autoSlide) return;
         const slideInterval = setInterval(next, autoSlideInterval);
         return () => clearInterval(slideInterval);
-    }, [autoSlide, autoSlideInterval]);
+    }, [autoSlide, autoSlideInterval, next, prev]);
 
     return (
         <div className="auth-carousel">
