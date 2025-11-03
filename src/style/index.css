@@ -175,8 +175,6 @@ img - auth-BOGlogo
   padding: 32px 64px 48px 64px;
   border-radius: 10px;
   margin-top: 50;
-  
- 
 }
 .auth-card-qr > img {
   height: 94px;
@@ -204,15 +202,15 @@ img - auth-BOGlogo
   border-radius: 4px;
   transition: all 0.5s ease;
 }
-.login-input:focus::placeholder{
+.login-input:focus::placeholder {
   font-size: 0.625rem;
   color: #ff8442;
   transition: all 0.2s ease;
 }
-.login-input:focus{
+.login-input:focus {
   border: 1px solid #ff8442;
-  color: #ff8442;
-  outline: none;   
+  color: #000000;
+  outline: none;
 }
 /* .card-container {
   width: 525px;
@@ -251,25 +249,23 @@ img - auth-BOGlogo
   cursor: pointer;
   transition: all 0.25s ease;
 }
-.auth-card-auth-methods{
+.auth-card-auth-methods {
   display: flex;
   margin-bottom: 48px;
 }
-.auth-save-username{
+.auth-save-username {
   font-size: 0.75rem;
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 16px;
-
 }
 
-.auth-forgot-password{
+.auth-forgot-password {
   font-size: 0.875rem;
-  color:#ff8442;
+  color: #ff8442;
   font-weight: 500;
 }
-
 
 /* **********************OPTIONS************************************ */
 .cards-container {
@@ -389,8 +385,6 @@ img - auth-BOGlogo
   }
 }
 
-
-
 /* ***********************FOOTER*********************** */
 
 .auth-footer {
@@ -399,7 +393,7 @@ img - auth-BOGlogo
   bottom: 0;
   width: 50%;
 }
-.auth-footer > footer{
+.auth-footer > footer {
   margin-left: 32px;
   margin-right: 32px;
 }
@@ -422,11 +416,10 @@ img - auth-BOGlogo
   font-weight: 500;
   line-height: 1.4em;
   color: #4f4f4f;
-  
 }
 .footer-quick-links li {
-  display: flex;      
-  align-items: center;       
+  display: flex;
+  align-items: center;
 }
 .footer-quick-links li::before {
   content: "";
@@ -437,7 +430,7 @@ img - auth-BOGlogo
   display: inline-block;
   margin: 0 12px;
   vertical-align: middle;
-  flex-shrink: 0;  
+  flex-shrink: 0;
 }
 .footer-social-icons {
   margin-right: 24px;
@@ -445,16 +438,16 @@ img - auth-BOGlogo
   flex-direction: row;
   align-items: center;
 }
-.footer-social-icons > a > img{
+.footer-social-icons > a > img {
   width: 15px;
   padding: 0 8px;
   margin-left: 4px;
 }
-.footer-download-links > a{
+.footer-download-links > a {
   padding: 8px 16px;
 }
 
-.footer-content{
+.footer-content {
   flex-wrap: wrap;
   margin-top: 48px;
   padding-top: 32px;
@@ -463,8 +456,6 @@ img - auth-BOGlogo
   display: flex;
   flex-direction: row;
 }
-
-
 
 @media (max-width: 1250px) {
   .auth-header {
@@ -476,4 +467,77 @@ img - auth-BOGlogo
   .auth-footer {
     width: 100%;
   }
+}
+
+/* ***********************carousel*********************** */
+
+.auth-carousel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.auth-carousel-imgs {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+.auth-carousel-imgs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.auth-carousel-controls {
+  position: absolute;
+  bottom: 8px; 
+  transform: translateX(-50%);
+  left: 50%;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+
+.auth-carousel-btn {
+  border: none;
+  color: white;
+  background-color: transparent;
+  padding: 4px;
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
+  transition: background-color 0.5s ease, transform 0.5s ease; 
+  margin: 0 48px;
+}
+.auth-carousel-btn:hover {
+  background-color: #92929243;
+  
+}
+.auth-carousel-indicators {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  
+  
+}
+
+.auth-carousel-dot {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.auth-carousel-dot.active {
+  width: 8px;
+  height: 8px;
+  opacity: 1;
 }

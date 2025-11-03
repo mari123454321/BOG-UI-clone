@@ -5,6 +5,8 @@ import BusinessCard from "../components/Login/BusinessCard";
 import BusinessManagerCard from "../components/Login/BusinessManagerCard";
 import type { JSX } from "react";
 import Footer from "../components/common/Footer";
+import AuthCarousel from "../components/Login/AuthCarousel";
+import { carouselImagesBusiness, carouselImagesManager, carouselImagesPersonal } from "../images/carousel/carouselImages";
 
 type LoginPath = "/personal" | "/business" | "/manager"
 
@@ -13,6 +15,12 @@ const cards: Record<LoginPath, JSX.Element> = {
     "/business": <BusinessCard />,
     "/manager": <BusinessManagerCard />,
 };
+
+const carousel: Record<LoginPath, JSX.Element> = {
+    "/personal": <AuthCarousel images={carouselImagesPersonal} autoSlide={carouselImagesPersonal.length === 1 ? false : true}/>,
+    "/business": <AuthCarousel images={carouselImagesBusiness} autoSlide={carouselImagesBusiness.length === 1 ? false : true}/>,
+    "/manager": <AuthCarousel images={carouselImagesManager} autoSlide={carouselImagesManager.length === 1 ? false : true}/>,
+}
 
 type Props = {
     logoTitle: string
@@ -42,7 +50,9 @@ export default function LoginPageLayput({ logoTitle, logoText }: Props) {
                 </div>
             </div>
             <div className="login-right">
-                <img src="https://ramad.bog.ge/s3/sso/images/c90514a2-f523-44f0-9e70-11960cb75582.jpg" alt="მობაილ ბანკის გათამაშება" />
+                {carousel[pathname]}
+{/*                 
+                <img src="https://ramad.bog.ge/s3/sso/images/c90514a2-f523-44f0-9e70-11960cb75582.jpg" alt="მობაილ ბანკის გათამაშება" /> */}
             </div>
 
         </div>

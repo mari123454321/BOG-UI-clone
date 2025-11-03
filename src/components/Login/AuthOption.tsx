@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom"
 type Props = {
-    icon?: string
+    icon: string
     title: string
     text: string
     id?: number
