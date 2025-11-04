@@ -17,9 +17,9 @@ const cards: Record<LoginPath, JSX.Element> = {
 };
 
 const carousel: Record<LoginPath, JSX.Element> = {
-    "/personal": <AuthCarousel images={carouselImagesPersonal} autoSlide={carouselImagesPersonal.length === 1 ? false : true}/>,
-    "/business": <AuthCarousel images={carouselImagesBusiness} autoSlide={carouselImagesBusiness.length === 1 ? false : true}/>,
-    "/manager": <AuthCarousel images={carouselImagesManager} autoSlide={carouselImagesManager.length === 1 ? false : true}/>,
+    "/personal": <AuthCarousel images={carouselImagesPersonal} autoSlide={carouselImagesPersonal.length === 1 ? false : true} />,
+    "/business": <AuthCarousel images={carouselImagesBusiness} autoSlide={carouselImagesBusiness.length === 1 ? false : true} />,
+    "/manager": <AuthCarousel images={carouselImagesManager} autoSlide={carouselImagesManager.length === 1 ? false : true} />,
 }
 
 type Props = {
@@ -34,24 +34,27 @@ export default function LoginPageLayput({ logoTitle, logoText }: Props) {
     return (
         <div className="login">
             <div className="login-left">
-                <AuthHeader />
-                <div className={classNameLogo}>
-                    <img src="BOGlogo.png" alt="BOG logo" className="auth-BOGlogo" />
-                    <div>
-                        <h2>{logoTitle}</h2>
-                        {logoText && <span>{logoText}</span>}
+                
+                <div className="login-content">
+                    <AuthHeader />
+                    <div className={classNameLogo}>
+                        <img src="BOGlogo.png" alt="BOG logo" className="auth-BOGlogo" />
+                        <div>
+                            <h2>{logoTitle}</h2>
+                            {logoText && <span>{logoText}</span>}
+                        </div>
                     </div>
+                    <main className="authCardContainer">
+                        {cards[pathname]}
+                    </main>
                 </div>
-                <main className="authCardContainer">
-                    {cards[pathname]}
-                </main>
                 <div className="auth-footer">
-                    <Footer/>   
+                    <Footer />
                 </div>
             </div>
             <div className="login-right">
                 {carousel[pathname]}
-{/*                 
+                {/*                 
                 <img src="https://ramad.bog.ge/s3/sso/images/c90514a2-f523-44f0-9e70-11960cb75582.jpg" alt="მობაილ ბანკის გათამაშება" /> */}
             </div>
 

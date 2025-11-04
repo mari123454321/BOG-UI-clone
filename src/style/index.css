@@ -131,7 +131,15 @@ img - auth-BOGlogo
 }
 .login-left {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+.login-content{
+  flex: 1;
+  
+}
+
 .login-right {
   width: 50%;
   height: 100vh;
@@ -362,11 +370,12 @@ img - auth-BOGlogo
     display: flex;
     height: 100vh;
     overflow: hidden;
+    overflow-y: auto;
   }
 
   .login-left {
     width: 50%;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     height: 100vh;
   }
 
@@ -387,12 +396,12 @@ img - auth-BOGlogo
 
 /* ***********************FOOTER*********************** */
 
-.auth-footer {
+/* .auth-footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 50%;
-}
+} */
 .auth-footer > footer {
   margin-left: 32px;
   margin-right: 32px;
@@ -449,7 +458,7 @@ img - auth-BOGlogo
 
 .footer-content {
   flex-wrap: wrap;
-  margin-top: 48px;
+  /* margin-top: 48px; */
   padding-top: 32px;
   padding-bottom: 48px;
   border-top: 1px solid #e3e3e3;
