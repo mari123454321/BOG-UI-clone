@@ -77,6 +77,7 @@ img - auth-BOGlogo
   gap: 2px;
   align-items: center;
   cursor: default;
+  background-color: ;
 }
 
 .auth-BOG-logo > div {
@@ -135,9 +136,8 @@ img - auth-BOGlogo
   flex-direction: column;
   min-height: 100vh;
 }
-.login-content{
+.login-content {
   flex: 1;
-  
 }
 
 .login-right {
@@ -161,10 +161,9 @@ img - auth-BOGlogo
   }
 }
 .auth-card {
-  max-width: 640px;
   background-color: white;
   border-radius: 10px;
-  width: 640px;
+  width: 600px;
 }
 .auth-card-title {
   height: 80px;
@@ -277,7 +276,7 @@ img - auth-BOGlogo
 
 /* **********************OPTIONS************************************ */
 .cards-container {
-  margin: 20px;
+  margin: 20px 20px 0px 20px;
 }
 .option-button-container {
   padding: 16px;
@@ -316,6 +315,7 @@ img - auth-BOGlogo
   align-items: center;
   background-color: #d8d8d8;
   border-radius: 24px;
+  flex-shrink: 0;
 }
 .option-text {
   margin-left: 12px;
@@ -460,7 +460,7 @@ img - auth-BOGlogo
   flex-wrap: wrap;
   /* margin-top: 48px; */
   padding-top: 32px;
-  padding-bottom: 48px;
+  padding-bottom: 36px;
   border-top: 1px solid #e3e3e3;
   display: flex;
   flex-direction: row;
@@ -502,13 +502,12 @@ img - auth-BOGlogo
 
 .auth-carousel-controls {
   position: absolute;
-  bottom: 8px; 
+  bottom: 8px;
   transform: translateX(-50%);
   left: 50%;
   padding: 0.25rem;
   cursor: pointer;
 }
-
 
 .auth-carousel-btn {
   border: none;
@@ -518,12 +517,11 @@ img - auth-BOGlogo
   border-radius: 50%;
   height: 28px;
   width: 28px;
-  transition: background-color 0.5s ease, transform 0.5s ease; 
+  transition: background-color 0.5s ease, transform 0.5s ease;
   margin: 0 48px;
 }
 .auth-carousel-btn:hover {
   background-color: #92929243;
-  
 }
 .auth-carousel-indicators {
   position: absolute;
@@ -532,8 +530,6 @@ img - auth-BOGlogo
   transform: translateX(-50%);
   display: flex;
   gap: 0.5rem;
-  
-  
 }
 
 .auth-carousel-dot {
@@ -549,4 +545,48 @@ img - auth-BOGlogo
   width: 8px;
   height: 8px;
   opacity: 1;
+}
+
+.auth-header {
+}
+@media (max-width: 660px) {
+  .auth-header {
+    padding-right: 5px;
+  }
+  .auth-card {
+    width: 86vw;
+  }
+  .auth-footer {
+    flex-direction: column;
+  }
+  .login-input {
+    min-width: 68vw;
+    transition: none;
+  }
+  .authCardContainer {
+    margin: 0px 4px;
+  }
+  .footer-quick-links {
+    grid-auto-flow: row;
+    margin-bottom: 16px;
+  }
+  .footer-social-icons {
+    margin-bottom: 24px;
+    
+  }
+  .footer-top-text {
+      line-height: 1.2em;
+  }
+  .footer-content{
+    flex-direction: column;
+  }
+
+}
+@media (max-width: 481px) {
+  .auth-header > nav {
+    display: none;
+  }
+  .auth-header-burger {
+    display: block;
+  }
 }
