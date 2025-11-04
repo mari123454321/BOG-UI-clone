@@ -77,7 +77,6 @@ img - auth-BOGlogo
   gap: 2px;
   align-items: center;
   cursor: default;
-  background-color: ;
 }
 
 .auth-BOG-logo > div {
@@ -413,6 +412,7 @@ img - auth-BOGlogo
   font-size: 0.875;
   line-height: 1.4em;
   display: block;
+  width: 100%;
 }
 
 .footer-quick-links {
@@ -547,8 +547,59 @@ img - auth-BOGlogo
   opacity: 1;
 }
 
-.auth-header {
+/* ***************sidebar*************** */
+.burger{
+  display: none;
 }
+.sidebar-links{
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-sidebar {
+  position: fixed; 
+  top: 0;
+  display: none;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  z-index: 1000;
+}
+
+.auth-sidebar.active {
+  display: block;
+}
+
+.sidebar-link,
+.sidebar-active-link {
+  padding: 16px;
+  font-size: 0.87rem;
+  font-weight: 500;
+}
+
+.sidebar-active-link {
+  font-size: 0.87rem;
+  font-weight: 500;
+  color: #ff6c1d;
+  border-bottom: solid 2px #ff6c1d;
+  padding: 16px;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 999;
+}
+
+.sidebar-overlay.active {
+  display: block;
+}
+
+/* ******************responsive****************** */
+
 @media (max-width: 660px) {
   .auth-header {
     padding-right: 5px;
@@ -572,21 +623,25 @@ img - auth-BOGlogo
   }
   .footer-social-icons {
     margin-bottom: 24px;
-    
   }
   .footer-top-text {
-      line-height: 1.2em;
+    line-height: 1.2em;
   }
-  .footer-content{
+  .footer-content {
     flex-direction: column;
   }
-
 }
 @media (max-width: 481px) {
   .auth-header > nav {
     display: none;
   }
+  .burger {
+    display: block;
+  }
   .auth-header-burger {
     display: block;
+  }
+  .authCardContainer {
+    min-height: 450px;
   }
 }

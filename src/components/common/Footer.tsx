@@ -2,22 +2,25 @@ import facebook from "../../images/fbIcon.png"
 import instagram from "../../images/instagramIcon.png"
 import linkedIn from "../../images/linkedInIcon.png"
 import youtube from "../../images/youtubeIcon.png"
+import { footerInfo } from "../../info"
+import { useLanguage } from "../../context/LanguageContext"
 
 export default function Footer(){
-
+    const currentLanguage = useLanguage().language
+    const translatedInfo = footerInfo[currentLanguage]
     return(
         <footer>
             <div className="footer-content">
                 <div className="footer-top-text">
-                    © 1997 - 2025 საქართველოს ბანკი
+                    {translatedInfo.topText}
                 </div>
                 <div className="footer-quick-links-container">
                     <ul className="footer-quick-links">
-                        <li><a href="https://conditions.bog.ge/ka/main" target="_blank" rel="noopener noreferrer">პირობები</a></li>
-                        <li><a href="https://bankofgeorgia.ge/ka/official-message" target="_blank" rel="noopener noreferrer">შეტყობინებები</a></li>
-                        <li><a href="https://bankofgeorgia.ge/ka/anonymous-contact" target="_blank" rel="noopener noreferrer">ცხელი ხაზი</a></li>
-                        <li><a href="https://bankofgeorgia.ge/ka/security-center" target="_blank" rel="noopener noreferrer">უსაფრთხოების ცენტრი</a></li>
-                        <li><a href="https://bankofgeorgia.ge/ka/privacy-notice" target="_blank" rel="noopener noreferrer">შეტყობინება მონაცემთა დამუშავების თაობაზე</a></li>
+                        <li><a href="https://conditions.bog.ge/ka/main" target="_blank" rel="noopener noreferrer">{translatedInfo.quickLinks.conditions}</a></li>
+                        <li><a href="https://bankofgeorgia.ge/ka/official-message" target="_blank" rel="noopener noreferrer">{translatedInfo.quickLinks.messages}</a></li>
+                        <li><a href="https://bankofgeorgia.ge/ka/anonymous-contact" target="_blank" rel="noopener noreferrer">{translatedInfo.quickLinks.hotLine}</a></li>
+                        <li><a href="https://bankofgeorgia.ge/ka/security-center" target="_blank" rel="noopener noreferrer">{translatedInfo.quickLinks.securityCenter}</a></li>
+                        <li><a href="https://bankofgeorgia.ge/ka/privacy-notice" target="_blank" rel="noopener noreferrer">{translatedInfo.quickLinks.privacyNotice}</a></li>
                     </ul>
                 </div>
                 <div className="footer-social-icons">
