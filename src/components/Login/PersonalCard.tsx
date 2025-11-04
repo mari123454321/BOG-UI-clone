@@ -41,16 +41,20 @@ export default function PersonalCard() {
     // }
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault(); // stop page reload
-        const formData = new FormData(e.currentTarget);
+        e.preventDefault()
+        const formData = new FormData(e.currentTarget)
 
-        const username = formData.get("username");
-        const password = formData.get("password");
+        const username = (formData.get("username") as string).trim()
+        const password = (formData.get("password") as string).trim()
+        // doesnt let u submit just like in BOG website unless both forms are filled
+        if (!username || !password) {
+            return;
+        }
 
         if (username === MyUsername && password === MyPassword) {
-            navigate("/dashboard"); // success page
+            navigate("/dashboard")
         } else {
-            navigate("/PageDoesNotExist"); // or show error message instead
+            navigate("/PageDoesNotExist")
         }
     }
     return (
@@ -65,22 +69,17 @@ export default function PersonalCard() {
                         <div className="auth-card-auth-methods">
                             <div className="auth-card-input-container">
                                 <div className="auth-card-username">
-                                    <input type="text" name="username" placeholder={currentLanguage.usernamePlaceholder} required className="login-input" />
+                                    <input type="text" name="username" placeholder={currentLanguage.usernamePlaceholder}  className="login-input" />
                                     <label className="auth-save-username">
                                         <input type="checkbox" name="saveUsername" value={"save username"} className="checkbox" />
                                         {currentLanguage.saveUsername}
                                     </label>
                                 </div>
                                 <div className="auth-card-password">
-                                    <input type="password" name="password" placeholder={currentLanguage.passwordPlaceholder} required className="login-input" />
+                                    <input type="password" name="password" placeholder={currentLanguage.passwordPlaceholder}  className="login-input" />
                                     <Link to={"/PageDoesNotExist"}><span className="auth-forgot-password">{currentLanguage.fotgot}</span></Link>
                                 </div>
                             </div>
-                            {/* 
-                            <div className="auth-card-qr">
-                                <img src={qr} alt="QR" />
-                                <p>{currentLanguage.QRtext}</p>
-                            </div> */}
                         </div>
 
                         <div className="auth-card-buttons">
