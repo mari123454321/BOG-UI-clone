@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, p} from "react-router-dom";
+import { Routes, Route, Navigate} from "react-router-dom";
 import LoginPersonal from "./pages/LoginPersonal"
 import LoginBusiness from './pages/LoginBusiness';
 import LoginBusinessManager from './pages/LoginBussinessManager';

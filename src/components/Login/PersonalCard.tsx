@@ -2,6 +2,7 @@ import { useLanguage } from "../../context/LanguageContext"
 import qr from "../../images/qr.png"
 import PageDoesNotExist from "../../pages/PageDoesNotExist"
 import { Link, useNavigate } from "react-router-dom"
+import { useLoggedin } from "../../context/LoggedinContext"
 const translations = {
     Geo: {
         title: "ავტორიზაცია",
@@ -32,7 +33,7 @@ export default function PersonalCard() {
     const { language } = useLanguage()
     const currentLanguage = translations[language]
     const navigate = useNavigate()
-
+    const {loggedin, setLoggedin} = useLoggedin()
 
     // function Login(formData: FormData) {
     //     const username = formData.get("username")
@@ -52,6 +53,7 @@ export default function PersonalCard() {
         }
 
         if (username === MyUsername && password === MyPassword) {
+            setLoggedin(true)
             navigate("/dashboard")
         } else {
             navigate("/PageDoesNotExist")

@@ -1,12 +1,12 @@
-import { Navigate } from "react-router-dom";
-import type { ReactElement } from "react";
+import { Navigate } from "react-router-dom"
+import type { ReactElement } from "react"
+import { useLoggedin } from "../context/LoggedinContext"
 
 type ProtectedRoutePropsType ={
     children:  ReactElement}
 
 export default function ProtectedRoute({ children }:ProtectedRoutePropsType) {
-  const enteredProperly = sessionStorage.getItem("fromLogin");
-  if (!enteredProperly) return <Navigate to="/login" replace />;
-  sessionStorage.removeItem("fromLogin");
-  return children;
+  const enteredProperly = useLoggedin().loggedin
+  if (!enteredProperly) return <Navigate to="/personal" replace />
+  return children
 }
