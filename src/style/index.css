@@ -658,7 +658,8 @@ img - auth-BOGlogo
   z-index: 9999;
   transition: top 0.3s ease-in-out;
   padding: 16px 24px 16px 16px;
-  height: 64px;
+  /* height: 64px; */
+  height: 72px;
   box-sizing: border-box;
   align-items: center;
 }
@@ -666,7 +667,7 @@ img - auth-BOGlogo
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%; 
+  width: 100%;
 }
 .dashboard-header-left {
   display: flex;
@@ -682,7 +683,7 @@ img - auth-BOGlogo
   margin-right: 2px;
 }
 .dashboard-header-left > h2 {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   color: white;
   font-weight: 600;
 }
@@ -703,12 +704,14 @@ img - auth-BOGlogo
   width: 388px;
   white-space: nowrap;
   text-overflow: ellipsis;
-  
+}
+
+.dashboard-header-right {
+  margin-left: auto;
 }
 .dashboard-header-input::placeholder {
   color: white;
   font-size: 0.625rem;
-
 }
 .dashboard-header-form {
   display: flex;
@@ -728,6 +731,12 @@ img - auth-BOGlogo
   transition: background 0.3s ease-in-out;
   margin-left: 32px;
 }
-.dashboard-header-right{
-  margin-left: auto;
+.dashboard-header-form-wrapper:hover {
+  background: #a832007a;
+}
+.dashboard-header-form-wrapper:focus-within {
+  background: white;
+}
+.dashboard-header-input:focus::placeholder {
+  color: transparent;
 }

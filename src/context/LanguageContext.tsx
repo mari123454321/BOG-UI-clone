@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
-type lang = "Geo" | "Eng"
+export type lang = "Geo" | "Eng"
 
 interface LanguageContextType {
     language: lang
