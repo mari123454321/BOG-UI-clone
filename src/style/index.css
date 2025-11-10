@@ -1,5 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import url(https://db.onlinewebfonts.com/c/2211f33c5285ef3978e258240b60637b?family=Mark+GEO);
+
+:root {
+  --main-color:#ff5c0a;
+  --dashboard-header-element-color: #a8320052;
+  --dashboard-header-element-color-hover: #a832007a;
+  --dashboard-header-element-color-active: rgba(205, 68, 4, 1);
+  --dashboard-switch-accounts-hover: #eb5509;
+  --dashboard-switch-accounts-active: #e34e07;
+  --dashboard-element-color-transition: background 0.3s ease-in-out;
+  --dashboard-header-background-color: #ff5c0a;
+  --dashboard-header-searchbar-focus-color: white; 
+}
+.dark {
+  --dashboard-header-background-color: #2f3032;
+  --dashboard-header-element-color: #3b3c3e;
+  --dashboard-header-element-color-hover: #48494B;
+  --dashboard-header-element-color-active: rgba(80, 81, 83, 1);
+  --dashboard-switch-accounts-hover: #3D3E40;
+  --dashboard-switch-accounts-active: #444547;
+  --dashboard-header-searchbar-focus-color: rgba(49, 51, 53, 1); 
+
+}
+
 body {
   font-family: "Mark GEO", inter, sans-serif;
   background-color: #f4f4f4;
@@ -653,7 +676,7 @@ img - auth-BOGlogo
   flex-direction: row;
   top: 0px;
   width: 100%;
-  background-color: #ff5c0a;
+  background-color: var(--dashboard-header-background-color);
   top: 0px;
   z-index: 9999;
   transition: top 0.3s ease-in-out;
@@ -693,12 +716,11 @@ img - auth-BOGlogo
   line-height: 16px;
   height: 16px;
   box-sizing: border-box;
-  caret-color: #ff6c1d;
+  caret-color: var(--main-color);
   border: 0px;
   padding: 0px;
   outline: none;
-  font: inherit;
-  color: inherit;
+  color: white;
   text-transform: inherit;
   background-color: inherit;
   width: 388px;
@@ -726,17 +748,90 @@ img - auth-BOGlogo
   box-sizing: border-box;
   height: auto;
   border-radius: 8px;
-  background: #a8320052;
+  background: var(--dashboard-header-element-color);
   padding: 8px 12px;
-  transition: background 0.3s ease-in-out;
+  transition: var(--dashboard-element-color-transition);
   margin-left: 32px;
 }
 .dashboard-header-form-wrapper:hover {
-  background: #a832007a;
+  background: var(--dashboard-header-element-color-hover);
 }
 .dashboard-header-form-wrapper:focus-within {
-  background: white;
+  background: var(--dashboard-header-searchbar-focus-color);
 }
 .dashboard-header-input:focus::placeholder {
   color: transparent;
+}
+
+/* header right */
+.dashboard-header-right {
+  display: flex;
+  gap: 8px;
+}
+.dashboard-header-right-icons {
+  display: flex;
+  gap: 20px;
+}
+.dashboard-header-right-icon {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  display: inherit;
+  align-items: center;
+  justify-content: center;
+  transition: var(--dashboard-element-color-transition);
+  background-color: var(--dashboard-header-element-color);
+  cursor: pointer;
+}
+.dashboard-header-right-icon:hover {
+  background-color: var(--dashboard-header-element-color-hover);
+}
+.dashboard-header-right-icon:active {
+  background-color: var(--dashboard-header-element-color-active);
+}
+.dashboard-header-right-switch-accounts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  background-color: var(--dashboard-header-element-color);
+  transition: var(--dashboard-element-color-transition);
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 4px;
+  border: none;
+}
+.dashboard-header-right-switch-accounts:hover {
+  background-color: var(--dashboard-switch-accounts-hover);
+  .dashboard-header-right-arrow {
+    margin-top: 6px;
+  }
+}
+.dashboard-header-right-switch-accounts:active {
+  background-color: var(--dashboard-switch-accounts-active);
+  .dashboard-header-right-arrow {
+    margin-top: 6px;
+  }
+}
+
+.dashboard-header-right-switch-accounts > span {
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: white;
+  line-height: 1.4em;
+}
+.dashboard-header-icon-wrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ff5c0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-header-right-arrow {
+  margin-right: 8px;
+  transition: margin-top 200ms ease-in-out;
 }
