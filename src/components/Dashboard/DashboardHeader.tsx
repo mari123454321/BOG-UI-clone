@@ -48,7 +48,7 @@ export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
     }
     //removing dropdown if clicked outside 
 
-
+    //ძალიან რძელი ხომ არ არის? კომპონენტებად დავყო?
     return (
         <div className={`dashboard-header-wrapper ${darkMode && "dark"}`}>
             <header className="dashboard-header">

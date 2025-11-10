@@ -2,24 +2,26 @@
 @import url(https://db.onlinewebfonts.com/c/2211f33c5285ef3978e258240b60637b?family=Mark+GEO);
 
 :root {
-  --main-color:#ff5c0a;
+  --main-color: #ff5c0a;
   --dashboard-header-element-color: #a8320052;
   --dashboard-header-element-color-hover: #a832007a;
   --dashboard-header-element-color-active: rgba(205, 68, 4, 1);
   --dashboard-profile-hover: #eb5509;
   --dashboard-profile-active: #e34e07;
-  --dashboard-element-color-transition: background 0.3s ease-in-out;
+  --dashboard-element-color-transition: background 0 ease-in-out;
   --dashboard-header-background-color: #ff5c0a;
-  --dashboard-header-searchbar-focus-color: white; 
+  --dashboard-header-searchbar-focus-color: white;
+  --description-active-color: #000000cc;
 }
 .dark {
   --dashboard-header-background-color: #2f3032;
   --dashboard-header-element-color: #3b3c3e;
-  --dashboard-header-element-color-hover: #48494B;
+  --dashboard-header-element-color-hover: #48494b;
   --dashboard-header-element-color-active: rgba(80, 81, 83, 1);
-  --dashboard-profile-hover: #3D3E40;
+  --dashboard-profile-hover: #3d3e40;
   --dashboard-profile-active: #444547;
-  --dashboard-header-searchbar-focus-color: rgba(49, 51, 53, 1); 
+  --dashboard-header-searchbar-focus-color: rgba(49, 51, 53, 1);
+  --description-active-color: #c6c7c8;
 
 }
 
@@ -750,7 +752,7 @@ img - auth-BOGlogo
   border-radius: 8px;
   background: var(--dashboard-header-element-color);
   padding: 8px 12px;
-  transition: var(--dashboard-element-color-transition);
+  transition: background 0.3s ease-in-out;
   margin-left: 32px;
 }
 .dashboard-header-form-wrapper:hover {
@@ -834,4 +836,59 @@ img - auth-BOGlogo
 .dashboard-header-right-arrow {
   margin-right: 8px;
   transition: margin-top 200ms ease-in-out;
+}
+
+/* **************DROPDOWN************** */
+:root {
+  --dropdown-content-hight: 100%;
+  --dashboard-background: white;
+  --dropdown-notification-icon-color: #f5f5f5;
+}
+.dark {
+  --dashboard-background: #191a1a;
+  --dropdown-notification-icon-color:#222324; 
+
+}
+.dashboard-header-dropdown-wrapper {
+  position: absolute;
+  top: 44px;
+  right: 0;
+  height: auto;
+  width: auto;
+  max-width: 208px;
+  padding: 12px 0;
+  border-radius: 12px;
+  background-color: var(--dashboard-background);
+  box-sizing: border-box;
+}
+.dashboard-header-dropdown {
+  position: relative;
+}
+.dashboard-header-dropdown > .dashboard-header-dropdown-wrapper{
+  min-width: 280px;
+}
+/* notification */
+.notification-dropdown {
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dropdown-background-color);
+  padding: 40px 44px;
+  gap: 10px;
+}
+.notification-dropdown-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: var(--dropdown-notification-icon-color);
+
+}
+.notification-dropdown >p {
+  color: var(--description-active-color);
+  font-size: 0.75rem;
 }
