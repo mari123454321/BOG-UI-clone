@@ -4,7 +4,7 @@ import LoginBusiness from './pages/LoginBusiness';
 import LoginBusinessManager from './pages/LoginBussinessManager';
 import PageDoesNotExist from './pages/PageDoesNotExist';
 import Dashboard from './pages/Dashboard';
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './components/common/ProtectedRoute';
 
 
 function App() {

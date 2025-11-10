@@ -6,8 +6,8 @@
   --dashboard-header-element-color: #a8320052;
   --dashboard-header-element-color-hover: #a832007a;
   --dashboard-header-element-color-active: rgba(205, 68, 4, 1);
-  --dashboard-switch-accounts-hover: #eb5509;
-  --dashboard-switch-accounts-active: #e34e07;
+  --dashboard-profile-hover: #eb5509;
+  --dashboard-profile-active: #e34e07;
   --dashboard-element-color-transition: background 0.3s ease-in-out;
   --dashboard-header-background-color: #ff5c0a;
   --dashboard-header-searchbar-focus-color: white; 
@@ -17,8 +17,8 @@
   --dashboard-header-element-color: #3b3c3e;
   --dashboard-header-element-color-hover: #48494B;
   --dashboard-header-element-color-active: rgba(80, 81, 83, 1);
-  --dashboard-switch-accounts-hover: #3D3E40;
-  --dashboard-switch-accounts-active: #444547;
+  --dashboard-profile-hover: #3D3E40;
+  --dashboard-profile-active: #444547;
   --dashboard-header-searchbar-focus-color: rgba(49, 51, 53, 1); 
 
 }
@@ -790,7 +790,7 @@ img - auth-BOGlogo
 .dashboard-header-right-icon:active {
   background-color: var(--dashboard-header-element-color-active);
 }
-.dashboard-header-right-switch-accounts {
+.dashboard-header-right-profile {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -802,20 +802,20 @@ img - auth-BOGlogo
   padding: 4px;
   border: none;
 }
-.dashboard-header-right-switch-accounts:hover {
-  background-color: var(--dashboard-switch-accounts-hover);
+.dashboard-header-right-profile:hover {
+  background-color: var(--dashboard-profile-hover);
   .dashboard-header-right-arrow {
     margin-top: 6px;
   }
 }
-.dashboard-header-right-switch-accounts:active {
-  background-color: var(--dashboard-switch-accounts-active);
+.dashboard-header-right-profile:active {
+  background-color: var(--dashboard-profile-active);
   .dashboard-header-right-arrow {
     margin-top: 6px;
   }
 }
 
-.dashboard-header-right-switch-accounts > span {
+.dashboard-header-right-profile > span {
   font-weight: 500;
   font-size: 0.8rem;
   color: white;
