@@ -1,5 +1,5 @@
-import businessManagerEnterIcon from "./images/businessManagerEnterIcon.png";
-import businessManagerRegisterIcon from "./images/businessManagerRegisterIcon.png";
+import businessManagerEnterIcon from "../images/businessManagerEnterIcon.png";
+import businessManagerRegisterIcon from "../images/businessManagerRegisterIcon.png";
 
 type OptionContent = {
   id: number;
@@ -120,3 +120,79 @@ export const footerInfo = {
     }
   },
 };
+
+
+//SWITCH DROPDOWN
+
+export type DigitalChanelsInfoType = {
+  Geo: DigitalInfo;
+  Eng: DigitalInfo;
+};
+type DigitalInfo = {
+  title: string
+  content: string[]
+  color: string[]
+}
+export const digitalChanelsinfo: DigitalChanelsInfoType = {
+  Geo:{
+    title: "ციფრული არხები",
+    content: ["ინტერნეტბანკი", "ბიზნეს ინტერნეტბანკი", "ბიზნეს მენეჯერი", "გადახდები"],
+    color: ["#ff600a", "#5a646f", "#1a1a1a", "#ff8b66"]
+  },
+  Eng:{
+    title: "Digital channels",
+    content: ["Internet Bank", "Business Internet Bank", "Business Manager", "Payments"],
+    color: ["#ff600a", "#5a646f", "#1a1a1a", "#ff8b66"]
+  }
+   
+}
+export const websitesInfo: WebsitesInfoType = {
+  Geo:{
+    title: "ვებგვერდები",
+    links:["Bog.ge", "Business.ge", "Solo.Ge", "wealth.ge"],
+    content: ["ფიზიკური პირისთვის", "საქართველოს ბანკის ბიზნესი", "პრემიუმ საბანკო მომსახურება", "დაგროვილი ქონების მარტვა"],
+  },
+  Eng:{
+    title: "Websites",
+    links: ["Bog.ge", "Business.ge", "Solo.Ge", "wealth.ge"],
+    content: ["Retail Banking", "Bank of Georgia Business", "Premium banking and lyfestyle", "Wealth management"],
+  }
+   
+}
+export type WebsitesInfoType = {
+  Geo: WebsitesInfo;
+  Eng: WebsitesInfo;
+};
+type WebsitesInfo = {
+  title: string
+  links: string[]
+  content: string[]
+}
+
+// PROFILE DROPDOWN
+export type Profile={
+  username: string
+  changeLang: string
+  myProfile: string
+  exit: string
+}
+
+type ProfileDropDownType = {
+  Geo: Profile;
+  Eng: Profile;
+};
+
+export const ProfileDropDownInfo:ProfileDropDownType={
+  Geo:{
+    username: "მარიამ სიხუაშვილი",
+    changeLang: "ენის შეცვლა",
+    myProfile: "ჩემი პროფილი",
+    exit: "გამოსვლა"
+  },
+  Eng:{
+    username: "MARIAM SIKHUASHVILI",
+    changeLang: "Change Language",
+    myProfile: "My profile",
+    exit: "Log Out"
+  }
+}

@@ -1,4 +1,4 @@
-import DashboardHeader from "../components/Dashboard/DashboardHeader";
+import DashboardHeader from "../components/Dashboard/header/DashboardHeader";
 
 export default function Dashboard(){
     return(

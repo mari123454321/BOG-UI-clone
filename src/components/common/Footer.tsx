@@ -2,7 +2,7 @@ import facebook from "../../images/fbIcon.png"
 import instagram from "../../images/instagramIcon.png"
 import linkedIn from "../../images/linkedInIcon.png"
 import youtube from "../../images/youtubeIcon.png"
-import { footerInfo } from "../../info"
+import { footerInfo } from "../../info/info"
 import { useLanguage } from "../../context/LanguageContext"
 
 export default function Footer(){

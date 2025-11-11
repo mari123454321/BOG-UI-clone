@@ -1,5 +1,5 @@
 import { useState, type JSX } from "react"
-import { useDarkMode } from "../../context/DarkModeContext"
+import { useDarkMode } from "../../../context/DarkModeContext"
 
 export default function NotificationDropDown() {
     const [notification] = useState(false)

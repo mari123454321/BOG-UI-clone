@@ -5,15 +5,23 @@ export type lang = "Geo" | "Eng"
 interface LanguageContextType {
     language: lang
     setLanguage: React.Dispatch<React.SetStateAction<lang>>
+    changeLanguage: ()=>void
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<lang>("Geo");
+  function changeLanguage():void{
+    if(language==="Geo"){
+      ()=>setLanguage("Eng")
+    }else{
+      ()=>setLanguage("Eng")
+    }
+  }
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={{ language, setLanguage, changeLanguage }}>
       {children}
     </LanguageContext.Provider>
   );

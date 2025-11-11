@@ -1,20 +1,19 @@
-import { useDarkMode } from "../../context/DarkModeContext"
-import { useLanguage } from "../../context/LanguageContext"
-import searchIcon from "../../icons/search.svg"
-import darkModeIcon from "../../icons/dark_mode.svg"
-import lightModeIcon from "../../icons/light_mode.svg"
-import switchIcon from "../../icons/apps.svg"
-import notifications from "../../icons/notifications.svg"
-import personIcon from "../../icons/person.svg"
-import dropDownIcon from "../../icons/arrow_drop_down.svg"
+import { useDarkMode } from "../../../context/DarkModeContext"
+import { useLanguage } from "../../../context/LanguageContext"
+import searchIcon from "../../../icons/search.svg"
+import darkModeIcon from "../../../icons/dark_mode.svg"
+import lightModeIcon from "../../../icons/light_mode.svg"
+import switchIcon from "../../../icons/apps.svg"
+import notifications from "../../../icons/notifications.svg"
+import personIcon from "../../../icons/person.svg"
+import dropDownIcon from "../../../icons/arrow_drop_down.svg"
 import { useState } from "react"
 import DropDownWrapper from "./DropDownWrapper"
 import NotificationDropDown from "./NotificationDropDown"
 import ProfileDropDown from "./ProfileDropDown"
 import SwitchDropDown from "./SwitchDropDown"
-
 type DropDownKeys = "notifications" | "switch" | "profile"
-
+import { ProfileDropDownInfo } from "../../../info/info"
 
 type DashboardHeaderProps = {
     fullName: {
@@ -49,7 +48,6 @@ export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
         })
         )
     }
-    //removing dropdown if clicked outside 
 
     return (
         <div className={`dashboard-header-wrapper ${darkMode && "dark"}`}>
@@ -60,10 +58,10 @@ export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
                 </div>
 
                 <div className={`dashboard-header-form-wrapper ${darkMode && "dark"}`}>
-                    <form className="dashboard-header-form">
+                    <div className="dashboard-header-form">
                         <img src={searchIcon} alt="search icon" width={16} height={16} />
                         <input className="dashboard-header-input" type="text" name="Search" placeholder="Search" />
-                    </form>
+                    </div>
                 </div>
 
                 <div className={`dashboard-header-right ${darkMode && "dark"}`}>
@@ -109,17 +107,22 @@ export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
                             onClick={() => toggleDropDown("profile")}
                             className={`dashboard-header-right-profile ${darkMode && "dark"}`}>
                             <div className="dashboard-header-icon-wrapper">
-                                <img src={personIcon} alt="switch accounts icon" width={18} height={18} />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-user-round-icon lucide-user-round"><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></svg>
                             </div>
                             <span>{currFullname}</span>
                             <img className="dashboard-header-right-arrow" src={dropDownIcon} alt="dropdown" width={20} height={20} />
                         </button>
                         {dropDownState.profile &&
                             <DropDownWrapper onClose={() => setDropDownState(prev => ({
-                                    ...prev,
-                                    profile: false
-                                }))}>
-                                <ProfileDropDown />
+                                ...prev,
+                                profile: false
+                            }))}>
+                                <ProfileDropDown
+                                    username={ProfileDropDownInfo[language].username}
+                                    changeLang={ProfileDropDownInfo[language].changeLang}
+                                    myProfile={ProfileDropDownInfo[language].myProfile}
+                                    exit = {ProfileDropDownInfo[language].exit}
+                                    />
                             </DropDownWrapper>
                         }
                     </div>

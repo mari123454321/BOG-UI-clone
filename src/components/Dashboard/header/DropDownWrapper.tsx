@@ -1,5 +1,5 @@
 import { useRef, type ReactNode } from "react"
-import useClickOutside from "../../hooks/useClickOutside"
+import useClickOutside from "../../../hooks/useClickOutside"
 
 type DropDownWrapperProps = {
     children: ReactNode

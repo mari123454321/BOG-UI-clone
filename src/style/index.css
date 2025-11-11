@@ -12,6 +12,11 @@
   --dashboard-header-background-color: #ff5c0a;
   --dashboard-header-searchbar-focus-color: white;
   --description-active-color: #000000cc;
+  --text-primary: #1b1c1d;
+  --text-secondary: #515457;
+  --white-grey: white;
+  --cards-hover: #f1f2f3;
+  --icon-primary: #1b1c1d;
 }
 .dark {
   --dashboard-header-background-color: #2f3032;
@@ -22,7 +27,11 @@
   --dashboard-profile-active: #444547;
   --dashboard-header-searchbar-focus-color: rgba(49, 51, 53, 1);
   --description-active-color: #c6c7c8;
-
+  --text-primary: #f4f4f4;
+  --text-secondary: #d7d9db;
+  --white-grey: #2b2c2c;
+  --cards-hover: #2a2b2d;
+  --icon-primary: #f4f4f4;
 }
 
 body {
@@ -30,7 +39,9 @@ body {
   background-color: #f4f4f4;
   height: 100%;
 }
-
+.lucide-arrow-right {
+  color: var(--description-active-color);
+}
 /* * * * * * * **  ** * * * * HEADER* * * * * * **  ** * * * *  */
 .auth-header {
   display: flex;
@@ -722,7 +733,7 @@ img - auth-BOGlogo
   border: 0px;
   padding: 0px;
   outline: none;
-  color: white;
+  color: var(--description-active-color);
   text-transform: inherit;
   background-color: inherit;
   width: 388px;
@@ -839,6 +850,14 @@ img - auth-BOGlogo
 }
 
 /* **************DROPDOWN************** */
+.scrollbar {
+  background: transparent;
+  width: 6px;
+  background-color: #ccc;
+  visibility: visible;
+  border: none;
+  padding: 0;
+}
 :root {
   --dropdown-content-hight: 100%;
   --dashboard-background: white;
@@ -846,8 +865,7 @@ img - auth-BOGlogo
 }
 .dark {
   --dashboard-background: #191a1a;
-  --dropdown-notification-icon-color:#222324; 
-
+  --dropdown-notification-icon-color: #222324;
 }
 .dashboard-header-dropdown-wrapper {
   position: absolute;
@@ -855,17 +873,21 @@ img - auth-BOGlogo
   right: 0;
   height: auto;
   width: auto;
-  max-width: 208px;
   padding: 12px 0;
   border-radius: 12px;
   background-color: var(--dashboard-background);
   box-sizing: border-box;
+  border-radius: 20px;
 }
 .dashboard-header-dropdown {
   position: relative;
 }
-.dashboard-header-dropdown > .dashboard-header-dropdown-wrapper{
-  min-width: 280px;
+.dashboard-header-dropdown > .dashboard-header-dropdown-wrapper {
+  min-width: 360px;
+}
+.switch-dropdown-body {
+  max-height: 614px;
+  overflow-y: auto;
 }
 /* notification */
 .notification-dropdown {
@@ -886,9 +908,126 @@ img - auth-BOGlogo
   height: 50px;
   border-radius: 20px;
   background-color: var(--dropdown-notification-icon-color);
-
 }
-.notification-dropdown >p {
-  color: var(--description-active-color);
+.notification-dropdown > p {
+  color: var(--text-primary);
   font-size: 0.75rem;
+}
+
+/* ციფრული არხები */
+.switch-dropdown-section {
+  background-color: var(--white-grey);
+}
+.dashboard-header-digital-content-card-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.dashboard-header-digital-content-card-logo > img {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.dashboard-header-digital-content-card > span {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  flex: 1;
+  white-space: nowrap;
+}
+.dashboard-header-digital-content-card,
+.dashboard-header-websites-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 12px;
+}
+.dashboard-header-digital-content-card:hover,
+.dashboard-header-websites-card:hover {
+  background-color: var(--cards-hover);
+}
+
+.switch-dropdown-section > h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 16px 24px 0 24px;
+}
+.switch-dropdown-items {
+  padding: 12px;
+}
+.dashboard-header-websites-card-texts > h2 {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+.dashboard-header-websites-card-texts > span {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+/* profile dropdown */
+.dropdown-profile-icons {
+  color: var(--icon-primary);
+}
+.dropdown-profile-icons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: #ada9a83d;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+.dropdown-profile-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #ada9a83d;
+  margin-right: 12px;
+}
+
+.dropdown-profile-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 24px 16px 24px;
+}
+.dropdown-profile-content-wrapper > span {
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+.dropdown-profile-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 24px;
+  margin-right: auto;
+  height: 40px;
+}
+.dropdown-profile-options-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.dropdown-profile-options:hover{
+  background-color: var(--cards-hover);
+}
+.dropdown-profile-options-wrapper> Link{
+  background-color: red;
+  width: 100%;
 }

@@ -1,6 +1,6 @@
 import { useLanguage } from "../../context/LanguageContext"
 import AuthOption from "./AuthOption"
-import { infoBM } from "../../info"
+import { infoBM } from "../../info/info"
 import { useState } from "react"
 import PersonalCard from "./PersonalCard"
 
