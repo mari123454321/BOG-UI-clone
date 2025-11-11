@@ -1,9 +1,8 @@
 import { useState, type JSX } from "react"
-import notificationIcon from "../../icons/notifications.svg"
 import { useDarkMode } from "../../context/DarkModeContext"
 
 export default function NotificationDropDown() {
-    const [notification, setNotification] = useState(false)
+    const [notification] = useState(false)
     const darkmode = useDarkMode().darkMode
     //render this if there are no notifications
     const noNotification: JSX.Element = (

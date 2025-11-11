@@ -39,16 +39,18 @@ export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
         switch: false,
         profile: false
     })
-    
-    function toggleDropDown(key:DropDownKeys){
-        setDropDownState(prev=>({
-            ...prev, [key]: !prev[key]
+
+    function toggleDropDown(key: DropDownKeys) {
+        setDropDownState(prev => ({
+            notifications: false,
+            switch: false,
+            profile: false,
+            [key]: !prev[key]
         })
         )
     }
     //removing dropdown if clicked outside 
 
-    //ძალიან რძელი ხომ არ არის? კომპონენტებად დავყო?
     return (
         <div className={`dashboard-header-wrapper ${darkMode && "dark"}`}>
             <header className="dashboard-header">
@@ -66,39 +68,45 @@ export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
 
                 <div className={`dashboard-header-right ${darkMode && "dark"}`}>
                     <div className="dashboard-header-right-icons">
-                        <button 
+                        <button
                             onClick={() => setDarkMode(prev => !prev)}
                             className={iconsClass}>
                             <img src={!darkMode ? darkModeIcon : lightModeIcon} alt="dark mode icon" width={16} height={16} />
                         </button>
                         <div className="dashboard-header-dropdown">
                             <button
-                                onClick={()=>toggleDropDown("notifications")}
+                                onClick={() => toggleDropDown("notifications")}
                                 className={iconsClass}>
                                 <img src={notifications} alt="notifications icon" width={16} height={16} />
                             </button>
                             {dropDownState.notifications &&
-                                <DropDownWrapper>
+                                <DropDownWrapper onClose={() => setDropDownState(prev => ({
+                                    ...prev,
+                                    notifications: false
+                                }))}>
                                     <NotificationDropDown />
                                 </DropDownWrapper>
                             }
                         </div>
                         <div className="dashboard-header-dropdown">
-                            <button 
-                                onClick={()=>toggleDropDown("switch")}
+                            <button
+                                onClick={() => toggleDropDown("switch")}
                                 className={iconsClass}>
                                 <img src={switchIcon} alt="icon" />
                             </button>
                             {dropDownState.switch &&
-                                <DropDownWrapper>
+                                <DropDownWrapper onClose={() => setDropDownState(prev => ({
+                                    ...prev,
+                                    switch: false
+                                }))}>
                                     <SwitchDropDown />
                                 </DropDownWrapper>
                             }
                         </div>
                     </div>
                     <div className="dashboard-header-dropdown">
-                        <button 
-                            onClick={()=>toggleDropDown("profile")}
+                        <button
+                            onClick={() => toggleDropDown("profile")}
                             className={`dashboard-header-right-profile ${darkMode && "dark"}`}>
                             <div className="dashboard-header-icon-wrapper">
                                 <img src={personIcon} alt="switch accounts icon" width={18} height={18} />
@@ -107,7 +115,10 @@ export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
                             <img className="dashboard-header-right-arrow" src={dropDownIcon} alt="dropdown" width={20} height={20} />
                         </button>
                         {dropDownState.profile &&
-                            <DropDownWrapper>
+                            <DropDownWrapper onClose={() => setDropDownState(prev => ({
+                                    ...prev,
+                                    profile: false
+                                }))}>
                                 <ProfileDropDown />
                             </DropDownWrapper>
                         }
