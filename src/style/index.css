@@ -22,6 +22,9 @@
   --sidebar-background: #f4f4f4;
   --sidebar-active-background: #dedfe0;
   --navbar-boxshadow: #6c70751f;
+  --border-strong: #1b1c1d;
+  --sidebar-submenu-border: #d7d9db;
+  --sidebar-submenu-border-hover: rgba(138, 142, 147, 1);
 }
 .dark {
   --dashboard-header-background-color: #2f3032;
@@ -41,7 +44,9 @@
   --dashboard-sidebar-background: #161718;
   --sidebar-active-background: #3b3c3d;
   --navbar-boxshadow: #ffffff1f;
-
+  --border-strong: #f4f4f4;
+  --sidebar-submenu-border: #515457;
+  --sidebar-submenu-border-hover: #6c7075;
 }
 
 body {
@@ -1042,29 +1047,29 @@ img - auth-BOGlogo
   width: 100%;
 }
 
-/* sidebar and Main structure */
-.sidebar-nav{
-  box-shadow: 1px 0 0 0 var(--navbar-boxshadow);
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
+/* **********sidebar and Main structure ***********/
+.sidebar-nav {
+  position: sticky;
+  top: 72px;
   width: 280px;
+  height: calc(100vh - 72px);
   padding: 16px 12px;
+  box-shadow: 1px 0 0 0 var(--navbar-boxshadow);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--sidebar-background);
+  scrollbar-width: thin;
+  scrollbar-color: var(--sidebar-active-background) var(--sidebar-background);
 }
+
 .dashboard-content {
   display: grid;
   grid-template-columns: max-content auto;
   margin-top: 72px;
   width: 100%;
-  min-height: calc(100% - 72px);
   --app-content-width: calc(100% - var(--dashboard-navbar-width));
 }
-.sidebar-wrapper{
-  --top-offset: 72px;
-  position: sticky;
-  top: var(--top-offset);
-  height: calc(100vh - var(--top-offset));
-}
+
 .sidebar-button {
   border: none;
   padding: 0;
@@ -1076,14 +1081,7 @@ img - auth-BOGlogo
   flex-direction: row;
   gap: 12px;
 }
-.sidebar-button,
-.sidebar-navlink {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .navbar-icon {
   color: var(--icon-primary);
 }
@@ -1091,7 +1089,13 @@ img - auth-BOGlogo
   color: var(--text-secondary);
   font-size: 0.8125rem;
 }
-.sidebar-item {
+.sidebar-button,
+.sidebar-navlink {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 8px;
   padding: 8px 8px 8px 12px;
   border-radius: 8px;
@@ -1100,15 +1104,50 @@ img - auth-BOGlogo
   outline: none;
   height: 40px;
   background-color: var(--sidebar-background);
-  display: flex;
   transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.sidebar-item:hover {
+.sidebar-button:hover,
+.sidebar-navlink:hover {
   background-color: var(--sidebar-active-background);
 }
-/* .sidebar-scroll {
-  position: relative;
-  overflow: hidden scroll;
-  scroll-behavior: smooth;
-  
-} */
+.sidebar-arrow {
+  visibility: hidden;
+}
+.sidebar-arrow.has-submenu {
+  visibility: visible;
+}
+.sidebar-icon > svg {
+  color: var(--icon-secondary);
+}
+.submenu {
+  display: flex;
+  flex-direction: column;
+}
+.submenu-item {
+  margin-top: 8px;
+  min-width: 210px;
+  height: 48px;
+  display: flex;
+  flex-shrink: 0;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  box-sizing: border-box;
+  color: var(--text-secondary);
+  cursor: pointer;
+  justify-content: space-between;
+  padding: 0px 8px 8px 12px;
+  text-decoration: none;
+  outline: none;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-left: 1px solid var(--sidebar-submenu-border);
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.submenu-item:hover {
+  border-left-color: var(--sidebar-submenu-border-hover);
+}
+.submenu > li {
+  margin-left: 10px;
+  padding-left: 10px;
+}
