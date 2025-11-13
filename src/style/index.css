@@ -19,7 +19,7 @@
   --icon-primary: #1b1c1d;
   --sidebar-width: 280px;
   --icon-secondary: #515457;
-  --sidebar-background: #f4f4f4;
+  --dashboard-sidebar-background: #f4f4f4;
   --sidebar-active-background: #dedfe0;
   --navbar-boxshadow: #6c70751f;
   --border-strong: #1b1c1d;
@@ -1057,9 +1057,8 @@ img - auth-BOGlogo
   box-shadow: 1px 0 0 0 var(--navbar-boxshadow);
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: var(--sidebar-background);
+  background-color: var(--dashboard-sidebar-background);
   scrollbar-width: thin;
-  scrollbar-color: var(--sidebar-active-background) var(--sidebar-background);
 }
 
 .dashboard-content {
@@ -1103,8 +1102,7 @@ img - auth-BOGlogo
   cursor: pointer;
   outline: none;
   height: 40px;
-  background-color: var(--sidebar-background);
-  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--dashboard-sidebar-background);
 }
 .sidebar-button:hover,
 .sidebar-navlink:hover {

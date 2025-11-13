@@ -18,7 +18,9 @@ export default function SidebarItem({ item }: Props) {
         <li className="sidebar-item">
             {!item.submenu && item.path ? <NavLink
                 to={item.path}
-                className={`sidebar-navlink ${darkMode && "dark"}`}
+                className={({ isActive }) =>
+                    `${isActive ? "sidebar-active-link" : ""} sidebar-navlink ${darkMode ? "dark" : ""}`
+                }
             >
                 <div className="sidebar-right">
                     <div className={`sidebar-icon ${darkMode && "dark"}`}>{item.icon}</div>
@@ -55,7 +57,9 @@ export default function SidebarItem({ item }: Props) {
                             <NavLink
                                 key={sub.path}
                                 to={sub.path}
-                                className={`submenu-item ${darkMode && "dark"}`}
+                                className={({ isActive }) =>
+                                    `submenu-item ${isActive ? "active" : ""} ${darkMode ? "dark" : ""}`
+                                }
                             >
                                 {sub.name}
                             </NavLink>
