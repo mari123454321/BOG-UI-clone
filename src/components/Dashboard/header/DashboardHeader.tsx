@@ -7,7 +7,7 @@ import switchIcon from "../../../icons/apps.svg"
 import notifications from "../../../icons/notifications.svg"
 import personIcon from "../../../icons/person.svg"
 import dropDownIcon from "../../../icons/arrow_drop_down.svg"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import DropDownWrapper from "./DropDownWrapper"
 import NotificationDropDown from "./NotificationDropDown"
 import ProfileDropDown from "./ProfileDropDown"
@@ -16,22 +16,22 @@ type DropDownKeys = "notifications" | "switch" | "profile"
 import { ProfileDropDownInfo } from "../../../info/info"
 
 type DashboardHeaderProps = {
-    fullName: {
-        Geo: string
-        Eng: string
-    }
+    
 }
-export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
+export default function DashboardHeader({  }: DashboardHeaderProps) {
     //current language context
-    const { language, setLanguage } = useLanguage()
+    const { language } = useLanguage()
     // dark mode context
     const { darkMode, setDarkMode } = useDarkMode()
     //full naem in correct language
-    const currFullname = fullName[language]
+    const currFullname = ProfileDropDownInfo[language].username
 
     const iconsClass = `dashboard-header-right-icon ${darkMode && "dark"}`
 
     //dropdown menu
+    const notificationsButtonRef = useRef<HTMLButtonElement>(null)
+    const switchButtonRef = useRef<HTMLButtonElement>(null)
+    const profileButtonRef = useRef<HTMLButtonElement>(null)
     //for conditionallt rendering dropdown menu
     const [dropDownState, setDropDownState] = useState<Record<DropDownKeys, boolean>>({
         notifications: false,
@@ -63,22 +63,25 @@ export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
                         <input className="dashboard-header-input" type="text" name="Search" placeholder="Search" />
                     </div>
                 </div>
-
+                {/* dashboard right */}
                 <div className={`dashboard-header-right ${darkMode && "dark"}`}>
                     <div className="dashboard-header-right-icons">
+                        {/* darkmode */}
                         <button
                             onClick={() => setDarkMode(prev => !prev)}
                             className={iconsClass}>
                             <img src={!darkMode ? darkModeIcon : lightModeIcon} alt="dark mode icon" width={16} height={16} />
                         </button>
+                        {/* notifications */}
                         <div className="dashboard-header-dropdown">
                             <button
-                                onClick={() => toggleDropDown("notifications")}
+                                ref={ notificationsButtonRef}
+                                onClick={(e) => toggleDropDown("notifications")}
                                 className={iconsClass}>
                                 <img src={notifications} alt="notifications icon" width={16} height={16} />
                             </button>
                             {dropDownState.notifications &&
-                                <DropDownWrapper onClose={() => setDropDownState(prev => ({
+                                <DropDownWrapper ignoreRef = {notificationsButtonRef} onClose={() => setDropDownState(prev => ({
                                     ...prev,
                                     notifications: false
                                 }))}>
@@ -86,14 +89,16 @@ export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
                                 </DropDownWrapper>
                             }
                         </div>
+                        {/*  */}
                         <div className="dashboard-header-dropdown">
                             <button
+                                ref={switchButtonRef}
                                 onClick={() => toggleDropDown("switch")}
                                 className={iconsClass}>
                                 <img src={switchIcon} alt="icon" />
                             </button>
                             {dropDownState.switch &&
-                                <DropDownWrapper onClose={() => setDropDownState(prev => ({
+                                <DropDownWrapper ignoreRef= {switchButtonRef} onClose={() => setDropDownState(prev => ({
                                     ...prev,
                                     switch: false
                                 }))}>
@@ -104,6 +109,7 @@ export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
                     </div>
                     <div className="dashboard-header-dropdown">
                         <button
+                            ref={profileButtonRef}
                             onClick={() => toggleDropDown("profile")}
                             className={`dashboard-header-right-profile ${darkMode && "dark"}`}>
                             <div className="dashboard-header-icon-wrapper">
@@ -113,7 +119,7 @@ export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
                             <img className="dashboard-header-right-arrow" src={dropDownIcon} alt="dropdown" width={20} height={20} />
                         </button>
                         {dropDownState.profile &&
-                            <DropDownWrapper onClose={() => setDropDownState(prev => ({
+                            <DropDownWrapper ignoreRef={profileButtonRef} onClose={() => setDropDownState(prev => ({
                                 ...prev,
                                 profile: false
                             }))}>
@@ -121,8 +127,8 @@ export default function DashboardHeader({ fullName }: DashboardHeaderProps) {
                                     username={ProfileDropDownInfo[language].username}
                                     changeLang={ProfileDropDownInfo[language].changeLang}
                                     myProfile={ProfileDropDownInfo[language].myProfile}
-                                    exit = {ProfileDropDownInfo[language].exit}
-                                    />
+                                    exit={ProfileDropDownInfo[language].exit}
+                                />
                             </DropDownWrapper>
                         }
                     </div>

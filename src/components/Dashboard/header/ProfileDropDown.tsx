@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import type { Profile } from "../../../info/info"
 import { useLoggedin } from "../../../context/LoggedinContext"
 import { useLanguage } from "../../../context/LanguageContext"
+
 export default function ProfileDropDown({ username, changeLang, myProfile, exit }: Profile) {
     const { setLoggedin } = useLoggedin()
     const { language, changeLanguage } = useLanguage()

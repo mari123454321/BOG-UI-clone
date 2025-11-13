@@ -1,9 +1,19 @@
 import DashboardHeader from "../components/Dashboard/header/DashboardHeader";
+import Main from "../components/Dashboard/Main/Main";
+import SideBar from "../components/Dashboard/sideBar/SideBar";
 
-export default function Dashboard(){
-    return(
+export default function Dashboard() {
+    return (
         <>
-            <DashboardHeader fullName={{Geo: "მარიამ სიხუაშვილი", Eng: "MARIAM SIKHUASHVILI"}}/>
+            <DashboardHeader />
+            <div className="dashboard-content">
+                <div className="sidebar-wrapper">
+                    <SideBar />
+                </div>
+                <div className="dashboard-main">
+                    <Main />
+                </div>
+            </div>
         </>
     )
 }
