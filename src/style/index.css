@@ -17,6 +17,11 @@
   --white-grey: white;
   --cards-hover: #f1f2f3;
   --icon-primary: #1b1c1d;
+  --sidebar-width: 280px;
+  --icon-secondary: #515457;
+  --sidebar-background: #f4f4f4;
+  --sidebar-active-background: #dedfe0;
+  --navbar-boxshadow: #6c70751f;
 }
 .dark {
   --dashboard-header-background-color: #2f3032;
@@ -32,6 +37,11 @@
   --white-grey: #2b2c2c;
   --cards-hover: #2a2b2d;
   --icon-primary: #f4f4f4;
+  --icon-secondary: #d7d9db;
+  --dashboard-sidebar-background: #161718;
+  --sidebar-active-background: #3b3c3d;
+  --navbar-boxshadow: #ffffff1f;
+
 }
 
 body {
@@ -1018,16 +1028,87 @@ img - auth-BOGlogo
   margin-right: auto;
   height: 40px;
 }
-.dropdown-profile-options-wrapper{
+.dropdown-profile-options-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 }
-.dropdown-profile-options:hover{
+.dropdown-profile-options:hover {
   background-color: var(--cards-hover);
 }
-.dropdown-profile-options-wrapper> Link{
+.dropdown-profile-options-wrapper > Link {
   background-color: red;
   width: 100%;
 }
+
+/* sidebar and Main structure */
+.sidebar-nav{
+  box-shadow: 1px 0 0 0 var(--navbar-boxshadow);
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  width: 280px;
+  padding: 16px 12px;
+}
+.dashboard-content {
+  display: grid;
+  grid-template-columns: max-content auto;
+  margin-top: 72px;
+  width: 100%;
+  min-height: calc(100% - 72px);
+  --app-content-width: calc(100% - var(--dashboard-navbar-width));
+}
+.sidebar-wrapper{
+  --top-offset: 72px;
+  position: sticky;
+  top: var(--top-offset);
+  height: calc(100vh - var(--top-offset));
+}
+.sidebar-button {
+  border: none;
+  padding: 0;
+  font-family: "Mark GEO", inter, sans-serif;
+  background-color: transparent;
+}
+.sidebar-right {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+.sidebar-button,
+.sidebar-navlink {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-icon {
+  color: var(--icon-primary);
+}
+.sidebar-text {
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+}
+.sidebar-item {
+  margin-bottom: 8px;
+  padding: 8px 8px 8px 12px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  height: 40px;
+  background-color: var(--sidebar-background);
+  display: flex;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sidebar-item:hover {
+  background-color: var(--sidebar-active-background);
+}
+/* .sidebar-scroll {
+  position: relative;
+  overflow: hidden scroll;
+  scroll-behavior: smooth;
+  
+} */

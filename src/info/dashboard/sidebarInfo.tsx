@@ -6,7 +6,7 @@ export type SubMenuItem = {
 
 export type SidebarItem = {
   name: string;
-  path: string;
+  path?: string;
   icon: ReactNode;             
   submenu?: SubMenuItem[]; 
 };
@@ -15,23 +15,8 @@ export type SidebarItemsByLang = {
   Geo: SidebarItem[];
   Eng: SidebarItem[];
 };
-const houseIcon = (<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="16"
-  height="16"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  strokeWidth="2"
-  strokeLinecap="round"
-  strokeLinejoin="round"
-  className="navbar-icon navbar-icon-house"
->
-  <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
-  <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-</svg>
-)
-const mySpaceIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="navbar-icon navbar-icon-home-heart"><path d="M8.62 13.8A2.25 2.25 0 1 1 12 10.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a.998.998 0 0 1-1.507 0z" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>;
+const mySpaceIcon = (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="navbar-icon navbar-icon-layout-dashboard"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>);
+const houseIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="navbar-icon navbar-icon-home-heart"><path d="M8.62 13.8A2.25 2.25 0 1 1 12 10.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a.998.998 0 0 1-1.507 0z" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>;
 const arrowLeftRightIcon = (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="navbar-icon navbar-icon-arrow-left-right"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg>)
 const georgianLariIcon = (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="navbar-icon navbar-icon-georgian-lari"><path d="M11.5 21a7.5 7.5 0 1 1 7.35-9"/><path d="M13 12V3"/><path d="M4 21h16"/><path d="M9 12V3"/></svg>);
 const walletCardsIcon = (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="navbar-icon navbar-icon-wallet-cards"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2"/><path d="M3 11h3c.8 0 1.6.3 2.1.9l1.1.9c1.6 1.6 4.1 1.6 5.7 0l1.1-.9c.5-.5 1.3-.9 2.1-.9H21"/></svg>);
@@ -54,7 +39,6 @@ export const sidebarList: SidebarItemsByLang = {
 
     {
       name: "გადარიცხვა",
-      path: "/transfer",
       icon: arrowLeftRightIcon,
       submenu: [
         { name: "საკუთარ ანგარიშზე", path: "/transfer/own-account" },
@@ -83,7 +67,6 @@ export const sidebarList: SidebarItemsByLang = {
 
     {
       name: "გზავნილები",
-      path: "/remittances",
       icon: globeIcon,
       submenu: [
         { name: "ყველა", path: "/remittances/all" },
@@ -94,7 +77,6 @@ export const sidebarList: SidebarItemsByLang = {
 
     {
       name: "ავტომატური სერვისები",
-      path: "/automatic-services",
       icon: rocketIcon,
       submenu: [
         { name: "ყველა", path: "/automatic-services/all" },
@@ -109,7 +91,6 @@ export const sidebarList: SidebarItemsByLang = {
 
     {
       name: "მეტი",
-      path: "/more",
       icon: ellipsisIcon,
       submenu: [
         { name: "ლოიალურობა", path: "/more/loyalty-programs" },
@@ -126,7 +107,6 @@ export const sidebarList: SidebarItemsByLang = {
 
     {
       name: "Transfer",
-      path: "/transfer",
       icon: arrowLeftRightIcon,
       submenu: [
         { name: "To Own Account", path: "/transfer/own-account" },
@@ -155,7 +135,6 @@ export const sidebarList: SidebarItemsByLang = {
 
     {
       name: "Remittances",
-      path: "/remittances",
       icon: globeIcon,
       submenu: [
         { name: "All", path: "/remittances/all" },
@@ -166,7 +145,6 @@ export const sidebarList: SidebarItemsByLang = {
 
     {
       name: "Automatic Services",
-      path: "/automatic-services",
       icon: rocketIcon,
       submenu: [
         { name: "All", path: "/automatic-services/all" },
@@ -181,7 +159,6 @@ export const sidebarList: SidebarItemsByLang = {
 
     {
       name: "More",
-      path: "/more",
       icon: ellipsisIcon,
       submenu: [
         { name: "Loyalty Programs", path: "/more/loyalty-programs" },
