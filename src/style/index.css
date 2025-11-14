@@ -1071,7 +1071,7 @@ img - auth-BOGlogo
   box-shadow: 1px 0 0 0 var(--navbar-boxshadow);
   overflow-y: auto;
   background-color: var(--dashboard-sidebar-background);
-  transition: background-color 150ms ease-in-out;
+  transition: width 300ms ease-in-out, background-color 150ms ease-in-out; 
   text-wrap: nowrap;
 }
 
@@ -1177,15 +1177,37 @@ img - auth-BOGlogo
   border: none;
   background-color: transparent;
   position: fixed;
-  left: var(--sidebar-width);
+  left: 0;
+  transform: translateY(-50%) translateX(var(--sidebar-width));
   top: 50%;
-  transform: translate(0px, -50%);
   width: 24px;
   cursor: pointer;
   z-index: 999;
+  transition: transform 300ms ease-in-out;
+}
+.sidebar-toggle.minimized {
+  transform: translateY(-50%) translateX(var(--sidebar-width));
 }
 .sidebar-toggle-arrow {
 }
 .sidebar-wrapper {
   margin-right: 20px;
+}
+/* HEADER RESPONSIVE */
+@media only screen and (max-width: 1250px) {
+  .dashboard-header-left >h2{
+    display: none;
+  }
+  .dashboard-header-left{
+    width: 64px;
+  }
+  .dashboard-header-form-wrapper{
+    margin-left: 16px;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .dashboard-header-form-wrapper{
+    display: none;
+  }
 }

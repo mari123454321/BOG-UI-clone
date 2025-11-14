@@ -107,6 +107,7 @@ export default function DashboardHeader({  }: DashboardHeaderProps) {
                             }
                         </div>
                     </div>
+                    {/* profile dropdown */}
                     <div className="dashboard-header-dropdown">
                         <button
                             ref={profileButtonRef}
