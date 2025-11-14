@@ -5,10 +5,12 @@ import { useDarkMode } from "../../../context/DarkModeContext"
 
 type Props = {
     item: SidebarItemType
+    submenuOpen: boolean
+    setSubmenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+    sidebarOpen: boolean
 }
 
-export default function SidebarItem({ item }: Props) {
-    const [open, setOpen] = useState(false)
+export default function SidebarItem({ item, submenuOpen,setSubmenuOpen, sidebarOpen }: Props) {
     const { darkMode } = useDarkMode()
 
     const hasSubmenu = Boolean(item.submenu)
@@ -24,25 +26,25 @@ export default function SidebarItem({ item }: Props) {
             >
                 <div className="sidebar-right">
                     <div className={`sidebar-icon ${darkMode && "dark"}`}>{item.icon}</div>
-                    <span className={`sidebar-text ${darkMode && "dark"}`}>{item.name}</span>
+                    <span className={`sidebar-text ${darkMode && "dark"} ${!sidebarOpen && "minimized"}` }>{item.name}</span>
                 </div>
 
-                <span className={`sidebar-arrow ${open ? "open" : ""} ${darkMode && "dark"}`}>
+                <span className={`sidebar-arrow ${submenuOpen ? "open" : ""} ${darkMode && "dark"} `}>
                     {chevronRightIcon}
                 </span>
 
             </NavLink> :
                 <button
                     className={`sidebar-button ${darkMode && "dark"}`}
-                    onClick={() => hasSubmenu && setOpen(prev => !prev)}
+                    onClick={() => hasSubmenu && setSubmenuOpen(prev => !prev)}
                 >
                     <div className="sidebar-right">
                         <div className={`sidebar-icon ${darkMode && "dark"}`}>{item.icon}</div>
-                        <span className={`sidebar-text ${darkMode && "dark"}`}>{item.name}</span>
+                        <span className={`sidebar-text ${darkMode && "dark"} ${!sidebarOpen && "minimized"}`}>{item.name}</span>
                     </div>
 
 
-                    <span className={`sidebar-arrow ${open ? "open" : ""} ${darkMode && "dark"} has-submenu`}>
+                    <span className={`sidebar-arrow ${submenuOpen ? "open" : ""} ${darkMode && "dark"} has-submenu`}>
                         {chevronRightIcon}
                     </span>
 
@@ -50,7 +52,7 @@ export default function SidebarItem({ item }: Props) {
             }
 
             {/* submenu */}
-            {hasSubmenu && open && (
+            {hasSubmenu && submenuOpen && sidebarOpen && (
                 <ul className={`submenu ${darkMode && "dark"}`}>
                     {item.submenu!.map(sub => (
                         <li>
@@ -58,7 +60,7 @@ export default function SidebarItem({ item }: Props) {
                                 key={sub.path}
                                 to={sub.path}
                                 className={({ isActive }) =>
-                                    `submenu-item ${isActive ? "active" : ""} ${darkMode ? "dark" : ""}`
+                                    `submenu-item ${isActive ? "active" : ""} ${darkMode ? "dark" : ""} `
                                 }
                             >
                                 {sub.name}

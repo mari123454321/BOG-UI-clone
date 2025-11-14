@@ -1,4 +1,4 @@
-import type { JSX } from "react"
+import { useState, type JSX } from "react"
 import { useLanguage } from "../../../context/LanguageContext"
 import { sidebarList } from "../../../info/dashboard/sidebarInfo"
 import SidebarItem from "./SideBarItems"
@@ -6,18 +6,36 @@ import { useDarkMode } from "../../../context/DarkModeContext"
 
 export default function SideBar() {
     const { language } = useLanguage()
-    const {darkMode} = useDarkMode()
+    const { darkMode } = useDarkMode()
+    const [submenuOpen, setSubmenuOpen] = useState(false)
+    const [sidebarOpen, setSidebarOpen] = useState(false)
+    const [sidebarOpenedByHover, setSidebarOpenedByHover] = useState(false)
+    
+
     const sidebarListLang = sidebarList[language]
     const sidebarContents = sidebarListLang.map((item): JSX.Element => {
         return (
-            <SidebarItem item={item} />
+            <SidebarItem item={item} submenuOpen={submenuOpen} setSubmenuOpen={setSubmenuOpen} sidebarOpen={sidebarOpen} />
         )
     })
     return (
-        <nav className={`sidebar-nav ${darkMode ? "dark" : ""}`}>
-            <ul className="sidebar-content">
-                {sidebarContents}
-            </ul>
-        </nav>
+        <>
+            <nav
+                onMouseEnter={()=>setSidebarOpen(true)}
+                onMouseLeave={()=>setSidebarOpen(false)}
+                className={`sidebar-nav ${darkMode ? "dark" : ""} ${!sidebarOpen && "minimized"}`}>
+                <div className="sidebar-scroll">
+                    <ul className="sidebar-content">
+                        {sidebarContents}
+                    </ul>
+                </div>
+            </nav>
+            <button
+                onClick={() => setSidebarOpen(prev => !prev)}
+                className={`sidebar-toggle ${!sidebarOpen && "minimized"}`}
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sidebar-toggle-arrow"><path d="m9 18 6-6-6-6" /></svg>
+            </button>
+        </>
     )
 }

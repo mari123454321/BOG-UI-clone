@@ -17,7 +17,8 @@
   --white-grey: white;
   --cards-hover: #f1f2f3;
   --icon-primary: #1b1c1d;
-  --sidebar-width: 280px;
+  --sidebar-width: 295px;
+  /* --minimized-sidebar-width: 64px; */
   --icon-secondary: #515457;
   --dashboard-sidebar-background: #f4f4f4;
   --sidebar-active-background: #dedfe0;
@@ -25,6 +26,9 @@
   --border-strong: #1b1c1d;
   --sidebar-submenu-border: #d7d9db;
   --sidebar-submenu-border-hover: rgba(138, 142, 147, 1);
+}
+.minimized{
+  --sidebar-width: 64px; 
 }
 .dark {
   --dashboard-header-background-color: #2f3032;
@@ -1048,19 +1052,6 @@ img - auth-BOGlogo
 }
 
 /* **********sidebar and Main structure ***********/
-.sidebar-nav {
-  position: sticky;
-  top: 72px;
-  width: 280px;
-  height: calc(100vh - 72px);
-  padding: 16px 12px;
-  box-shadow: 1px 0 0 0 var(--navbar-boxshadow);
-  overflow-y: auto;
-  overflow-x: hidden;
-  background-color: var(--dashboard-sidebar-background);
-  scrollbar-width: thin;
-}
-
 .dashboard-content {
   display: grid;
   grid-template-columns: max-content auto;
@@ -1068,6 +1059,37 @@ img - auth-BOGlogo
   width: 100%;
   --app-content-width: calc(100% - var(--dashboard-navbar-width));
 }
+
+.sidebar-nav {
+  position: sticky;
+  top: 72px;
+  width: var(--sidebar-width);
+  box-sizing: border-box;
+  height: calc(100vh - 72px);
+  padding: 16px 12px;
+  box-shadow: 1px 0 0 0 var(--navbar-boxshadow);
+  overflow-y: auto;
+  background-color: var(--dashboard-sidebar-background);
+  /* scrollbar-width: thin; */
+  transition: 300ms ease-in-out;
+  text-wrap: nowrap;
+
+}
+.sidebar-nav.minimized, .sidebar-toggle-arrow.minimized{
+  transition: 300ms ease-in-out;
+}
+.sidebar-text.minimized{
+  color: transparent;
+  transition: 300ms ease-in-out;
+  
+
+}
+
+.sidebar-nav::-webkit-scrollbar {
+  display: none;
+}
+
+
 
 .sidebar-button {
   border: none;
@@ -1110,9 +1132,13 @@ img - auth-BOGlogo
 }
 .sidebar-arrow {
   visibility: hidden;
+  transition: 300ms ease;
 }
 .sidebar-arrow.has-submenu {
   visibility: visible;
+}
+.sidebar-arrow.open {
+  rotate: 90deg;
 }
 .sidebar-icon > svg {
   color: var(--icon-secondary);
@@ -1140,7 +1166,7 @@ img - auth-BOGlogo
   font-size: 0.8125rem;
   font-weight: 500;
   border-left: 1px solid var(--sidebar-submenu-border);
-  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1); */
 }
 .submenu-item:hover {
   border-left-color: var(--sidebar-submenu-border-hover);
@@ -1148,4 +1174,21 @@ img - auth-BOGlogo
 .submenu > li {
   margin-left: 10px;
   padding-left: 10px;
+}
+
+.sidebar-toggle {
+  border: none;
+  background-color: transparent;
+  position: fixed;
+  left: calc(var(--sidebar-width) + 6px);
+  top: 50%;
+  transform: translate(0px, -50%);
+  width: 24px;
+  cursor: pointer;
+  z-index: 999;
+}
+.sidebar-toggle-arrow {
+}
+.sidebar-wrapper {
+  margin-right: 20px;
 }
