@@ -7,7 +7,6 @@ import { useDarkMode } from "../../../context/DarkModeContext"
 export default function SideBar() {
     const { language } = useLanguage()
     const { darkMode } = useDarkMode()
-    const [submenuOpen, setSubmenuOpen] = useState(false)
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const [sidebarOpenedByButton, setSidebarOpenedByButton] = useState(false)
     // useEffect(() => {
@@ -17,7 +16,7 @@ export default function SideBar() {
     const sidebarListLang = sidebarList[language]
     const sidebarContents = sidebarListLang.map((item): JSX.Element => {
         return (
-            <SidebarItem item={item} submenuOpen={submenuOpen} setSubmenuOpen={setSubmenuOpen} sidebarOpen={sidebarOpen} />
+            <SidebarItem item={item} sidebarOpen={sidebarOpen} />
         )
     })
     return (

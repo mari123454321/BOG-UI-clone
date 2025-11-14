@@ -5,14 +5,15 @@ import { useDarkMode } from "../../../context/DarkModeContext"
 
 type Props = {
     item: SidebarItemType
-    submenuOpen: boolean
-    setSubmenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+
     sidebarOpen: boolean
-    
+
 }
 
-export default function SidebarItem({ item, submenuOpen,setSubmenuOpen, sidebarOpen }: Props) {
+export default function SidebarItem({ item, sidebarOpen }: Props) {
     const { darkMode } = useDarkMode()
+    const [submenuOpen, setSubmenuOpen] = useState(false)
+
 
     const hasSubmenu = Boolean(item.submenu)
     const chevronRightIcon = (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="m9 18 6-6-6-6" /></svg>);
@@ -27,7 +28,7 @@ export default function SidebarItem({ item, submenuOpen,setSubmenuOpen, sidebarO
             >
                 <div className="sidebar-right">
                     <div className={`sidebar-icon ${darkMode && "dark"}`}>{item.icon}</div>
-                    <span className={`sidebar-text ${darkMode && "dark"} ${!sidebarOpen && "minimized"}` }>{item.name}</span>
+                    <span className={`sidebar-text ${darkMode && "dark"} ${!sidebarOpen && "minimized"}`}>{item.name}</span>
                 </div>
 
                 <span className={`sidebar-arrow ${submenuOpen ? "open" : ""} ${darkMode && "dark"} `}>
