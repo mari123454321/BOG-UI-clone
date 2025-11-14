@@ -8,6 +8,7 @@ type Props = {
     submenuOpen: boolean
     setSubmenuOpen: React.Dispatch<React.SetStateAction<boolean>>
     sidebarOpen: boolean
+    
 }
 
 export default function SidebarItem({ item, submenuOpen,setSubmenuOpen, sidebarOpen }: Props) {

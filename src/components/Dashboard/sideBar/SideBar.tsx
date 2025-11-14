@@ -9,7 +9,7 @@ export default function SideBar() {
     const { darkMode } = useDarkMode()
     const [submenuOpen, setSubmenuOpen] = useState(false)
     const [sidebarOpen, setSidebarOpen] = useState(false)
-    const [sidebarOpenedByHover, setSidebarOpenedByHover] = useState(false)
+    const [sidebarOpenedByButton, setSidebarOpenedByButton] = useState(false)
     
 
     const sidebarListLang = sidebarList[language]
@@ -21,8 +21,8 @@ export default function SideBar() {
     return (
         <>
             <nav
-                onMouseEnter={()=>setSidebarOpen(true)}
-                onMouseLeave={()=>setSidebarOpen(false)}
+                onMouseEnter={()=> !sidebarOpenedByButton && setSidebarOpen(true)}
+                onMouseLeave={()=>{!sidebarOpenedByButton && setSidebarOpen(false)}}
                 className={`sidebar-nav ${darkMode ? "dark" : ""} ${!sidebarOpen && "minimized"}`}>
                 <div className="sidebar-scroll">
                     <ul className="sidebar-content">
@@ -31,7 +31,10 @@ export default function SideBar() {
                 </div>
             </nav>
             <button
-                onClick={() => setSidebarOpen(prev => !prev)}
+                onClick={() => {
+                    setSidebarOpen(prev => !prev)
+                    setSidebarOpenedByButton(true)
+                }}
                 className={`sidebar-toggle ${!sidebarOpen && "minimized"}`}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sidebar-toggle-arrow"><path d="m9 18 6-6-6-6" /></svg>
