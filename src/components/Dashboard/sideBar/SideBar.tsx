@@ -1,4 +1,4 @@
-import { useState, type JSX } from "react"
+import { useEffect, useState, type JSX } from "react"
 import { useLanguage } from "../../../context/LanguageContext"
 import { sidebarList } from "../../../info/dashboard/sidebarInfo"
 import SidebarItem from "./SideBarItems"
@@ -10,7 +10,9 @@ export default function SideBar() {
     const [submenuOpen, setSubmenuOpen] = useState(false)
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const [sidebarOpenedByButton, setSidebarOpenedByButton] = useState(false)
-    
+    // useEffect(() => {
+    //     window.innerWidth > 1366 ? setSidebarOpen(true) : setSidebarOpen(false)
+    // }, [])
 
     const sidebarListLang = sidebarList[language]
     const sidebarContents = sidebarListLang.map((item): JSX.Element => {
@@ -21,8 +23,8 @@ export default function SideBar() {
     return (
         <>
             <nav
-                onMouseEnter={()=> !sidebarOpenedByButton && setSidebarOpen(true)}
-                onMouseLeave={()=>{!sidebarOpenedByButton && setSidebarOpen(false)}}
+                onMouseEnter={() => !sidebarOpenedByButton && setSidebarOpen(true)}
+                onMouseLeave={() => { !sidebarOpenedByButton && setSidebarOpen(false) }}
                 className={`sidebar-nav ${darkMode ? "dark" : ""} ${!sidebarOpen && "minimized"}`}>
                 <div className="sidebar-scroll">
                     <ul className="sidebar-content">
@@ -33,7 +35,7 @@ export default function SideBar() {
             <button
                 onClick={() => {
                     setSidebarOpen(prev => !prev)
-                    setSidebarOpenedByButton(true)
+                    sidebarOpen ? setSidebarOpenedByButton(false) : setSidebarOpenedByButton(true)
                 }}
                 className={`sidebar-toggle ${!sidebarOpen && "minimized"}`}
             >
