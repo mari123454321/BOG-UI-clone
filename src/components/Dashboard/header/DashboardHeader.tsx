@@ -67,6 +67,10 @@ export default function DashboardHeader({ sidebarOpen, setSidebarOpen }: Dashboa
                 {/* dashboard right */}
                 <div className={`dashboard-header-right ${darkMode && "dark"}`}>
                     <div className="dashboard-header-right-icons">
+                        <button
+                            className={`${iconsClass} appears-1024px`}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="dashboard-header-icon-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                        </button>
                         {/* darkmode */}
                         <button
                             onClick={() => setDarkMode(prev => !prev)}
@@ -90,7 +94,7 @@ export default function DashboardHeader({ sidebarOpen, setSidebarOpen }: Dashboa
                                 </DropDownWrapper>
                             }
                         </div>
-                        {/*  */}
+                        {/* switch accounts */}
                         <div className="dashboard-header-dropdown">
                             <button
                                 ref={switchButtonRef}

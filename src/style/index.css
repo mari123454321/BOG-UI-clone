@@ -1237,16 +1237,26 @@ img - auth-BOGlogo
 .dashboard-header-burger {
   display: none;
 }
-.dashboard-burger-menu{
+.dashboard-burger-menu {
   width: 100vw;
-  
 }
 .dashboard-burger-navigation-wrapper {
   position: fixed;
   top: 48px;
   right: 0;
 }
-/* HEADER RESPONSIVE */
+.sidebar-overlay {
+  position: fixed;
+  top: 48px;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  display: none;
+  transition: opacity 300ms ease-in-out;
+}
+.appears-1024px {
+  display: none;
+}
+/************ HEADER RESPONSIVE ************/
 @media only screen and (max-width: 1250px) {
   .dashboard-header-left > h2 {
     display: none;
@@ -1254,37 +1264,79 @@ img - auth-BOGlogo
   .dashboard-header-left {
     width: 64px;
   }
+
   .dashboard-header-form-wrapper {
     margin-left: 16px;
   }
-  .dashboard-burger-menu {
-    display: block;
-  }
-
-  .dashboard-header-wrapper {
-    height: 48px;
-  }
-  .dashboard-content {
-    margin-top: 48px;
-  }
-  .sidebar-text.minimized {
-    color: var(--text-secondary);
-    transition: color 300ms ease-in-out;
-  }
-  .sidebar-nav{
-    width: 295px;
-  }
-  
 }
 
 @media only screen and (max-width: 1024px) {
   .dashboard-header-form-wrapper {
     display: none;
   }
-  .dashboard-header-burger {
-    display: block;
+  .appears-1024px {
+    display: flex;
   }
+
   .dashboard-navigation-left-display {
     display: none;
   }
+
+  .dashboard-burger-menu {
+    display: block;
+  }
+  .dashboard-burger-navigation-wrapper {
+    z-index: 1000;
+  }
+  .dashboard-header-burger {
+    display: flex;
+    width: 20px;
+  }
+
+  .dashboard-header-wrapper {
+    height: 56px;
+    z-index: 10000;
+  }
+  .dashboard-content {
+    margin-top: 56px;
+  }
+  .sidebar-text.minimized {
+    color: var(--text-secondary);
+    transition: color 300ms ease-in-out;
+  }
+  .sidebar-nav {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    height: calc(100vh - 48px);
+    transition: right 300ms ease-in-out;
+    z-index: 1000;
+    width: 295px;
+  }
+  .sidebar-nav.minimized {
+    right: -295px;
+    transition: right 300ms ease-in-out;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .dashboard-header-wrapper {
+    height: 48px;
+  }
+  .dashboard-content {
+    margin-top: 48px;
+  }
+  .sidebar-nav {
+    top: 48px;
+  }
+  .dashboard-header-right-icons{
+    gap:8px;
+    align-items: center;
+  }
+  .dashboard-header-right-icon{
+    width: 32px;
+    height: 32px;
+  }
+}
+@media (max-width: 600px) {
+
 }
