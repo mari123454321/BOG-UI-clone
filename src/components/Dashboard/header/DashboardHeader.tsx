@@ -5,7 +5,6 @@ import darkModeIcon from "../../../icons/dark_mode.svg"
 import lightModeIcon from "../../../icons/light_mode.svg"
 import switchIcon from "../../../icons/apps.svg"
 import notifications from "../../../icons/notifications.svg"
-import personIcon from "../../../icons/person.svg"
 import dropDownIcon from "../../../icons/arrow_drop_down.svg"
 import { useRef, useState } from "react"
 import DropDownWrapper from "./DropDownWrapper"
@@ -14,11 +13,13 @@ import ProfileDropDown from "./ProfileDropDown"
 import SwitchDropDown from "./SwitchDropDown"
 type DropDownKeys = "notifications" | "switch" | "profile"
 import { ProfileDropDownInfo } from "../../../info/info"
+import DashboardBurgerMenu from "./DashboardBurgerMenu"
 
 type DashboardHeaderProps = {
-    
+    sidebarOpen: boolean
+    setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
-export default function DashboardHeader({  }: DashboardHeaderProps) {
+export default function DashboardHeader({ sidebarOpen, setSidebarOpen }: DashboardHeaderProps) {
     //current language context
     const { language } = useLanguage()
     // dark mode context
@@ -75,13 +76,13 @@ export default function DashboardHeader({  }: DashboardHeaderProps) {
                         {/* notifications */}
                         <div className="dashboard-header-dropdown">
                             <button
-                                ref={ notificationsButtonRef}
-                                onClick={(e) => toggleDropDown("notifications")}
+                                ref={notificationsButtonRef}
+                                onClick={() => toggleDropDown("notifications")}
                                 className={iconsClass}>
                                 <img src={notifications} alt="notifications icon" width={16} height={16} />
                             </button>
                             {dropDownState.notifications &&
-                                <DropDownWrapper ignoreRef = {notificationsButtonRef} onClose={() => setDropDownState(prev => ({
+                                <DropDownWrapper ignoreRef={notificationsButtonRef} onClose={() => setDropDownState(prev => ({
                                     ...prev,
                                     notifications: false
                                 }))}>
@@ -98,7 +99,7 @@ export default function DashboardHeader({  }: DashboardHeaderProps) {
                                 <img src={switchIcon} alt="icon" />
                             </button>
                             {dropDownState.switch &&
-                                <DropDownWrapper ignoreRef= {switchButtonRef} onClose={() => setDropDownState(prev => ({
+                                <DropDownWrapper ignoreRef={switchButtonRef} onClose={() => setDropDownState(prev => ({
                                     ...prev,
                                     switch: false
                                 }))}>
@@ -132,6 +133,14 @@ export default function DashboardHeader({  }: DashboardHeaderProps) {
                                 />
                             </DropDownWrapper>
                         }
+                    </div>
+                    <div className="dashboard-header-burger">
+                        <button
+                            onClick={() => setSidebarOpen(prev => !prev)}
+                            className="dashboard-header-burger-menu-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="dashboard-header-burger-menu-icon"><path d="M4 5h16" /><path d="M4 12h16" /><path d="M4 19h16" /></svg>
+                        </button>
+                        <DashboardBurgerMenu sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
                     </div>
                 </div>
 

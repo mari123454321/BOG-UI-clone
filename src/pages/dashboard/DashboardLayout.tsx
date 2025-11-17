@@ -1,15 +1,17 @@
 import { Outlet } from "react-router-dom";
+import { useState } from "react";
 import DashboardHeader from "../../components/Dashboard/header/DashboardHeader";
-import SideBar from "../../components/Dashboard/sideBar/SideBar";
+import DashboardSideBar from "../../components/Dashboard/sideBar/DashboardSideBar";
 
 export default function DashboardLayout() {
+    const [sidebarOpen, setSidebarOpen] = useState(false)
+
     return (
         <>
-            <DashboardHeader />
+            <DashboardHeader sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
             <div className="dashboard-content">
                 <div className="sidebar-wrapper">
-                    <SideBar />
-                    
+                    <DashboardSideBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                 </div>
                 <div className="dashboard-main">
                     <Outlet/>

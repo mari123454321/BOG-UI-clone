@@ -606,7 +606,7 @@ img - auth-BOGlogo
   opacity: 1;
 }
 
-/* ***************sidebar*************** */
+/* ***************sidebar auth*************** */
 .burger {
   display: none;
 }
@@ -728,6 +728,7 @@ img - auth-BOGlogo
   align-items: center;
   width: 100%;
 }
+
 .dashboard-header-left {
   display: flex;
   flex-direction: row;
@@ -1063,19 +1064,20 @@ img - auth-BOGlogo
   width: 100%;
   --app-content-width: calc(100% - var(--dashboard-navbar-width));
 }
-
-.sidebar-nav {
+.sidebar-nav-wrapper {
   position: sticky;
   top: 72px;
+}
+.sidebar-nav {
   width: var(--sidebar-width);
   box-sizing: border-box;
-  height: calc(100vh - 72px);
   padding: 16px 12px;
   box-shadow: 1px 0 0 0 var(--navbar-boxshadow);
   overflow-y: auto;
   background-color: var(--dashboard-sidebar-background);
   transition: width 300ms ease-in-out;
   text-wrap: nowrap;
+  height: calc(100vh - 72px);
 }
 
 /* .sidebar-nav.minimized,
@@ -1129,12 +1131,17 @@ img - auth-BOGlogo
 .sidebar-button:hover,
 .sidebar-navlink:hover {
   background-color: var(--sidebar-active-background);
-  .sidebar-text{
+  .sidebar-text {
+    color: var(--icon-primary);
+  }
+  .sidebar-icon {
     color: var(--icon-primary);
   }
 }
-
-.sidebar-navlink.sidebar-active-link {
+.dashboard-sidebar-active-link .sidebar-icon {
+  color: var(--icon-primary);
+}
+.sidebar-navlink.dashboard-sidebar-active-link {
   background-color: var(--sidebar-active-link-background);
 }
 .sidebar-arrow {
@@ -1215,6 +1222,30 @@ img - auth-BOGlogo
 .sidebar-wrapper {
   margin-right: 20px;
 }
+
+/* dashboard burger */
+.dashboard-burger-menu {
+  display: none;
+}
+
+.dashboard-header-burger-menu-button {
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+.dashboard-header-burger {
+  display: none;
+}
+.dashboard-burger-menu{
+  width: 100vw;
+  
+}
+.dashboard-burger-navigation-wrapper {
+  position: fixed;
+  top: 48px;
+  right: 0;
+}
 /* HEADER RESPONSIVE */
 @media only screen and (max-width: 1250px) {
   .dashboard-header-left > h2 {
@@ -1226,10 +1257,34 @@ img - auth-BOGlogo
   .dashboard-header-form-wrapper {
     margin-left: 16px;
   }
+  .dashboard-burger-menu {
+    display: block;
+  }
+
+  .dashboard-header-wrapper {
+    height: 48px;
+  }
+  .dashboard-content {
+    margin-top: 48px;
+  }
+  .sidebar-text.minimized {
+    color: var(--text-secondary);
+    transition: color 300ms ease-in-out;
+  }
+  .sidebar-nav{
+    width: 295px;
+  }
+  
 }
 
 @media only screen and (max-width: 1024px) {
   .dashboard-header-form-wrapper {
+    display: none;
+  }
+  .dashboard-header-burger {
+    display: block;
+  }
+  .dashboard-navigation-left-display {
     display: none;
   }
 }

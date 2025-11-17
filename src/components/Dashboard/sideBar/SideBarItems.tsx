@@ -23,7 +23,7 @@ export default function SidebarItem({ item, sidebarOpen }: Props) {
             {!item.submenu && item.path ? <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                    `${isActive ? "sidebar-active-link" : ""} sidebar-navlink ${darkMode ? "dark" : ""}`
+                    `${isActive ? "dashboard-sidebar-active-link" : ""} sidebar-navlink ${darkMode ? "dark" : ""}`
                 }
             >
                 <div className="sidebar-right">
@@ -62,7 +62,7 @@ export default function SidebarItem({ item, sidebarOpen }: Props) {
                                 key={sub.path}
                                 to={sub.path}
                                 className={({ isActive }) =>
-                                    `submenu-item ${isActive ? "submenu-active-link" : ""} ${darkMode ? "dark" : ""} `
+                                    `submenu-item ${isActive ? "dashboard-submenu-active-link" : ""} ${darkMode ? "dark" : ""} `
                                 }
                             >
                                 {sub.name}
