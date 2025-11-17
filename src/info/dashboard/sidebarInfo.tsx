@@ -33,45 +33,45 @@ const ellipsisIcon = (<svg xmlns="http://www.w3.org/2000/svg" width="16" height=
 
 export const sidebarList: SidebarItemsByLang = {
   Geo: [
-    { name: "მთავარი", path: "/main", icon: houseIcon },
+    { name: "მთავარი", path: "main", icon: houseIcon },
 
-    { name: "ჩემი სივრცე", path: "/my-space", icon: mySpaceIcon },
+    { name: "ჩემი სივრცე", path: "my-space", icon: mySpaceIcon },
 
     {
       name: "გადარიცხვა",
       icon: arrowLeftRightIcon,
       submenu: [
-        { name: "საკუთარ ანგარიშზე", path: "/transfer/own-account" },
-        { name: "ქართულ ბანკში", path: "/transfer/georgian-banks" },
-        { name: "კონტაქტებთან", path: "/transfer/contacts" },
-        { name: "უცხოურ ბანკებში", path: "/transfer/foreign-banks" },
-        { name: "ბიუჯეტში", path: "/transfer/treasury" },
-        { name: "ვალუტის კონვერტაცია", path: "/transfer/currency-exchange" },
-        { name: "უკუკონვერტაცია", path: "/transfer/fx-conversion" },
+        { name: "საკუთარ ანგარიშზე", path: "transfer/own-account" },
+        { name: "ქართულ ბანკში", path: "transfer/georgian-banks" },
+        { name: "კონტაქტებთან", path: "transfer/contacts" },
+        { name: "უცხოურ ბანკებში", path: "transfer/foreign-banks" },
+        { name: "ბიუჯეტში", path: "transfer/treasury" },
+        { name: "ვალუტის კონვერტაცია", path: "transfer/currency-exchange" },
+        { name: "უკუკონვერტაცია", path: "transfer/fx-conversion" },
       ]
     },
 
-    { name: "გადახდა", path: "/payment", icon: georgianLariIcon },
+    { name: "გადახდა", path: "payment", icon: georgianLariIcon },
 
-    { name: "ანგარიში და ბარათები", path: "/accounts-and-cards", icon: walletCardsIcon },
+    { name: "ანგარიში და ბარათები", path: "accounts-and-cards", icon: walletCardsIcon },
 
-    { name: "სესხები", path: "/loans", icon: circlePercentIcon },
+    { name: "სესხები", path: "loans", icon: circlePercentIcon },
 
-    { name: "საკრედიტო ბარათი", path: "/credit-cards", icon: creditCardIcon },
+    { name: "საკრედიტო ბარათი", path: "credit-cards", icon: creditCardIcon },
 
-    { name: "ანაბრები", path: "/deposits", icon: banknoteArrowUpIcon },
+    { name: "ანაბრები", path: "deposits", icon: banknoteArrowUpIcon },
 
-    { name: "შეთავაზებები და განაცხადები", path: "/offers", icon: badgePercentIcon },
+    { name: "შეთავაზებები და განაცხადები", path: "offers", icon: badgePercentIcon },
 
-    { name: "ტრანზაქციების ისტორია", path: "/transactions", icon: historyIcon },
+    { name: "ტრანზაქციების ისტორია", path: "transactions", icon: historyIcon },
 
     {
       name: "გზავნილები",
       icon: globeIcon,
       submenu: [
-        { name: "ყველა", path: "/remittances/all" },
-        { name: "მიღება", path: "/remittances/receive" },
-        { name: "გაგზავნა", path: "/remittances/send" },
+        { name: "ყველა", path: "remittances/all" },
+        { name: "მიღება", path: "remittances/receive" },
+        { name: "გაგზავნა", path: "remittances/send" },
       ]
     },
 
@@ -79,67 +79,67 @@ export const sidebarList: SidebarItemsByLang = {
       name: "ავტომატური სერვისები",
       icon: rocketIcon,
       submenu: [
-        { name: "ყველა", path: "/automatic-services/all" },
-        { name: "ავტომატური გადარიცხვა", path: "/automatic-services/auto-transfer" },
-        { name: "ავტომატური გადახდა", path: "/automatic-services/auto-payment" },
+        { name: "ყველა", path: "automatic-services/all" },
+        { name: "ავტომატური გადარიცხვა", path: "automatic-services/auto-transfer" },
+        { name: "ავტომატური გადახდა", path: "automatic-services/auto-payment" },
       ]
     },
 
-    { name: "ნაწილ-ნაწილ", path: "/buy-now-pay-later", icon: ticketIcon },
+    { name: "ნაწილ-ნაწილ", path: "buy-now-pay-later", icon: ticketIcon },
 
-    { name: "ვალუტის კურსები", path: "/currencies", icon: chartCandlestickIcon },
+    { name: "ვალუტის კურსები", path: "currencies", icon: chartCandlestickIcon },
 
     {
       name: "მეტი",
       icon: ellipsisIcon,
       submenu: [
-        { name: "ლოიალურობა", path: "/more/loyalty-programs" },
-        { name: "სასაჩუქრე ბარათები", path: "/more/gift-cards" },
-        { name: "საბანკო ნაკრები", path: "/more/banking-set" },
+        { name: "ლოიალურობა", path: "more/loyalty-programs" },
+        { name: "სასაჩუქრე ბარათები", path: "more/gift-cards" },
+        { name: "საბანკო ნაკრები", path: "more/banking-set" },
       ]
     },
   ],
 
   Eng: [
-    { name: "Main", path: "/main", icon: houseIcon },
+    { name: "Main", path: "main", icon: houseIcon },
 
-    { name: "My Space", path: "/my-space", icon: mySpaceIcon },
+    { name: "My Space", path: "my-space", icon: mySpaceIcon },
 
     {
       name: "Transfer",
       icon: arrowLeftRightIcon,
       submenu: [
-        { name: "To Own Account", path: "/transfer/own-account" },
-        { name: "In Georgian Banks", path: "/transfer/georgian-banks" },
-        { name: "To Contacts", path: "/transfer/contacts" },
-        { name: "In Foreign Banks", path: "/transfer/foreign-banks" },
-        { name: "To Treasury", path: "/transfer/treasury" },
-        { name: "Currency Exchange", path: "/transfer/currency-exchange" },
-        { name: "FX Conversion", path: "/transfer/fx-conversion" },
+        { name: "To Own Account", path: "transfer/own-account" },
+        { name: "In Georgian Banks", path: "transfer/georgian-banks" },
+        { name: "To Contacts", path: "transfer/contacts" },
+        { name: "In Foreign Banks", path: "transfer/foreign-banks" },
+        { name: "To Treasury", path: "transfer/treasury" },
+        { name: "Currency Exchange", path: "transfer/currency-exchange" },
+        { name: "FX Conversion", path: "transfer/fx-conversion" },
       ]
     },
 
-    { name: "Payment", path: "/payment", icon: georgianLariIcon },
+    { name: "Payment", path: "payment", icon: georgianLariIcon },
 
-    { name: "Account and Cards", path: "/accounts-and-cards", icon: walletCardsIcon },
+    { name: "Account and Cards", path: "accounts-and-cards", icon: walletCardsIcon },
 
-    { name: "Loans", path: "/loans", icon: circlePercentIcon },
+    { name: "Loans", path: "loans", icon: circlePercentIcon },
 
-    { name: "Credit Cards", path: "/credit-cards", icon: creditCardIcon },
+    { name: "Credit Cards", path: "credit-cards", icon: creditCardIcon },
 
-    { name: "Deposits", path: "/deposits", icon: banknoteArrowUpIcon },
+    { name: "Deposits", path: "deposits", icon: banknoteArrowUpIcon },
 
-    { name: "Offers and Applications", path: "/offers", icon: badgePercentIcon },
+    { name: "Offers and Applications", path: "offers", icon: badgePercentIcon },
 
-    { name: "Transaction History", path: "/transactions", icon: historyIcon },
+    { name: "Transaction History", path: "transactions", icon: historyIcon },
 
     {
       name: "Remittances",
       icon: globeIcon,
       submenu: [
-        { name: "All", path: "/remittances/all" },
-        { name: "Receive", path: "/remittances/receive" },
-        { name: "Send", path: "/remittances/send" },
+        { name: "All", path: "remittances/all" },
+        { name: "Receive", path: "remittances/receive" },
+        { name: "Send", path: "remittances/send" },
       ]
     },
 
@@ -147,23 +147,23 @@ export const sidebarList: SidebarItemsByLang = {
       name: "Automatic Services",
       icon: rocketIcon,
       submenu: [
-        { name: "All", path: "/automatic-services/all" },
-        { name: "Automatic Transfer", path: "/automatic-services/auto-transfer" },
-        { name: "Automatic Payment", path: "/automatic-services/auto-payment" },
+        { name: "All", path: "automatic-services/all" },
+        { name: "Automatic Transfer", path: "automatic-services/auto-transfer" },
+        { name: "Automatic Payment", path: "automatic-services/auto-payment" },
       ]
     },
 
-    { name: "Buy Now Pay Later", path: "/buy-now-pay-later", icon: ticketIcon },
+    { name: "Buy Now Pay Later", path: "buy-now-pay-later", icon: ticketIcon },
 
-    { name: "Currencies", path: "/currencies", icon: chartCandlestickIcon },
+    { name: "Currencies", path: "currencies", icon: chartCandlestickIcon },
 
     {
       name: "More",
       icon: ellipsisIcon,
       submenu: [
-        { name: "Loyalty Programs", path: "/more/loyalty-programs" },
-        { name: "Gift Cards", path: "/more/gift-cards" },
-        { name: "Banking Set", path: "/more/banking-set" },
+        { name: "Loyalty Programs", path: "more/loyalty-programs" },
+        { name: "Gift Cards", path: "more/gift-cards" },
+        { name: "Banking Set", path: "more/banking-set" },
       ]
     },
   ]

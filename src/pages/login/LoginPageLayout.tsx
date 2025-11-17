@@ -1,12 +1,12 @@
-import AuthHeader from "../components/Login/AuthHeader"
+import AuthHeader from "../../components/Login/AuthHeader"
 import { useLocation } from "react-router-dom";
-import PersonalCard from "../components/Login/PersonalCard";
-import BusinessCard from "../components/Login/BusinessCard";
-import BusinessManagerCard from "../components/Login/BusinessManagerCard";
+import PersonalCard from "../../components/Login/PersonalCard";
+import BusinessCard from "../../components/Login/BusinessCard";
+import BusinessManagerCard from "../../components/Login/BusinessManagerCard";
 import type { JSX } from "react";
-import Footer from "../components/common/Footer";
-import AuthCarousel from "../components/Login/AuthCarousel";
-import { carouselImagesBusiness, carouselImagesManager, carouselImagesPersonal } from "../images/carousel/carouselImages";
+import Footer from "../../components/common/Footer";
+import AuthCarousel from "../../components/Login/AuthCarousel";
+import { carouselImagesBusiness, carouselImagesManager, carouselImagesPersonal } from "../../images/carousel/carouselImages";
 
 type LoginPath = "/personal" | "/business" | "/manager"
 

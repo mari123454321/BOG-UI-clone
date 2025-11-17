@@ -1,8 +1,8 @@
-import DashboardHeader from "../components/Dashboard/header/DashboardHeader";
-import Main from "../components/Dashboard/Main/Main";
-import SideBar from "../components/Dashboard/sideBar/SideBar";
+import { Outlet } from "react-router-dom";
+import DashboardHeader from "../../components/Dashboard/header/DashboardHeader";
+import SideBar from "../../components/Dashboard/sideBar/SideBar";
 
-export default function Dashboard() {
+export default function DashboardLayout() {
     return (
         <>
             <DashboardHeader />
@@ -12,7 +12,7 @@ export default function Dashboard() {
                     
                 </div>
                 <div className="dashboard-main">
-                    <Main />
+                    <Outlet/>
                 </div>
             </div>
         </>

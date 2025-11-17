@@ -54,15 +54,15 @@ export default function SidebarItem({ item, sidebarOpen }: Props) {
             }
 
             {/* submenu */}
-            {hasSubmenu && submenuOpen && sidebarOpen && (
-                <ul className={`submenu ${darkMode && "dark"}`}>
+            {hasSubmenu && sidebarOpen && (
+                <ul className={`submenu ${darkMode && "dark"} ${submenuOpen && "open"}`}>
                     {item.submenu!.map(sub => (
                         <li>
                             <NavLink
                                 key={sub.path}
                                 to={sub.path}
                                 className={({ isActive }) =>
-                                    `submenu-item ${isActive ? "active" : ""} ${darkMode ? "dark" : ""} `
+                                    `submenu-item ${isActive ? "submenu-active-link" : ""} ${darkMode ? "dark" : ""} `
                                 }
                             >
                                 {sub.name}

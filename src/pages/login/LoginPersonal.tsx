@@ -1,5 +1,5 @@
-import { useLanguage } from "../context/LanguageContext";
-import LoginPageLayput from "../layouts/LoginPageLayout";
+import { useLanguage } from "../../context/LanguageContext";
+import LoginPageLayput from "./LoginPageLayout";
 
 
 export default function LoginPersonal() {

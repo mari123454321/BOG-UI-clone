@@ -26,6 +26,7 @@
   --border-strong: #1b1c1d;
   --sidebar-submenu-border: #d7d9db;
   --sidebar-submenu-border-hover: rgba(138, 142, 147, 1);
+  --sidebar-active-link-background: #e3e4e4;
 }
 .minimized {
   --sidebar-width: 64px;
@@ -52,6 +53,8 @@
   --border-strong: #f4f4f4;
   --sidebar-submenu-border: #515457;
   --sidebar-submenu-border-hover: #6c7075;
+  --sidebar-active-link-background: #e3e4e4;
+  --sidebar-active-link-background: #2e2f30;
 }
 
 body {
@@ -783,7 +786,7 @@ img - auth-BOGlogo
   border-radius: 8px;
   background: var(--dashboard-header-element-color);
   padding: 8px 12px;
-  transition: background 0.3s ease-in-out;
+  transition: background 0.2s ease-in-out;
   margin-left: 32px;
 }
 .dashboard-header-form-wrapper:hover {
@@ -1071,17 +1074,17 @@ img - auth-BOGlogo
   box-shadow: 1px 0 0 0 var(--navbar-boxshadow);
   overflow-y: auto;
   background-color: var(--dashboard-sidebar-background);
-  transition: width 300ms ease-in-out, background-color 150ms ease-in-out; 
+  transition: width 300ms ease-in-out;
   text-wrap: nowrap;
 }
 
-.sidebar-nav.minimized,
+/* .sidebar-nav.minimized,
 .sidebar-toggle-arrow.minimized {
   transition: 300ms ease-in-out;
-}
+} */
 .sidebar-text.minimized {
   color: transparent;
-  transition: 300ms ease-in-out;
+  transition: color 300ms ease-in-out;
 }
 
 .sidebar-nav::-webkit-scrollbar {
@@ -1126,6 +1129,13 @@ img - auth-BOGlogo
 .sidebar-button:hover,
 .sidebar-navlink:hover {
   background-color: var(--sidebar-active-background);
+  .sidebar-text{
+    color: var(--icon-primary);
+  }
+}
+
+.sidebar-navlink.sidebar-active-link {
+  background-color: var(--sidebar-active-link-background);
 }
 .sidebar-arrow {
   visibility: hidden;
@@ -1143,7 +1153,18 @@ img - auth-BOGlogo
 .submenu {
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Required for smooth height */
+  max-height: 0; /* Start closed */
+  transition: max-height 320ms ease-in-out,
+    /* Main animation */ opacity 120ms ease-out 80ms,
+    /* Opacity fades in a bit later */ transform 320ms ease-in-out;
+  opacity: 0;
 }
+.submenu.open {
+  max-height: 600px; /* Big enough for any submenu (or use 1000px) */
+  opacity: 1;
+}
+
 .submenu-item {
   margin-top: 8px;
   min-width: 210px;
@@ -1164,6 +1185,8 @@ img - auth-BOGlogo
   font-weight: 500;
   border-left: 1px solid var(--sidebar-submenu-border);
   /* transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1); */
+  user-select: none;
+  -webkit-user-select: none;
 }
 .submenu-item:hover {
   border-left-color: var(--sidebar-submenu-border-hover);
@@ -1188,26 +1211,25 @@ img - auth-BOGlogo
 .sidebar-toggle.minimized {
   transform: translateY(-50%) translateX(var(--sidebar-width));
 }
-.sidebar-toggle-arrow {
-}
+
 .sidebar-wrapper {
   margin-right: 20px;
 }
 /* HEADER RESPONSIVE */
 @media only screen and (max-width: 1250px) {
-  .dashboard-header-left >h2{
+  .dashboard-header-left > h2 {
     display: none;
   }
-  .dashboard-header-left{
+  .dashboard-header-left {
     width: 64px;
   }
-  .dashboard-header-form-wrapper{
+  .dashboard-header-form-wrapper {
     margin-left: 16px;
   }
 }
 
-@media only screen and (max-width: 1024px){
-  .dashboard-header-form-wrapper{
+@media only screen and (max-width: 1024px) {
+  .dashboard-header-form-wrapper {
     display: none;
   }
 }
