@@ -8,8 +8,15 @@ import ProtectedRoute from './components/common/ProtectedRoute';
 import ComingSoon from "./pages/ComingSoon";
 import Main from "./pages/dashboard/Main";
 import MySpace from "./pages/dashboard/MySpace";
+import useLocalStorage from "./hooks/useLocalStorage";
+import type { lang } from "./context/LanguageContext";
 
 function App() {
+  const [darkMode, setDarkMode] = useLocalStorage<boolean>("darkMode", false)
+  const [language, setLanguage] = useLocalStorage<lang>("language", "Geo")
+  const [loggedIn, setLoggedin] = useLocalStorage<boolean>("loggedIn", false)
+
+
   return (
     <Routes>
       <Route path='/' element={<Navigate to={"/personal"} replace />} />

@@ -1,5 +1,4 @@
 import { Navigate, Outlet } from "react-router-dom"
-import type { ReactElement } from "react"
 import { useLoggedin } from "../../context/LoggedinContext"
 
 // type ProtectedRoutePropsType ={

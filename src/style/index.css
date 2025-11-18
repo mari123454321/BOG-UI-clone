@@ -3,6 +3,7 @@
 
 :root {
   --main-color: #ff5c0a;
+  --dashboard-header-height: 72px;
   --dashboard-header-element-color: #a8320052;
   --dashboard-header-element-color-hover: #a832007a;
   --dashboard-header-element-color-active: rgba(205, 68, 4, 1);
@@ -1219,9 +1220,6 @@ img - auth-BOGlogo
   transform: translateY(-50%) translateX(var(--sidebar-width));
 }
 
-.sidebar-wrapper {
-  margin-right: 20px;
-}
 
 /* dashboard burger */
 .dashboard-burger-menu {
@@ -1256,6 +1254,21 @@ img - auth-BOGlogo
 .appears-1024px {
   display: none;
 }
+
+/***************** DASHBOARD PAGES/CONTENTs *****************/
+.dashboard-pages {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 72px);
+  padding: 54px 32px 0px 32px;
+  box-sizing: border-box;
+  /* border-box because padding messed with hight */
+  flex-direction: column;
+}
+.dashboard-outlet {
+  flex-grow: 1;
+}
+
 /************ HEADER RESPONSIVE ************/
 @media only screen and (max-width: 1250px) {
   .dashboard-header-left > h2 {
@@ -1264,9 +1277,11 @@ img - auth-BOGlogo
   .dashboard-header-left {
     width: 64px;
   }
-
   .dashboard-header-form-wrapper {
     margin-left: 16px;
+  }
+  .dashboard-main {
+    min-height: calc(100vh-64px);
   }
 }
 
@@ -1297,6 +1312,9 @@ img - auth-BOGlogo
     height: 56px;
     z-index: 10000;
   }
+  .dashboard-main {
+    min-height: calc(100vh - 56px);
+  }
   .dashboard-content {
     margin-top: 56px;
   }
@@ -1322,21 +1340,23 @@ img - auth-BOGlogo
   .dashboard-header-wrapper {
     height: 48px;
   }
+  .dashboard-main {
+    min-height: calc(100vh- 48px);
+  }
   .dashboard-content {
     margin-top: 48px;
   }
   .sidebar-nav {
     top: 48px;
   }
-  .dashboard-header-right-icons{
-    gap:8px;
+  .dashboard-header-right-icons {
+    gap: 8px;
     align-items: center;
   }
-  .dashboard-header-right-icon{
+  .dashboard-header-right-icon {
     width: 32px;
     height: 32px;
   }
 }
 @media (max-width: 600px) {
-
 }
