@@ -3,6 +3,12 @@
 
 :root {
   --main-color: #ff5c0a;
+  --dashboard-background-color: #f4f4f4;
+  --dashboard-components-background-color: #fcfcfc;
+  --dashboard-components-background-color-hover: #E8E8E8;
+  --dashboard-components-icons-background: #ababab;
+
+  --dashboard-components-border: 1px solid #e8e8e8;
   --dashboard-header-height: 72px;
   --dashboard-header-element-color: #a8320052;
   --dashboard-header-element-color-hover: #a832007a;
@@ -34,6 +40,12 @@
 }
 
 .dark {
+  --dashboard-background-color: #191a1a;
+  --dashboard-components-background-color: #252727;
+  --dashboard-components-background-color-hover: #333536;
+  --dashboard-components-icons-background: #646666;
+
+  --dashboard-components-border: 1px solid #333536;
   --dashboard-header-background-color: #2f3032;
   --dashboard-header-element-color: #3b3c3e;
   --dashboard-header-element-color-hover: #48494b;
