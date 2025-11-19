@@ -5,8 +5,10 @@
   --main-color: #ff5c0a;
   --dashboard-background-color: #f4f4f4;
   --dashboard-components-background-color: #fcfcfc;
-  --dashboard-components-background-color-hover: #E8E8E8;
+  --dashboard-components-background-color-hover: #e8e8e8;
   --dashboard-components-icons-background: #ababab;
+  --dashboard-components-icons-background-hover: #f3f4f4;
+  --dashboard-components-icons-background-onclick: #e3e4e4;
 
   --dashboard-components-border: 1px solid #e8e8e8;
   --dashboard-header-height: 72px;
@@ -44,6 +46,8 @@
   --dashboard-components-background-color: #252727;
   --dashboard-components-background-color-hover: #333536;
   --dashboard-components-icons-background: #646666;
+  --dashboard-components-icons-background-hover: #323434;
+  --dashboard-components-icons-background-onclick: #3f4141;
 
   --dashboard-components-border: 1px solid #333536;
   --dashboard-header-background-color: #2f3032;
@@ -486,7 +490,7 @@ img - auth-BOGlogo
   display: block;
   width: 100%;
 }
-.footer-top-text.dark{
+.footer-top-text.dark {
   color: rgba(255, 252, 252, 0.92);
 }
 .footer-quick-links {
@@ -500,7 +504,7 @@ img - auth-BOGlogo
   line-height: 1.4em;
   color: #4f4f4f;
 }
-.footer-quick-links.dark{
+.footer-quick-links.dark {
   color: #abacac;
 }
 .footer-quick-links li {
@@ -518,7 +522,7 @@ img - auth-BOGlogo
   vertical-align: middle;
   flex-shrink: 0;
 }
-.footer-quick-links.dark li::before{
+.footer-quick-links.dark li::before {
   color: #abacac;
 }
 .footer-social-icons {
@@ -532,6 +536,7 @@ img - auth-BOGlogo
   padding: 0 8px;
   margin-left: 4px;
 }
+
 .footer-download-links > a {
   padding: 8px 16px;
 }
@@ -545,7 +550,7 @@ img - auth-BOGlogo
   display: flex;
   flex-direction: row;
 }
-.footer-content{
+.footer-content {
   border-top: 1px solid rgba(246, 247, 248, 0.07);
 }
 
@@ -1243,7 +1248,6 @@ img - auth-BOGlogo
   transform: translateY(-50%) translateX(var(--sidebar-width));
 }
 
-
 /* dashboard burger */
 .dashboard-burger-menu {
   display: none;
@@ -1292,7 +1296,79 @@ img - auth-BOGlogo
   flex-grow: 1;
 }
 
-/************ HEADER RESPONSIVE ************/
+.dashboard-pages {
+  background-color: var(--dashboard-background-color);
+}
+/* *********************MAIN PAGE********************************* */
+
+.main-page-title-total-amount {
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+}
+.main-page-balance-value,
+.main-page-balance-currency {
+  color: var(--text-primary);
+  font-weight: bold;
+  line-height: 1.4em;
+  font-size: 2rem;
+}
+.main-page-balance {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.main-page-balance-value.hidden {
+  font-size: 0.625rem;
+  letter-spacing: 0.4em;
+  text-align: center;
+}
+.main-page-balance-currency.active-link {
+  margin-left: 4px;
+}
+.main-page-visibility-toggle {
+  border: none;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.main-page-visibility-toggle:hover {
+  background-color: var(--dashboard-components-icons-background-hover);
+}
+.main-page-visibility-toggle:active {
+  background-color: var(--dashboard-components-icons-background-onclick);
+}
+.visibility-icon {
+  color: var(--icon-secondary);
+  flex-shrink: 0;
+}
+.main-page-balance-bottom {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.main-page-top-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 17px;
+}
+.main-page-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashboard-customization{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8px;
+}
+/************ RESPONSIVE ************/
 @media only screen and (max-width: 1250px) {
   .dashboard-header-left > h2 {
     display: none;
