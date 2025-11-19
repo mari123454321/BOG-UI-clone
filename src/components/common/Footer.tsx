@@ -4,18 +4,20 @@ import linkedIn from "../../images/linkedInIcon.png"
 import youtube from "../../images/youtubeIcon.png"
 import { footerInfo } from "../../info/info"
 import { useLanguage } from "../../context/LanguageContext"
+import { useDarkMode } from "../../context/DarkModeContext"
 
 export default function Footer(){
+    const {darkMode} = useDarkMode()
     const currentLanguage = useLanguage().language
     const translatedInfo = footerInfo[currentLanguage]
     return(
         <footer>
-            <div className="footer-content">
-                <div className="footer-top-text">
+            <div className={`footer-content ${darkMode ? "dark" : ""}`}>
+                <div className={`footer-top-text ${darkMode ? "dark" : ""}`}>
                     {translatedInfo.topText}
                 </div>
                 <div className="footer-quick-links-container">
-                    <ul className="footer-quick-links">
+                    <ul className={`footer-quick-links ${darkMode ? "dark" : ""}`}>
                         <li><a href="https://conditions.bog.ge/ka/main" target="_blank" rel="noopener noreferrer">{translatedInfo.quickLinks.conditions}</a></li>
                         <li><a href="https://bankofgeorgia.ge/ka/official-message" target="_blank" rel="noopener noreferrer">{translatedInfo.quickLinks.messages}</a></li>
                         <li><a href="https://bankofgeorgia.ge/ka/anonymous-contact" target="_blank" rel="noopener noreferrer">{translatedInfo.quickLinks.hotLine}</a></li>
@@ -30,8 +32,8 @@ export default function Footer(){
                     <a href="https://www.linkedin.com/company/bank-of-georgia" target="_blank" rel="noopener noreferrer"><img src={linkedIn} alt="linkedIn" /></a>
                 </div>
                 <div className="footer-download-links">
-                    <a href="https://play.google.com/store/apps/details?id=ge.bog.mobilebank" target="_blank" rel="noopener noreferrer"><img src="https://ibank.bog.ge/assets/images/stores/google.svg" alt="PlayStore" /></a>
-                    <a href="https://apps.apple.com/us/app/bank-of-georgia/id1159368231" target="_blank" rel="noopener noreferrer"><img src="https://ibank.bog.ge/assets/images/stores/apple.svg" alt="AppStore" /></a>
+                    <a href="https://play.google.com/store/apps/details?id=ge.bog.mobilebank" target="_blank" rel="noopener noreferrer"><img src={!darkMode ? "https://ibank.bog.ge/assets/images/stores/google.svg" : "https://ibank.bog.ge/assets/images/stores/google-white-text.svg"} alt="PlayStore" /></a>
+                    <a href="https://apps.apple.com/us/app/bank-of-georgia/id1159368231" target="_blank" rel="noopener noreferrer"><img src={!darkMode ? "https://ibank.bog.ge/assets/images/stores/apple.svg" : "https://ibank.bog.ge/assets/images/stores/apple-white-text.svg"} alt="AppStore" /></a>
                 </div>
             </div>
         </footer>
