@@ -1473,3 +1473,19 @@ img - auth-BOGlogo
 }
 @media (max-width: 600px) {
 }
+
+@media (min-width: 1024px) {
+  .main-page-cards-container {
+    columns: 2;
+    column-gap: 1.5rem;
+  }
+}
+
+.card {
+  break-inside: avoid;
+  margin-bottom: 22px;
+  display: flex;
+  /* flex-grow: 1; */
+  width: 100%;
+  border: solid 5px green;
+}

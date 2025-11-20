@@ -21,7 +21,6 @@ export type MainPageTopType = {
   };
 };
 
-
 export const mainPageTop: MainPageTopType = {
   Geo: {
     title: "სულ ხელმისაწვდომი თანხა",
@@ -51,4 +50,39 @@ export const currencySymbol: Record<Currency, string> = {
   dollar: "$",
   euro: "€",
   pound: "£",
+};
+
+// ACCOUNTS AND CARDS
+export type AccountsCardsInfoType = {
+  Geo: {
+    title: string;
+    name: string;
+    currency: string;
+    amount: string;
+    universalAccount: string;
+  };
+  Eng: {
+    title: string;
+    name: string;
+    currency: string;
+    amount: string;
+    universalAccount: string;
+  };
+};
+
+export const accountsCardsInfo: AccountsCardsInfoType = {
+  Geo: {
+    title: "ანგარიშები და ბარათები",
+    name: "სახელი",
+    currency: "ვალუტა",
+    amount: "თანხა",
+    universalAccount: "უნივერსალური ანგარიში",
+  },
+  Eng: {
+    title: "ACCOUNTS AND CARDS",
+    name: "NAME",
+    currency: "CURRENCY",
+    amount: "AMOUNT",
+    universalAccount: "UNIVERSAL ACCOUNT",
+  },
 };
