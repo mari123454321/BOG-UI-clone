@@ -868,6 +868,9 @@ img - auth-BOGlogo
   padding: 4px;
   border: none;
 }
+.dashboard-header-right-profile.eng{
+  width:220px;
+}
 .dashboard-header-right-profile:hover {
   background-color: var(--dashboard-profile-hover);
   .dashboard-header-right-arrow {
@@ -886,6 +889,11 @@ img - auth-BOGlogo
   font-size: 0.8rem;
   color: white;
   line-height: 1.4em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  padding-left: 6px;
+  padding-right: 8px;
 }
 .dashboard-header-icon-wrapper {
   width: 32px;
@@ -895,6 +903,7 @@ img - auth-BOGlogo
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
 }
 
 .dashboard-header-right-arrow {
@@ -1070,6 +1079,7 @@ img - auth-BOGlogo
   padding-left: 24px;
   margin-right: auto;
   height: 40px;
+  cursor: pointer;
 }
 .dropdown-profile-options-wrapper {
   display: flex;
@@ -1319,7 +1329,7 @@ img - auth-BOGlogo
 }
 .main-page-balance-value.hidden {
   font-size: 0.625rem;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.9em;
   text-align: center;
 }
 .main-page-balance-currency.active-link {
@@ -1367,6 +1377,10 @@ img - auth-BOGlogo
   flex-direction: row;
   justify-content: space-between;
   gap: 8px;
+}
+.dashboard-customization-title{
+  font-size: 0.8rem;
+  font-weight: 500 ;
 }
 /************ RESPONSIVE ************/
 @media only screen and (max-width: 1250px) {

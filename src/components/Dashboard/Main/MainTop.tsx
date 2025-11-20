@@ -41,7 +41,7 @@ export default function MainTop({ mainPageTop, isCurrencyVisible, setIsCurrencyV
                     <span 
                         style={{color:"#ff5c0a"}}
                         className="dashboard-customization-title">
-                        {currentLanguage.rearrangeSectionsTitle}'
+                        {currentLanguage.rearrangeSectionsTitle}
                     </span>
                 </div>
             </div>

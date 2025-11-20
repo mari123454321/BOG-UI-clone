@@ -11,6 +11,9 @@ export default function Main() {
     return (
         <main className="">
             <MainTop mainPageTop = {mainPageTop} isCurrencyVisible={isCurrencyVisible} setIsCurrencyVisible={setIsCurrencyVisible} currency="lari" />
+            <div className="main-page-cards-container">
+                
+            </div>
         </main>
     )
 

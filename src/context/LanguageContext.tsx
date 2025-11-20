@@ -15,9 +15,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useLocalStorage<lang>("language", "Geo")
   function changeLanguage(): void {
     if (language === "Geo") {
-      () => setLanguage("Eng")
+      setLanguage("Eng")
     } else {
-      () => setLanguage("Eng")
+      setLanguage("Geo")
     }
   }
 
