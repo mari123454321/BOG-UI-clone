@@ -1415,6 +1415,7 @@ img - auth-BOGlogo
 
 .main-page-cards-header {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   padding: 24px 24px 12px 24px;
   max-height: 80px;
@@ -1508,12 +1509,79 @@ td:last-child {
   box-sizing: border-box;
   flex-grow: 0;
 }
-.main-page-account-card-currencies{
+.main-page-account-card-currencies {
   display: flex;
   flex-direction: row;
   gap: 4px;
 }
+/* Loyalty card */
+.main-page-cards-header .loyalty {
+  align-items: center;
+}
+.layalty-card-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.loyalty-card-body {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  align-items: start;
+  gap: 12px;
+  margin: 0px 24px 40px 24px;
+}
+.loyalty-card-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.loyalty-card-plus-points.hidden {
+  font-size: 0.3rem;
+  letter-spacing: 0.77em;
+  text-align: center;
+  color: var(--text-primary);
+}
 
+.loyalty-card-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: start;
+}
+.loyalty-card-amount.hidden {
+  font-size: 0.27rem;
+  letter-spacing: 0.77em;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.loyalty-card-currency {
+  color: var(--text-secondary);
+  margin-left: 4px;
+}
+.loyalty-card-plus-points-in-curency {
+  background-color: var(--sidebar-active-background);
+  border-radius: 100px;
+  align-items: center;
+  padding: 0 12px;
+  height: 18px;
+  width: fit-content;
+}
+.loyalty-card-plus-points {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+.loyalty-card-amount {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+.loyalty-card-currency {
+  font-size: 0.75rem;  
+}
 /************ RESPONSIVE ************/
 @media only screen and (max-width: 1250px) {
   .dashboard-header-left > h2 {

@@ -90,3 +90,36 @@ export const accountsCardsInfo: AccountsCardsInfoType = {
     img: "../../images/PINKCARD.png"
   },
 };
+
+
+// LOYALTY
+export type LoyaltyText = {
+  title: string;
+  plusPoints: string;
+};
+
+export type LoyaltyNumbers = {
+  plusPoints: number;
+  plusPointsInLari: number;
+};
+
+export type LoyaltyInfoType = {
+  Geo: LoyaltyText;
+  Eng: LoyaltyText;
+  info: LoyaltyNumbers;
+};
+
+export const loyaltyInfo: LoyaltyInfoType = {
+  Geo: {
+    title: "ლოიალურობა",
+    plusPoints: "PLUS ქულები",
+  },
+  Eng: {
+    title: "LOYALTY PROGRAMS",
+    plusPoints: "PLUS POINTS",
+  },
+  info: {
+    plusPoints: 266,
+    plusPointsInLari: 0.66,
+  }
+};

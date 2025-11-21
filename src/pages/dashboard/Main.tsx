@@ -3,6 +3,7 @@ import { mainPageTop, type Currency } from "../../info/dashboard/MainPageInfo"
 import MainTop from "../../components/Dashboard/Main/MainTop"
 import { useState } from "react"
 import AccountsAndCardsCard from "../../components/Dashboard/Main/AccountsAndCardsCard"
+import LoyaltyCard from "../../components/Dashboard/Main/LoyaltyCard"
 
 export default function Main() {
     const {language} = useLanguage()
@@ -15,6 +16,7 @@ export default function Main() {
             <MainTop mainPageTop = {mainPageTop} isCurrencyVisible={isCurrencyVisible} setIsCurrencyVisible={setIsCurrencyVisible} currency={currency} />
             <div className="main-page-cards-container">
                 <AccountsAndCardsCard currency={currency} isCurrencyVisible={isCurrencyVisible} amountNum = {currentLanguage.amount[currency]}/>
+                <LoyaltyCard />
             </div>
         </main>
     )

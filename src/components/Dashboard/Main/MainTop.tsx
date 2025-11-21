@@ -2,6 +2,7 @@ import { Eye, EyeOff, LayoutDashboard } from "lucide-react"
 import { useLanguage } from "../../../context/LanguageContext"
 import { currencySymbol, type Currency, type MainPageTopType } from "../../../info/dashboard/MainPageInfo"
 import { useDarkMode } from "../../../context/DarkModeContext"
+import VisibilityIcon from "./VisibilityIcon"
 type MainTopProps = {
     mainPageTop: MainPageTopType
     isCurrencyVisible: boolean
@@ -27,12 +28,7 @@ export default function MainTop({ mainPageTop, isCurrencyVisible, setIsCurrencyV
                             {currencySymbol[currency]}
                         </span>
                     </div>
-                    <button
-                        className={`main-page-visibility-toggle ${darkMode ? "dark" : ""}`}
-                        onClick={()=>setIsCurrencyVisible(prev=>!prev)}
-                    >
-                        {isCurrencyVisible ? <Eye className="visibility-icon" width={16} height={16}/> : <EyeOff className="visibility-icon" width={16} height={16} />}
-                    </button>
+                    <VisibilityIcon isVisible={isCurrencyVisible} setIsVisible={setIsCurrencyVisible}/>
                 </div>
             </div>
             <div className="main-page-top-right">
