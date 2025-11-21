@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import url(https://db.onlinewebfonts.com/c/2211f33c5285ef3978e258240b60637b?family=Mark+GEO);
 
-
 :root {
   --main-color: #ff5c0a;
   --dashboard-background-color: #f4f4f4;
@@ -1403,7 +1402,6 @@ img - auth-BOGlogo
 }
 
 .main-page-cards .accounts {
-  min-height: 118px;
   display: flex;
   flex-direction: column;
 }
@@ -1415,16 +1413,67 @@ img - auth-BOGlogo
 .main-page-cards-header {
   display: flex;
   justify-content: space-between;
-  padding: 24px 24px 12px;
+  padding: 24px 24px 12px 24px;
   max-height: 80px;
   min-height: 64px;
   box-sizing: border-box;
 }
 .main-page-cards-title {
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   font-size: 1rem;
+  color: var(--text-primary);
 }
+.main-page-account-card-table-titles {
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding: 0px 24px;
+}
+.main-page-account-card-table-subtitle {
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.main-page-account-card-table-contents {
+  padding: 0px 24px;
+}
+.main-page-account-card-table {
+  border-bottom: 1px solid var(--dashboard-components-border);
+}
+.main-page-account-card-table-rows {
+  height: 48px;
+}
+
+.main-page-account-card-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.main-page-account-card-table tr {
+  width: 100%;
+}
+
+.main-page-account-card-table td {
+  padding: 12px 24px;
+  vertical-align: middle;
+  width: 33.33%;
+}
+
+.main-page-balance-value-accounts-and-cards,
+.main-page-balance-currency-accounts-and-cards {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-weight: bold;
+  line-height: 1.4em;
+}
+.main-page-balance-value-accounts-and-cards.hidden {
+  font-size: 0.4rem;
+  letter-spacing: 0.8em;
+  text-align: center;
+}
+
 /************ RESPONSIVE ************/
 @media only screen and (max-width: 1250px) {
   .dashboard-header-left > h2 {
