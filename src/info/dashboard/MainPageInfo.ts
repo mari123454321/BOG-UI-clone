@@ -60,6 +60,7 @@ export type AccountsCardsInfoType = {
     currency: string;
     amount: string;
     universalAccount: string;
+    img: string
   };
   Eng: {
     title: string;
@@ -67,6 +68,7 @@ export type AccountsCardsInfoType = {
     currency: string;
     amount: string;
     universalAccount: string;
+    img: string
   };
 };
 
@@ -77,6 +79,7 @@ export const accountsCardsInfo: AccountsCardsInfoType = {
     currency: "ვალუტა",
     amount: "თანხა",
     universalAccount: "უნივერსალური ანგარიში",
+    img: "../../images/PINKCARD.png"
   },
   Eng: {
     title: "ACCOUNTS AND CARDS",
@@ -84,5 +87,6 @@ export const accountsCardsInfo: AccountsCardsInfoType = {
     currency: "CURRENCY",
     amount: "AMOUNT",
     universalAccount: "UNIVERSAL ACCOUNT",
+    img: "../../images/PINKCARD.png"
   },
 };

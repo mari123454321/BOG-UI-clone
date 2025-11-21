@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import url(https://db.onlinewebfonts.com/c/2211f33c5285ef3978e258240b60637b?family=Mark+GEO);
 
+
 :root {
   --main-color: #ff5c0a;
   --dashboard-background-color: #f4f4f4;
@@ -868,8 +869,8 @@ img - auth-BOGlogo
   padding: 4px;
   border: none;
 }
-.dashboard-header-right-profile.eng{
-  width:220px;
+.dashboard-header-right-profile.eng {
+  width: 220px;
 }
 .dashboard-header-right-profile:hover {
   background-color: var(--dashboard-profile-hover);
@@ -891,7 +892,7 @@ img - auth-BOGlogo
   line-height: 1.4em;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   padding-left: 6px;
   padding-right: 8px;
 }
@@ -1372,15 +1373,57 @@ img - auth-BOGlogo
   justify-content: space-between;
   align-items: center;
 }
-.dashboard-customization{
+.dashboard-customization {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 8px;
 }
-.dashboard-customization-title{
+.dashboard-customization-title {
   font-size: 0.8rem;
-  font-weight: 500 ;
+  font-weight: 500;
+}
+
+/* **********************CARDS AND ACCOUNTS************************* */
+.main-page-cards {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  background-color: var(--dashboard-components-background-color);
+  border-radius: 12px;
+  margin-bottom: 18px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid;
+}
+@media (min-width: 1024px) {
+  .main-page-cards-container {
+    columns: 2;
+    column-gap: 23px;
+  }
+}
+
+.main-page-cards .accounts {
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+}
+/* .main-page-account-card-table {
+  display: flex;
+  flex-direction: column;
+} */
+
+.main-page-cards-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 24px 12px;
+  max-height: 80px;
+  min-height: 64px;
+  box-sizing: border-box;
+}
+.main-page-cards-title {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 1rem;
 }
 /************ RESPONSIVE ************/
 @media only screen and (max-width: 1250px) {
@@ -1472,20 +1515,4 @@ img - auth-BOGlogo
   }
 }
 @media (max-width: 600px) {
-}
-
-@media (min-width: 1024px) {
-  .main-page-cards-container {
-    columns: 2;
-    column-gap: 1.5rem;
-  }
-}
-
-.card {
-  break-inside: avoid;
-  margin-bottom: 22px;
-  display: flex;
-  /* flex-grow: 1; */
-  width: 100%;
-  border: solid 5px green;
 }
