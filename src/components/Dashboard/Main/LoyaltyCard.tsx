@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { useDarkMode } from "../../../context/DarkModeContext"
 import { useLanguage } from "../../../context/LanguageContext"
-import { currencySymbol, loyaltyInfo } from "../../../info/dashboard/MainPageInfo"
+import { currencySymbol, loyaltyInfo } from "../../../info/dashboard/MainPageInfo.tsx"
 import VisibilityIcon from "./VisibilityIcon"
+import { useNavigate } from "react-router-dom"
 
 export default function LoyaltyCard() {
+    const navigate = useNavigate()
     const { darkMode } = useDarkMode()
     const { language } = useLanguage()
     const currentLanguage = loyaltyInfo[language]
@@ -17,7 +19,9 @@ export default function LoyaltyCard() {
                 </h2>
                 <VisibilityIcon isVisible={plusPointsVisible} setIsVisible={setPlusPointsVisible} fill={true} />
             </header>
-            <div className="loyalty-card-body">
+            <div
+                onClick={()=>navigate("more/loyalty-programs")}
+                className="loyalty-card-body">
                 <img src="https://ibank.bog.ge/assets/images/bonus_programs/plus-v3.png" alt="plus points image" className="layalty-card-img" />
                 <div className="loyalty-card-right">
                     <h3 className={`loyalty-card-title ${darkMode ? "dark" : ""}`}>

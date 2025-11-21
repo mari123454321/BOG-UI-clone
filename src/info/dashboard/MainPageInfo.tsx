@@ -1,3 +1,5 @@
+import type { JSX } from "react";
+
 export type MainPageTopType = {
   Geo: {
     title: string;
@@ -123,3 +125,57 @@ export const loyaltyInfo: LoyaltyInfoType = {
     plusPointsInLari: 0.66,
   }
 };
+
+//my templates
+// TYPES
+export type TemplateItem = {
+  img: JSX.Element;
+  templateTitle: string;
+  type: string;
+};
+
+export type TemplatesInfoType = {
+  Geo: {
+    title: string;
+    mobilePayments: string;
+    more: string
+  };
+  Eng: {
+    title: string;
+    mobilePayments: string;
+    more: string
+
+  };
+  info: TemplateItem[];
+};
+
+// OBJECT
+export const myTemplatesInfo: TemplatesInfoType = {
+  Geo: {
+    title: "ჩემი შაბლონები",
+    mobilePayments: "მობილურზე ჩარიცხვა",
+    more: "მეტის ნახვა"
+  },
+  Eng: {
+    title: "MY TEMPLATES",
+    mobilePayments: "Mobile payments",
+    more: "Show more"
+  },
+  info: [
+    {
+      img: <img src="https://ibank.bog.ge/images/en/656327/A8354E47F358DF36B7238557E88B46CD/image.jpg" alt="magti" style={{width: "48px", height: "48px"}}/>,
+      templateTitle: "ულიმიტო ინტერნეტი დღე-ღამე",
+      type: "Mobile Top-Ups",
+    },
+    {
+      img: <img src="https://ibank.bog.ge/images/en/656327/A8354E47F358DF36B7238557E88B46CD/image.jpg" alt="magti" style={{width: "48px", height: "48px"}}/>,
+      templateTitle: "ულიმიტო",
+      type: "Mobile Top-Ups",
+    },{
+      img: <img src="https://ibank.bog.ge/images/en/656327/A8354E47F358DF36B7238557E88B46CD/image.jpg" alt="magti" style={{width: "48px", height: "48px"}}/>,
+      templateTitle: "ულიმიტო ინტერნეტი დღე-ღამე",
+      type: "Mobile Top-Ups",
+    }
+  ],
+};
+

@@ -1425,7 +1425,7 @@ img - auth-BOGlogo
 .main-page-cards-title {
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-primary);
 }
 .main-page-account-card-table-titles {
@@ -1582,6 +1582,12 @@ td:last-child {
 .loyalty-card-currency {
   font-size: 0.75rem;  
 }
+
+/* ****************My Templates**************** */
+.my-templates-card-body{
+  margin: 0 24px 24px 24px
+}
+
 /************ RESPONSIVE ************/
 @media only screen and (max-width: 1250px) {
   .dashboard-header-left > h2 {
