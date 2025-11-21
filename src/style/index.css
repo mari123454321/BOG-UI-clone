@@ -6,6 +6,7 @@
   --dashboard-background-color: #f4f4f4;
   --dashboard-components-background-color: #fcfcfc;
   --dashboard-components-background-color-hover: #e8e8e8;
+  --dashboard-components-background-color-click: #d3d3d3;
   --dashboard-components-icons-background: #ababab;
   --dashboard-components-icons-background-hover: #f3f4f4;
   --dashboard-components-icons-background-onclick: #e3e4e4;
@@ -45,6 +46,7 @@
   --dashboard-background-color: #191a1a;
   --dashboard-components-background-color: #252727;
   --dashboard-components-background-color-hover: #333536;
+  --dashboard-components-background-color-click: #444646;
   --dashboard-components-icons-background: #646666;
   --dashboard-components-icons-background-hover: #323434;
   --dashboard-components-icons-background-onclick: #3f4141;
@@ -1393,6 +1395,7 @@ img - auth-BOGlogo
   display: flex;
   flex-direction: column;
   break-inside: avoid;
+  overflow: hidden;
 }
 @media (min-width: 1024px) {
   .main-page-cards-container {
@@ -1445,7 +1448,6 @@ img - auth-BOGlogo
 .main-page-account-card-table-rows {
   height: 48px;
 }
-
 .main-page-account-card-table {
   width: 100%;
   border-collapse: collapse;
@@ -1456,9 +1458,12 @@ img - auth-BOGlogo
 }
 
 .main-page-account-card-table td {
-  padding: 12px 24px;
+  padding: 20px 24px;
   vertical-align: middle;
-  width: 33.33%;
+  width: 40%;
+}
+td:last-child {
+  width: 20%;
 }
 
 .main-page-balance-value-accounts-and-cards,
@@ -1472,6 +1477,41 @@ img - auth-BOGlogo
   font-size: 0.4rem;
   letter-spacing: 0.8em;
   text-align: center;
+}
+.card-name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.main-page-account-card-table-bottom {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.main-page-account-card-table-bottom:hover {
+  background-color: var(--dashboard-components-background-color-hover);
+}
+.main-page-account-card-table-bottom:active {
+  background-color: var(--dashboard-components-background-color-click);
+}
+
+.main-page-account-card-currency {
+  padding: 4px 8px;
+  border: 1px solid var(--text-secondary);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  flex-grow: 0;
+}
+.main-page-account-card-currencies{
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
 }
 
 /************ RESPONSIVE ************/
