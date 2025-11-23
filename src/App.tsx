@@ -6,10 +6,11 @@ import PageDoesNotExist from './pages/PageDoesNotExist';
 import DashboardLayout from './pages/dashboard/DashboardLayout';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import ComingSoon from "./pages/ComingSoon";
-import Main from "./pages/dashboard/Main";
+import Main from "./pages/dashboard/DashboardMain";
 import MySpace from "./pages/dashboard/MySpace";
 import useLocalStorage from "./hooks/useLocalStorage";
 import type { lang } from "./context/LanguageContext";
+import DashboardMain from "./pages/dashboard/DashboardMain";
 
 function App() {
   const [darkMode, setDarkMode] = useLocalStorage<boolean>("darkMode", false)
@@ -27,8 +28,8 @@ function App() {
       {/* sidebarInfo-დან შეიძლება map გამოიყენო რომ ხელით არ დაწერო route ყოველი გვერდის დამატებაზე  */}
       <Route element={<ProtectedRoute />}>
         <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route index element={<Main />} />
-          <Route path="main" element={<Main />} />
+          <Route index element={<DashboardMain />} />
+          <Route path="main" element={<DashboardMain />} />
           <Route path="my-space" element={<MySpace />} />
 
           <Route path="transfer/own-account" element={<ComingSoon />} />

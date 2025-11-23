@@ -37,6 +37,9 @@
   --sidebar-submenu-border: #d7d9db;
   --sidebar-submenu-border-hover: rgba(138, 142, 147, 1);
   --sidebar-active-link-background: #e3e4e4;
+  --circle-background-color: #6c70750f;
+  --cards-hover-color: #f1f2f3;
+  --cards-click-color: #e5e6e7;
 }
 .minimized {
   --sidebar-width: 64px;
@@ -74,6 +77,9 @@
   --sidebar-submenu-border-hover: #6c7075;
   --sidebar-active-link-background: #e3e4e4;
   --sidebar-active-link-background: #2e2f30;
+  --circle-background-color: #6c70750f;
+  --cards-hover-color: #2a2b2d;
+  --cards-click-color: #313335;
 }
 
 body {
@@ -1580,14 +1586,80 @@ td:last-child {
   font-size: 0.75rem;
 }
 .loyalty-card-currency {
-  font-size: 0.75rem;  
+  font-size: 0.75rem;
 }
 
 /* ****************My Templates**************** */
-.my-templates-card-body{
-  margin: 0 24px 24px 24px
+.card-body {
+  margin: 0 24px 24px 24px;
 }
-
+.card-item-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--circle-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.show-more-num {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1rem;
+}
+.card-item-title,
+.item-subtext {
+  color: var(--text-primary);
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-weight: 600;
+  line-height: 1.4em;
+  font-size: 0.875rem;
+}
+.card-item-subtext {
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-align: center;
+}
+.card-item-text {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2px;
+  justify-items: center;
+}
+.card-item {
+  display: grid;
+  grid-template-rows: 48px 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.card-body {
+  display: grid;
+  height: max-content;
+  grid-template-columns: repeat(4, 1fr);
+}
+.card-wrapper {
+  padding: 24px 16px;
+  max-width: 380px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.card-wrapper:hover {
+  background-color: var(--cards-hover-color);
+}
+.card-wrapper:active {
+  background-color: var(--cards-click-color);
+}
+.card-item-img {
+}
 /************ RESPONSIVE ************/
 @media only screen and (max-width: 1250px) {
   .dashboard-header-left > h2 {

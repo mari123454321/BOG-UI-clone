@@ -6,7 +6,7 @@ import AccountsAndCardsCard from "../../components/Dashboard/Main/AccountsAndCar
 import LoyaltyCard from "../../components/Dashboard/Main/LoyaltyCard"
 import MyTemplatesCard from "../../components/Dashboard/Main/MyTemplatesCard"
 
-export default function Main() {
+export default function DashboardMain() {
     const {language} = useLanguage()
     const currentLanguage = mainPageTop[language]
     const [isCurrencyVisible, setIsCurrencyVisible] = useState(true) 
