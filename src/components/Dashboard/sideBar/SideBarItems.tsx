@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 import type { SidebarItem as SidebarItemType } from "../../../info/dashboard/sidebarInfo"
 import { useDarkMode } from "../../../context/DarkModeContext"
+import { ChevronRight } from "lucide-react"
 
 type Props = {
     item: SidebarItemType
@@ -13,11 +14,14 @@ type Props = {
 export default function SidebarItem({ item, sidebarOpen }: Props) {
     const { darkMode } = useDarkMode()
     const [submenuOpen, setSubmenuOpen] = useState(false)
-
-
     const hasSubmenu = Boolean(item.submenu)
-    const chevronRightIcon = (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="m9 18 6-6-6-6" /></svg>);
+    const location = useLocation()
+    const pathname = location.pathname
 
+    const isSubmenuActive = (
+        hasSubmenu && item.submenu!.some(sub =>
+            pathname.includes(`/${sub.path}`)
+        ))
     return (
         <li className="sidebar-item">
             {!item.submenu && item.path ? <NavLink
@@ -32,12 +36,12 @@ export default function SidebarItem({ item, sidebarOpen }: Props) {
                 </div>
 
                 <span className={`sidebar-arrow ${submenuOpen ? "open" : ""} ${darkMode && "dark"} `}>
-                    {chevronRightIcon}
+                    <ChevronRight width={16} height={16} />
                 </span>
 
             </NavLink> :
                 <button
-                    className={`sidebar-button ${darkMode && "dark"}`}
+                    className={`sidebar-button ${darkMode && "dark"} ${isSubmenuActive ? "dashboard-sidebar-active-link-button" : ""}`}
                     onClick={() => hasSubmenu && setSubmenuOpen(prev => !prev)}
                 >
                     <div className="sidebar-right">
@@ -47,7 +51,7 @@ export default function SidebarItem({ item, sidebarOpen }: Props) {
 
 
                     <span className={`sidebar-arrow ${submenuOpen ? "open" : ""} ${darkMode && "dark"} has-submenu`}>
-                        {chevronRightIcon}
+                        <ChevronRight width={16} height={16} className="icon-primary"/>
                     </span>
 
                 </button>

@@ -5,6 +5,7 @@ import { useState } from "react"
 import AccountsAndCardsCard from "../../components/Dashboard/Main/AccountsAndCardsCard"
 import LoyaltyCard from "../../components/Dashboard/Main/LoyaltyCard"
 import MyTemplatesCard from "../../components/Dashboard/Main/MyTemplatesCard"
+import ContactsCard from "../../components/Dashboard/Main/ContactsCard"
 
 export default function DashboardMain() {
     const {language} = useLanguage()
@@ -17,8 +18,14 @@ export default function DashboardMain() {
             <MainTop mainPageTop = {mainPageTop} isCurrencyVisible={isCurrencyVisible} setIsCurrencyVisible={setIsCurrencyVisible} currency={currency} />
             <div className="main-page-cards-container">
                 <AccountsAndCardsCard currency={currency} isCurrencyVisible={isCurrencyVisible} amountNum = {currentLanguage.amount[currency]}/>
-                <MyTemplatesCard />
                 <LoyaltyCard />
+                <MyTemplatesCard />
+                <ContactsCard/>
+
+                <AccountsAndCardsCard currency={currency} isCurrencyVisible={isCurrencyVisible} amountNum = {currentLanguage.amount[currency]}/>
+                <LoyaltyCard />
+                <MyTemplatesCard />
+                <ContactsCard/>
             </div>
         </main>
     )

@@ -36,6 +36,7 @@
   --border-strong: #1b1c1d;
   --sidebar-submenu-border: #d7d9db;
   --sidebar-submenu-border-hover: rgba(138, 142, 147, 1);
+  --sidebar-submenu-border-focus: #1b1c1d;
   --sidebar-active-link-background: #e3e4e4;
   --circle-background-color: #6c70750f;
   --cards-hover-color: #f1f2f3;
@@ -75,13 +76,21 @@
   --border-strong: #f4f4f4;
   --sidebar-submenu-border: #515457;
   --sidebar-submenu-border-hover: #6c7075;
+  --sidebar-submenu-border-focus: white;
   --sidebar-active-link-background: #e3e4e4;
   --sidebar-active-link-background: #2e2f30;
   --circle-background-color: #6c70750f;
   --cards-hover-color: #2a2b2d;
   --cards-click-color: #313335;
 }
-
+.icon-primary {
+  color: var(--icon-primary);
+}
+.main-page-cards-imgs {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
 body {
   font-family: "Mark GEO", inter, sans-serif;
   background-color: #f4f4f4;
@@ -468,6 +477,7 @@ img - auth-BOGlogo
     overflow: hidden;
     position: sticky;
     top: 0;
+    
   }
 
   .login-right img {
@@ -1110,6 +1120,7 @@ img - auth-BOGlogo
   margin-top: 72px;
   width: 100%;
   --app-content-width: calc(100% - var(--dashboard-navbar-width));
+  
 }
 .sidebar-nav-wrapper {
   position: sticky;
@@ -1175,6 +1186,7 @@ img - auth-BOGlogo
   height: 40px;
   background-color: var(--dashboard-sidebar-background);
 }
+
 .sidebar-button:hover,
 .sidebar-navlink:hover {
   background-color: var(--sidebar-active-background);
@@ -1299,7 +1311,15 @@ img - auth-BOGlogo
 .appears-1024px {
   display: none;
 }
-
+.dashboard-sidebar-active-link-button .sidebar-icon {
+  color: var(--icon-primary);
+}
+.dashboard-sidebar-active-link-button {
+  background-color: var(--sidebar-active-link-background);
+}
+.dashboard-submenu-active-link {
+  border-left-color: var(--sidebar-submenu-border-focus);
+}
 /***************** DASHBOARD PAGES/CONTENTs *****************/
 .dashboard-pages {
   display: flex;
@@ -1651,6 +1671,7 @@ td:last-child {
   max-width: 380px;
   border-radius: 12px;
   cursor: pointer;
+  min-height: 130px;
 }
 .card-wrapper:hover {
   background-color: var(--cards-hover-color);

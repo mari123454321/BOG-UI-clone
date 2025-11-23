@@ -127,7 +127,7 @@ export const loyaltyInfo: LoyaltyInfoType = {
 };
 
 //my templates
-// TYPES
+
 export type TemplateItem = {
   img: JSX.Element;
   templateTitle: string;
@@ -149,7 +149,7 @@ export type TemplatesInfoType = {
   info: TemplateItem[];
 };
 
-// OBJECT
+
 export const myTemplatesInfo: TemplatesInfoType = {
   Geo: {
     title: "ჩემი შაბლონები",
@@ -163,7 +163,7 @@ export const myTemplatesInfo: TemplatesInfoType = {
   },
   info: [
     {
-      img: <img src="https://ibank.bog.ge/images/en/656327/A8354E47F358DF36B7238557E88B46CD/image.jpg" alt="magti" style={{ width: "48px", height: "48px", borderRadius: "50%" }} />,
+      img: <img src="https://ibank.bog.ge/images/en/656327/A8354E47F358DF36B7238557E88B46CD/image.jpg" alt="magti" style={{ width: "48px", height: "48px", borderRadius: "50%" }} className="main-page-cards-imgs" />,
       templateTitle: "ულიმიტო ინტერნეტი დღე-ღამე",
       type: "Mobile Top-Ups",
     },
