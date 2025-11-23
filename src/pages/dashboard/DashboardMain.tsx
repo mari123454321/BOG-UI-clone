@@ -22,10 +22,7 @@ export default function DashboardMain() {
                 <MyTemplatesCard />
                 <ContactsCard/>
 
-                <AccountsAndCardsCard currency={currency} isCurrencyVisible={isCurrencyVisible} amountNum = {currentLanguage.amount[currency]}/>
-                <LoyaltyCard />
-                <MyTemplatesCard />
-                <ContactsCard/>
+                
             </div>
         </main>
     )

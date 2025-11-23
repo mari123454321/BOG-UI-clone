@@ -13,9 +13,7 @@ export default function DashboardLayout() {
         <>
             <DashboardHeader sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
             <div className="dashboard-content">
-                <div className="sidebar-wrapper">
                     <DashboardSideBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-                </div>
                 <div className={`dashboard-pages ${darkMode ? "dark" : ""}`}>
                     <div className={`dashboard-outlet ${darkMode ? "dark" : ""}`}>
                         <Outlet />

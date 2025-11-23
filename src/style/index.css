@@ -1137,7 +1137,9 @@ img - auth-BOGlogo
   text-wrap: nowrap;
   height: calc(100vh - 72px);
 }
-
+.sidebar-wrapper{
+  
+}
 /* .sidebar-nav.minimized,
 .sidebar-toggle-arrow.minimized {
   transition: 300ms ease-in-out;
