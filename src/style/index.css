@@ -1105,7 +1105,7 @@ img - auth-BOGlogo
   cursor: pointer;
   width: 360px;
 }
-.dropdown-profile-options-lang{
+.dropdown-profile-options-lang {
   margin-right: 24px;
 }
 .dropdown-profile-options-wrapper {
@@ -1824,12 +1824,37 @@ td:last-child {
   padding: 16px 24px;
   border-top: var(--dashboard-components-border);
 }
-.my-space-card-img{
+.my-space-card-img {
   width: 40px;
   height: 24px;
   border-radius: 4px;
+  margin-bottom: 6px;
 }
-
+.accounts-and-cards-card-my-space-right > img {
+  width: 86px;
+  height: 64px;
+}
+.accounts-and-cards-card-my-space-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.accounts-and-cards-card-my-space-amount {
+  margin-top: 4px;
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  line-height: 36px;
+  font-weight: bold;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+.accounts-and-cards-card-my-space {
+  padding: 24px;
+  box-sizing: border-box;
+}
 /************ RESPONSIVE ************/
 @media only screen and (max-width: 1250px) {
   .dashboard-header-left > h2 {

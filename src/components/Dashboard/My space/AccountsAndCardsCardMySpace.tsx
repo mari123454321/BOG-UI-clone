@@ -1,6 +1,7 @@
 import { useDarkMode } from "../../../context/DarkModeContext";
 import { useLanguage } from "../../../context/LanguageContext";
-import type { Currency } from "../../../info/dashboard/MainPageInfo";
+import CardsAndAccountsRightImgDark from "../../../images/mySpaceCardsAndAccountsDark.png";
+import CardsAndAccountsRightImgLight from "../../../images/mySpaceCardsAndAccountsLightDark.png";
 
 type PropsType = {
     ammount: number
@@ -12,22 +13,26 @@ export default function AccountsAndCardsCardMySpace({ ammount, currency }: Props
 
 
     return (
-        <section className="dashboard-cards">
-            <header className="dashboard-cards-header loyalty">
-                <h2 className={`dashboard-cards-title ${darkMode ? "dark" : ""}`}>
-                    {language === "Geo" ? "ანგარიშები და ბარათები" : "ACCOUNTS AND CARDS"}
-                </h2>
-            </header>
+        <section className="dashboard-cards accounts-and-cards-card-my-space">
             <div className="accounts-and-cards-card-my-space-body">
-                <div className="accounts-and-cards-card-my-space-amount">
-                    <span className={`accounts-and-cards-card-my-space-amount-num ${darkMode ? "dark" : ""}`}>
-                        {ammount}
-                    </span>
-                    <span className={`accounts-and-cards-card-my-space-amount-currency ${darkMode ? "dark" : ""}`}>
-                        {currency}
-                    </span>
+                <div className="accounts-and-cards-card-my-space-left">
+                    <h2 className={`dashboard-cards-title ${darkMode ? "dark" : ""}`}>
+                        {language === "Geo" ? "ანგარიშები და ბარათები" : "ACCOUNTS AND CARDS"}
+                    </h2>
+                    <div className="accounts-and-cards-card-my-space-amount">
+                        <span className={`accounts-and-cards-card-my-space-amount-num ${darkMode ? "dark" : ""}`}>
+                            {ammount}
+                        </span>
+                        <span className={`accounts-and-cards-card-my-space-amount-currency ${darkMode ? "dark" : ""}`}>
+                            {currency}
+                        </span>
+                    </div>
+                    <img src="https://ibank.bog.ge/assets/images/cards/backgrounds/card_gradient_shekvetili/4.png" alt="card image" className="my-space-card-img" />
                 </div>
-                <img src="https://ibank.bog.ge/assets/images/cards/backgrounds/card_gradient_shekvetili/4.png" alt="card image" className="my-space-card-img" />
+                <div className="accounts-and-cards-card-my-space-right">
+                    <img src={darkMode ? CardsAndAccountsRightImgDark : CardsAndAccountsRightImgLight} alt="card image" />
+                </div>
+
             </div>
         </section>
     )
