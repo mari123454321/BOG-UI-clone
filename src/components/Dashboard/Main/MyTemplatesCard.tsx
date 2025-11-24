@@ -47,9 +47,9 @@ export default function MyTemplatesCard() {
         }
     }
     return (
-        <section className="main-page-cards">
-            <header className="main-page-cards-header loyalty">
-                <h2 className={`main-page-cards-title ${darkMode ? "dark" : ""}`}>
+        <section className="dashboard-cards">
+            <header className="dashboard-cards-header loyalty">
+                <h2 className={`dashboard-cards-title ${darkMode ? "dark" : ""}`}>
                     {currentLanguage.title}
                 </h2>
             </header>

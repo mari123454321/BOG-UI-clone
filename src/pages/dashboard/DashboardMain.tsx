@@ -17,7 +17,7 @@ export default function DashboardMain() {
     return (
         <main className="">
             <MainTop mainPageTop = {mainPageTop} isCurrencyVisible={isCurrencyVisible} setIsCurrencyVisible={setIsCurrencyVisible} currency={currency} />
-            <div className="main-page-cards-container">
+            <div className="cards-container main-page">
                 <AccountsAndCardsCard currency={currency} isCurrencyVisible={isCurrencyVisible} amountNum = {currentLanguage.amount[currency]}/>
                 <TransactionsCard />
                 <MyTemplatesCard />

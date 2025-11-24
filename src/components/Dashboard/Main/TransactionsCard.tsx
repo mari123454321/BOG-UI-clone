@@ -13,9 +13,9 @@ export default function TransactionsCard() {
     const transactionIcon = categoryIcons
     // onClick={()=>navigate("transactions")}
     return (
-        <section className="main-page-cards">
-            <header className="main-page-cards-header">
-                <h2 className={`main-page-cards-title ${darkMode ? "dark" : ""}`}>
+        <section className="dashboard-cards">
+            <header className="dashboard-cards-header">
+                <h2 className={`dashboard-cards-title ${darkMode ? "dark" : ""}`}>
                     {language === "Geo" ? "ბოლო ტრანზაქციები" : "LAST TRANSACTIONS"}
                 </h2>
             </header>

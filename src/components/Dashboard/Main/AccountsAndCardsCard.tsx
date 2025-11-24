@@ -15,10 +15,10 @@ export default function AccountsAndCardsCard({ currency, isCurrencyVisible, amou
     const navigate = useNavigate()
     const currentLanguage = accountsCardsInfo[language]
     return (
-        <section className="main-page-cards">
-            <header className="main-page-cards-header accounts">
-                <h2 className={`main-page-cards-title accounts ${darkMode ? "dark" : ""}`}>
-                    {currentLanguage.title}
+        <section className="dashboard-cards">
+            <header className="dashboard-cards-header accounts">
+                <h2 className={`dashboard-cards-title accounts ${darkMode ? "dark" : ""}`}>
+                    {language === "Geo" ? "ანგარიშები და ბარათები" : "ACCOUNTS AND CARDS"}
                 </h2>
             </header>
             <table className="main-page-account-card-table">

@@ -163,7 +163,7 @@ export const myTemplatesInfo: TemplatesInfoType = {
   },
   info: [
     {
-      img: <img src="https://ibank.bog.ge/images/en/656327/A8354E47F358DF36B7238557E88B46CD/image.jpg" alt="magti" style={{ width: "48px", height: "48px", borderRadius: "50%" }} className="main-page-cards-imgs" />,
+      img: <img src="https://ibank.bog.ge/images/en/656327/A8354E47F358DF36B7238557E88B46CD/image.jpg" alt="magti" style={{ width: "48px", height: "48px", borderRadius: "50%" }} className="dashboard-cards-imgs" />,
       templateTitle: "ულიმიტო ინტერნეტი დღე-ღამე",
       type: "Mobile Top-Ups",
     },

@@ -93,7 +93,7 @@
 .icon-secondary {
   color: var(--icon-secondary);
 }
-.main-page-cards-imgs {
+.dashboard-cards-imgs {
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -1419,7 +1419,7 @@ img - auth-BOGlogo
 }
 
 /* **********************CARDS AND ACCOUNTS************************* */
-.main-page-cards {
+.dashboard-cards {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   background-color: var(--dashboard-components-background-color);
   border-radius: 12px;
@@ -1431,13 +1431,13 @@ img - auth-BOGlogo
   overflow: hidden;
 }
 @media (min-width: 1024px) {
-  .main-page-cards-container {
+  .cards-container {
     columns: 2;
     column-gap: 23px;
   }
 }
 
-.main-page-cards .accounts {
+.dashboard-cards .accounts {
   display: flex;
   flex-direction: column;
 }
@@ -1446,7 +1446,7 @@ img - auth-BOGlogo
   flex-direction: column;
 } */
 
-.main-page-cards-header {
+.dashboard-cards-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1455,7 +1455,7 @@ img - auth-BOGlogo
   min-height: 64px;
   box-sizing: border-box;
 }
-.main-page-cards-title {
+.dashboard-cards-title {
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.95rem;
@@ -1548,7 +1548,7 @@ td:last-child {
   gap: 4px;
 }
 /* Loyalty card */
-.main-page-cards-header .loyalty {
+.dashboard-cards-header .loyalty {
   align-items: center;
 }
 .layalty-card-img {
@@ -1823,6 +1823,11 @@ td:last-child {
   flex-grow: 1;
   padding: 16px 24px;
   border-top: var(--dashboard-components-border);
+}
+.my-space-card-img{
+  width: 40px;
+  height: 24px;
+  border-radius: 4px;
 }
 
 /************ RESPONSIVE ************/
