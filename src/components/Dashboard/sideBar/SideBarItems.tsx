@@ -27,7 +27,8 @@ export default function SidebarItem({ item, sidebarOpen }: Props) {
             {!item.submenu && item.path ? <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                    `${isActive ? "dashboard-sidebar-active-link" : ""} sidebar-navlink ${darkMode ? "dark" : ""}`
+                    // if the link is active or it's the main path
+                    `${isActive || item.path==="main" && pathname==="/dashboard" ? "dashboard-sidebar-active-link" : ""} sidebar-navlink ${darkMode ? "dark" : ""}`
                 }
             >
                 <div className="sidebar-right">

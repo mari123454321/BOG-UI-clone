@@ -1,22 +1,20 @@
-import { useNavigate } from "react-router-dom"
 import { useDarkMode } from "../../../context/DarkModeContext"
 import { useLanguage } from "../../../context/LanguageContext"
 
-export default function MyBankingSetCard() {
-    const navigate = useNavigate()
+export default function RevenueServiceCard() {
     const { language } = useLanguage()
     const {darkMode}= useDarkMode()
     return (
         <section className="dashboard-cards">
             <div
-                onClick={() => navigate("dashboard/more/banking-set")}
-                className="banking-set-card-body">
-                <img src="https://ibank.bog.ge/assets/images/rs-ge-logo.png" alt="banking set image" className="card-img" />
+                onClick={() => console.log("Revenue Service Card Clicked, popup to be implemented") }
+                className="revenue-service-card-body">
+                <img src="https://ibank.bog.ge/assets/images/rs-ge-logo.png" alt="revenue service image" className="card-img" />
                 <div className="card-right">
                     <h3 className={`card-title ${darkMode ? "dark" : ""}`}>
                         {language === "Geo" ? "შემოსავლების სამსახური" : "Revenue Service"}
                     </h3>
-                    <p className={`card-text banking-set ${darkMode ? "dark" : ""}`}>
+                    <p className={`card-text revenue-service ${darkMode ? "dark" : ""}`}>
                         {language === "Geo" ? "დროულად მიიღებ ინფორმაციას დავალიანებაზე" : "You'll receive timely updates on debt information"}
                     </p>
                     <button className={`dashboard-cards-button ${darkMode ? "dark" : ""}`}>

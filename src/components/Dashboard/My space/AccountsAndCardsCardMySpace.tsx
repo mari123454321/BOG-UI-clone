@@ -18,7 +18,7 @@ export default function AccountsAndCardsCardMySpace({ ammount, currency }: Props
             onClick={() => navigate("/dashboard/accounts-and-cards")}>
             <div className="accounts-and-cards-card-my-space-body">
                 <div className="accounts-and-cards-card-my-space-left">
-                    <h2 className={`dashboard-cards-title ${darkMode ? "dark" : ""}`}>
+                    <h2 className={`dashboard-cards-title  ${darkMode ? "dark" : ""}`}>
                         {language === "Geo" ? "ანგარიშები და ბარათები" : "ACCOUNTS AND CARDS"}
                     </h2>
                     <div className="accounts-and-cards-card-my-space-amount">

@@ -1,7 +1,8 @@
 import PensionCard from "../../components/common/PensionCard";
 import LoyaltyCard from "../../components/Dashboard/Main/LoyaltyCard";
 import AccountsAndCardsCardMySpace from "../../components/Dashboard/My space/AccountsAndCardsCardMySpace";
-import MyBankingSetCard from "../../components/Dashboard/My space/MyBankingSetCard";
+import RevenueServiceCard from "../../components/Dashboard/My space/RevenueServiceCard";
+import BankingSetCard from "../../components/Dashboard/My space/BankingSetCard";
 
 export default function MySpace() {
     return (
@@ -10,7 +11,8 @@ export default function MySpace() {
                 <AccountsAndCardsCardMySpace ammount={12500} currency="$" />
                 <PensionCard/>
                 <LoyaltyCard />
-                <MyBankingSetCard/>
+                <BankingSetCard />
+                <RevenueServiceCard />
             </div>
         </main>
     )
