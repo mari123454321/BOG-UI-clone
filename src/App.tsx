@@ -6,16 +6,10 @@ import PageDoesNotExist from './pages/PageDoesNotExist';
 import DashboardLayout from './pages/dashboard/DashboardLayout';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import ComingSoon from "./pages/ComingSoon";
-import Main from "./pages/dashboard/DashboardMain";
 import MySpace from "./pages/dashboard/MySpace";
-import useLocalStorage from "./hooks/useLocalStorage";
-import type { lang } from "./context/LanguageContext";
 import DashboardMain from "./pages/dashboard/DashboardMain";
 
 function App() {
-  const [darkMode, setDarkMode] = useLocalStorage<boolean>("darkMode", false)
-  const [language, setLanguage] = useLocalStorage<lang>("language", "Geo")
-  const [loggedIn, setLoggedin] = useLocalStorage<boolean>("loggedIn", false)
 
 
   return (
