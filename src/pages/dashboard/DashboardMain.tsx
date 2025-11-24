@@ -6,6 +6,7 @@ import AccountsAndCardsCard from "../../components/Dashboard/Main/AccountsAndCar
 import LoyaltyCard from "../../components/Dashboard/Main/LoyaltyCard"
 import MyTemplatesCard from "../../components/Dashboard/Main/MyTemplatesCard"
 import ContactsCard from "../../components/Dashboard/Main/ContactsCard"
+import TransactionsCard from "../../components/Dashboard/Main/TransactionsCard"
 
 export default function DashboardMain() {
     const {language} = useLanguage()
@@ -18,11 +19,10 @@ export default function DashboardMain() {
             <MainTop mainPageTop = {mainPageTop} isCurrencyVisible={isCurrencyVisible} setIsCurrencyVisible={setIsCurrencyVisible} currency={currency} />
             <div className="main-page-cards-container">
                 <AccountsAndCardsCard currency={currency} isCurrencyVisible={isCurrencyVisible} amountNum = {currentLanguage.amount[currency]}/>
-                <LoyaltyCard />
+                <TransactionsCard />
                 <MyTemplatesCard />
+                <LoyaltyCard />
                 <ContactsCard/>
-
-                
             </div>
         </main>
     )

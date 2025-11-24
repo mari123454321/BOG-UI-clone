@@ -10,6 +10,8 @@
   --dashboard-components-icons-background: #ababab;
   --dashboard-components-icons-background-hover: #f3f4f4;
   --dashboard-components-icons-background-onclick: #e3e4e4;
+  --ellipsis-color-hover: #e8e8e8;
+  --ellipsis-color-active: #d6d6d6;
 
   --dashboard-components-border: 1px solid #e8e8e8;
   --dashboard-header-height: 72px;
@@ -54,6 +56,8 @@
   --dashboard-components-icons-background: #646666;
   --dashboard-components-icons-background-hover: #323434;
   --dashboard-components-icons-background-onclick: #3f4141;
+  --ellipsis-color-hover: #333535;
+  --ellipsis-color-active: #404244;
 
   --dashboard-components-border: 1px solid #333536;
   --dashboard-header-background-color: #2f3032;
@@ -85,6 +89,9 @@
 }
 .icon-primary {
   color: var(--icon-primary);
+}
+.icon-secondary {
+  color: var(--icon-secondary);
 }
 .main-page-cards-imgs {
   width: 48px;
@@ -477,7 +484,6 @@ img - auth-BOGlogo
     overflow: hidden;
     position: sticky;
     top: 0;
-    
   }
 
   .login-right img {
@@ -1092,12 +1098,15 @@ img - auth-BOGlogo
 .dropdown-profile-options {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: flex-start;
+  align-items: center;
   padding-left: 24px;
-  margin-right: auto;
   height: 40px;
   cursor: pointer;
+  width: 360px;
+}
+.dropdown-profile-options-lang{
+  margin-right: 24px;
 }
 .dropdown-profile-options-wrapper {
   display: flex;
@@ -1109,7 +1118,6 @@ img - auth-BOGlogo
   background-color: var(--cards-hover);
 }
 .dropdown-profile-options-wrapper > Link {
-  background-color: red;
   width: 100%;
 }
 
@@ -1120,7 +1128,6 @@ img - auth-BOGlogo
   margin-top: 72px;
   width: 100%;
   --app-content-width: calc(100% - var(--dashboard-navbar-width));
-  
 }
 .sidebar-nav-wrapper {
   position: sticky;
@@ -1137,9 +1144,7 @@ img - auth-BOGlogo
   text-wrap: nowrap;
   height: calc(100vh - 72px);
 }
-.sidebar-wrapper{
-  
-}
+
 /* .sidebar-nav.minimized,
 .sidebar-toggle-arrow.minimized {
   transition: 300ms ease-in-out;
@@ -1472,7 +1477,7 @@ img - auth-BOGlogo
   padding: 0px 24px;
 }
 .main-page-account-card-table {
-  border-bottom: 1px solid var(--dashboard-components-border);
+  border-bottom: var(--dashboard-components-border);
 }
 .main-page-account-card-table-rows {
   height: 48px;
@@ -1681,8 +1686,145 @@ td:last-child {
 .card-wrapper:active {
   background-color: var(--cards-click-color);
 }
-.card-item-img {
+/* **************TRANSACTIONS CARD************** */
+.transactions-card-item-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+  justify-content: center;
 }
+.transactions-card-item-details {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.transactions-card-item-date {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+.transactions-card-item-description {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4rem;
+}
+.transactions-card-item-type {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+.transactions-card-item-amount {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  display: flex;
+  gap: 4px;
+  margin-right: 8px;
+}
+.transactions-card-item-amount.income {
+  color: #06a74c;
+}
+.transactions-card-item-more-info {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.transactions-card-item-more-info:hover {
+  background-color: var(--ellipsis-color-hover);
+}
+.transactions-card-item-more-info:active {
+  background-color: var(--ellipsis-color-hover);
+}
+.transactions-card-item-left {
+  padding-left: 24px;
+  flex-shrink: 1;
+}
+.transactions-card-item-right {
+  padding-right: 24px;
+  border-bottom: var(--dashboard-components-border);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-shrink: 1;
+  margin-left: 2px;
+}
+.transactions-card-item-middle {
+  border-bottom: var(--dashboard-components-border);
+  flex-grow: 1;
+}
+.transactions-card-item-right,
+.transactions-card-item-middle {
+  border-bottom: var(--dashboard-components-border);
+}
+.transactions-card-item-left,
+.transactions-card-item-right,
+.transactions-card-item-middle {
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+  box-sizing: border-box;
+}
+.transactions-card-item {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.transactions-card-item:hover {
+  background-color: var(--dashboard-components-icons-background-hover);
+}
+.transactions-card-item:active {
+  background-color: var(--dashboard-components-icons-background-onclick);
+}
+
+.main-page-transactions-show-more-button-title {
+  color: #ff6c1d;
+  font-size: 1rem;
+}
+.main-page-transactions-show-more-button-title.eng {
+  font-size: 0.8rem;
+}
+.main-page-transactions-show-more-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  border-radius: 6px;
+}
+.main-page-transactions-show-more-button:hover {
+  background-color: var(--dashboard-components-icons-background-hover);
+}
+.main-page-transactions-show-more-button:active {
+  background-color: var(--dashboard-components-icons-background-onclick);
+}
+
+.main-page-transactions-show-more-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 16px 24px;
+  border-top: var(--dashboard-components-border);
+}
+
 /************ RESPONSIVE ************/
 @media only screen and (max-width: 1250px) {
   .dashboard-header-left > h2 {
