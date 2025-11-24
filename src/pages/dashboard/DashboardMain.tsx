@@ -7,6 +7,7 @@ import LoyaltyCard from "../../components/Dashboard/Main/LoyaltyCard"
 import MyTemplatesCard from "../../components/Dashboard/Main/MyTemplatesCard"
 import ContactsCard from "../../components/Dashboard/Main/ContactsCard"
 import TransactionsCard from "../../components/Dashboard/Main/TransactionsCard"
+import PensionCard from "../../components/common/PensionCard"
 
 export default function DashboardMain() {
     const {language} = useLanguage()
@@ -23,6 +24,7 @@ export default function DashboardMain() {
                 <MyTemplatesCard />
                 <LoyaltyCard />
                 <ContactsCard/>
+                <PensionCard/>
             </div>
         </main>
     )

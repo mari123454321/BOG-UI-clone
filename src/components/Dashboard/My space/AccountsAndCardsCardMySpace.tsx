@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useDarkMode } from "../../../context/DarkModeContext";
 import { useLanguage } from "../../../context/LanguageContext";
 import CardsAndAccountsRightImgDark from "../../../images/mySpaceCardsAndAccountsDark.png";
@@ -10,10 +11,11 @@ type PropsType = {
 export default function AccountsAndCardsCardMySpace({ ammount, currency }: PropsType) {
     const { language } = useLanguage()
     const { darkMode } = useDarkMode()
-
-
+    const navigate = useNavigate()
     return (
-        <section className="dashboard-cards accounts-and-cards-card-my-space">
+        <section
+            className="dashboard-cards accounts-and-cards-card-my-space"
+            onClick={() => navigate("/dashboard/accounts-and-cards")}>
             <div className="accounts-and-cards-card-my-space-body">
                 <div className="accounts-and-cards-card-my-space-left">
                     <h2 className={`dashboard-cards-title ${darkMode ? "dark" : ""}`}>
