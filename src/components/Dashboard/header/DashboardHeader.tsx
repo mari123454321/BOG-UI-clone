@@ -78,7 +78,7 @@ export default function DashboardHeader({ sidebarOpen, setSidebarOpen }: Dashboa
                             <img src={!darkMode ? darkModeIcon : lightModeIcon} alt="dark mode icon" width={16} height={16} />
                         </button>
                         {/* notifications */}
-                        <div className="dashboard-header-dropdown">
+                        <div className="dashboard-header-dropdown notifications-dropdown">
                             <button
                                 ref={notificationsButtonRef}
                                 onClick={() => toggleDropDown("notifications")}
