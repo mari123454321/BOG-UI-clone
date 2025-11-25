@@ -1130,8 +1130,8 @@ img - auth-BOGlogo
 .dashboard-content {
   display: grid;
   /* CAUSES BUGS */
-  /* grid-template-columns: max-content auto; */
-  grid-template-columns: 1fr auto;
+  grid-template-columns: max-content auto;
+  /* grid-template-columns: 1fr auto; */
   margin-top: 72px;
   --app-content-width: calc(100% - var(--dashboard-navbar-width));
 }
@@ -1981,6 +1981,14 @@ td:last-child {
   }
 }
 /************ RESPONSIVE ************/
+@media only screen and (max-width: 1366px){
+  .sidebar-nav {
+  position:absolute;
+  }
+  .dashboard-pages{
+    margin-left: 64px;
+  }
+}
 @media only screen and (max-width: 1250px) {
   .dashboard-header-left > h2 {
     display: none;
@@ -2006,6 +2014,9 @@ td:last-child {
 
   .dashboard-navigation-left-display {
     display: none;
+  }
+  .dashboard-pages{
+    margin-left: 0px;
   }
 
   .dashboard-burger-menu {
