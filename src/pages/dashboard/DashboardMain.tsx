@@ -5,9 +5,9 @@ import { useState } from "react"
 import AccountsAndCardsCard from "../../components/Dashboard/Main/AccountsAndCardsCard"
 import LoyaltyCard from "../../components/Dashboard/Main/LoyaltyCard"
 import MyTemplatesCard from "../../components/Dashboard/Main/MyTemplatesCard"
-import ContactsCard from "../../components/Dashboard/Main/ContactsCard"
 import TransactionsCard from "../../components/Dashboard/Main/TransactionsCard"
 import PensionCard from "../../components/common/PensionCard"
+import MainPageContactsCard from "../../components/Dashboard/Main/MainPageContactsCard"
 
 export default function DashboardMain() {
     const {language} = useLanguage()
@@ -23,7 +23,7 @@ export default function DashboardMain() {
                 <TransactionsCard />
                 <MyTemplatesCard />
                 <LoyaltyCard />
-                <ContactsCard/>
+                <MainPageContactsCard/>
                 <PensionCard/>
             </div>
         </main>

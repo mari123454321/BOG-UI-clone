@@ -18,6 +18,7 @@ export default function MyTemplatesCard() {
         if (myTemplatesInfo.info.length <= 3) {
             const templateCards = myTemplatesInfo.info.map((_, index) => (
                 <TemplateCardItem
+                    key={index}
                     img={myTemplatesInfo.info[index].img}
                     title={myTemplatesInfo.info[index].templateTitle}
                     subtext={myTemplatesInfo.info[index].type}
@@ -32,6 +33,7 @@ export default function MyTemplatesCard() {
         } else {
             const templateCards = myTemplatesInfo.info.slice(0, 2).map((_, index) => (
                 <TemplateCardItem
+                    key={index}
                     img={myTemplatesInfo.info[index].img}
                     title={myTemplatesInfo.info[index].templateTitle}
                     subtext={myTemplatesInfo.info[index].type}

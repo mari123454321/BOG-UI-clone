@@ -10,8 +10,8 @@
   --dashboard-components-icons-background: #ababab;
   --dashboard-components-icons-background-hover: #f3f4f4;
   --dashboard-components-icons-background-onclick: #e3e4e4;
-  --ellipsis-color-hover: #e8e8e8;
-  --ellipsis-color-active: #d6d6d6;
+  --button-hover-dark: #e8e8e8;
+  --button-active-dark: #d6d6d6;
   --dashboard-cards-title-color: rgba(0, 0, 0, 0.92);
   --dashboard-cards-button-color: #ff5c0a;
 
@@ -54,6 +54,10 @@
   --searchbar-background: #f2f2f2;
   --searchbar-active-background: #e8e8e8;
   --searchbar-placeholder-color: #757575;
+  --contacts-card-border: 1px solid #d7d9db;
+  --cards-darker: #fcfcfc;
+  --cards-darker-hover: #f1f2f3;
+  --cards-darker-active: #e5e6e7;
 }
 .minimized {
   --sidebar-width: 64px;
@@ -67,8 +71,8 @@
   --dashboard-components-icons-background: #646666;
   --dashboard-components-icons-background-hover: #323434;
   --dashboard-components-icons-background-onclick: #3f4141;
-  --ellipsis-color-hover: #333535;
-  --ellipsis-color-active: #404244;
+  --button-hover-dark: #333535;
+  --button-active-dark: #404244;
   --dashboard-cards-title-color: rgba(246, 247, 248, 0.9);
   --dashboard-cards-button-color: #ff8345;
   --dashboard-components-border: 1px solid #333536;
@@ -104,6 +108,10 @@
   --searchbar-active-background: #333536;
 
   --searchbar-placeholder-color: #696b6b;
+  --contacts-card-border: 1px solid #515457;
+  --cards-darker: #252727;
+  --cards-darker-hover: #2a2b2d;
+  --cards-darker-active: #313335;
 }
 .icon-primary {
   color: var(--icon-primary);
@@ -1759,10 +1767,10 @@ td:last-child {
   border-radius: 50%;
 }
 .transactions-card-item-more-info:hover {
-  background-color: var(--ellipsis-color-hover);
+  background-color: var(--button-hover-dark);
 }
 .transactions-card-item-more-info:active {
-  background-color: var(--ellipsis-color-hover);
+  background-color: var(--button-active-dark);
 }
 .transactions-card-item-left {
   padding-left: 24px;
@@ -2062,11 +2070,74 @@ td:last-child {
   gap: 16px;
 }
 
+.contact-name {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 2;
+}
+.contact-card-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  transition: background-color 200ms ease-in-out;
+}
+.contact-card-right:hover {
+  background-color: var(--button-hover-dark);
+}
+.contact-card-right:active {
+  background-color: var(--button-active-dark);
+}
+.contact-card-right > svg {
+  width: 16px;
+  height: 16px;
+}
+
+.contact-card {
+  width: 100%;
+  padding: 16px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto max-content;
+  align-items: center;
+  gap: 12px;
+  border: var(--contacts-card-border);
+  border-radius: 12px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: var(--cards-darker);
+}
+.contact-card:hover{
+  background-color: var(--cards-darker-hover);
+}
+.contact-card:active{
+  background-color: var(--cards-darker-active);
+}
+.contact-card-left {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 12px;
+  grid-template-columns: max-content auto;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
   .card-title {
     font-size: 1rem;
   }
 }
+
 /************ RESPONSIVE ************/
 @media only screen and (max-width: 1366px) {
   .sidebar-nav {
@@ -2135,6 +2206,9 @@ td:last-child {
     height: 56px;
     z-index: 10000;
   }
+  .sidebar-overlay {
+    top: 56px;
+  }
   .dashboard-main {
     min-height: calc(100vh - 56px);
   }
@@ -2162,6 +2236,9 @@ td:last-child {
 @media only screen and (max-width: 768px) {
   .dashboard-header-wrapper {
     height: 48px;
+  }
+  .sidebar-overlay {
+    top: 48px;
   }
   .dashboard-main {
     min-height: calc(100vh- 48px);
@@ -2243,17 +2320,17 @@ td:last-child {
     grid-template-columns: 1fr;
     margin-top: 16px;
   }
-  .transfer-to-contacts-header h1{
+  .transfer-to-contacts-header h1 {
     padding: 24px 24px 24px 0px;
   }
-  .transfer-to-contacts-header{
+  .transfer-to-contacts-header {
     flex-direction: column;
     gap: 0px;
     align-items: flex-start;
     height: unset;
     flex-grow: 1;
   }
-  .transfer-to-contacts-search-bar-wrapper{
+  .transfer-to-contacts-search-bar-wrapper {
     width: unset;
     margin-bottom: 16px;
   }

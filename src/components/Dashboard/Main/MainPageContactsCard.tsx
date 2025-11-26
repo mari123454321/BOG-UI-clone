@@ -9,7 +9,7 @@ import { contacts } from "../../../info/dashboard/contacts"
 import { User } from "lucide-react"
 import ContactsToSomeoneCard from "./ContactsToSomeoneCard"
 
-export default function ContactsCard() {
+export default function MainPageContactsCard() {
     const { darkMode } = useDarkMode()
     const { language } = useLanguage()
     const navigate = useNavigate()
