@@ -8,6 +8,7 @@ import ProtectedRoute from './components/common/ProtectedRoute';
 import ComingSoon from "./pages/ComingSoon";
 import MySpace from "./pages/dashboard/MySpace";
 import DashboardMain from "./pages/dashboard/DashboardMain";
+import ToContacts from "./pages/dashboard/Transfer/ToContacts";
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
 
           <Route path="transfer/own-account" element={<ComingSoon />} />
           <Route path="transfer/georgian-banks" element={<ComingSoon />} />
-          <Route path="transfer/contacts" element={<ComingSoon />} />
+          <Route path="transfer/contacts" element={<ToContacts />} />
           <Route path="transfer/foreign-banks" element={<ComingSoon />} />
           <Route path="transfer/treasury" element={<ComingSoon />} />
           <Route path="transfer/currency-exchange" element={<ComingSoon />} />

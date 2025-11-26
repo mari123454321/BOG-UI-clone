@@ -46,6 +46,14 @@
   --cards-hover-color: #f1f2f3;
   --cards-click-color: #e5e6e7;
   --badge-color-red: #e22820;
+
+  --main-element-padding-sides: 0 calc(((100% - calc(11 * 24px)) / 12) + 24px) 0
+    calc(((100% - calc(11 * 24px)) / 12) + 24px);
+  --shadow-raised: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --title-color: #141414;
+  --searchbar-background: #f2f2f2;
+  --searchbar-active-background: #e8e8e8;
+  --searchbar-placeholder-color: #757575;
 }
 .minimized {
   --sidebar-width: 64px;
@@ -91,6 +99,11 @@
   --cards-hover-color: #2a2b2d;
   --cards-click-color: #313335;
   --badge-color-red: #fa4f47;
+  --title-color: #e2e3e4;
+  --searchbar-background: #2c2e2e;
+  --searchbar-active-background: #333536;
+
+  --searchbar-placeholder-color: #696b6b;
 }
 .icon-primary {
   color: var(--icon-primary);
@@ -572,7 +585,7 @@ img - auth-BOGlogo
 
 .footer-content {
   flex-wrap: wrap;
-  /* margin-top: 48px; */
+  margin-top: 48px;
   padding-top: 32px;
   padding-bottom: 36px;
   border-top: 1px solid #e3e3e3;
@@ -1794,14 +1807,14 @@ td:last-child {
   background-color: var(--dashboard-components-icons-background-onclick);
 }
 
-.main-page-transactions-show-more-button-title {
+.show-more-button-title {
   color: #ff6c1d;
   font-size: 1rem;
 }
-.main-page-transactions-show-more-button-title.eng {
+.show-more-button-title.eng {
   font-size: 0.8rem;
 }
-.main-page-transactions-show-more-button {
+.show-more-button {
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -1812,10 +1825,10 @@ td:last-child {
   height: 32px;
   border-radius: 6px;
 }
-.main-page-transactions-show-more-button:hover {
+.show-more-button:hover {
   background-color: var(--dashboard-components-icons-background-hover);
 }
-.main-page-transactions-show-more-button:active {
+.show-more-button:active {
   background-color: var(--dashboard-components-icons-background-onclick);
 }
 
@@ -1966,6 +1979,89 @@ td:last-child {
   font-weight: bold;
   line-height: 1.4em;
 }
+
+/* ****************TRANSFER PAGE**************** */
+
+/* **********TO CONTACTS********** */
+.transfer-page-main {
+  padding: var(--main-element-padding-sides);
+}
+.to-contacts-page-card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-raised);
+  border-radius: 32px;
+  overflow: hidden;
+  background-color: var(--dashboard-components-background-color);
+}
+.transfer-to-contacts-header {
+  border-bottom: var(--dashboard-components-border);
+  padding: 0 24px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.transfer-to-contacts-header h1 {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  line-height: 1.4em;
+  color: var(--title-color);
+}
+.transfer-to-contacts-search-bar-wrapper {
+  width: 328px;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 0 16px;
+  border-radius: 36px;
+  background-color: var(--searchbar-background);
+  border: 1px solid transparent;
+  will-change: border-color, background-color;
+  transition: border-color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+}
+.transfer-to-contacts-search-input {
+  flex-grow: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.transfer-to-contacts-search-bar-wrapper:hover {
+  border-color: var(--searchbar-placeholder-color);
+}
+.transfer-to-contacts-search-bar-wrapper:focus {
+  background-color: var(--searchbar-active-background);
+}
+.transfer-to-contacts-search-input:focus::placeholder {
+  color: transparent;
+}
+.transfer-to-contacts-search-form {
+  outline: 1px solid transparent;
+}
+
+.transfer-to-contacts-search-icon {
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+  color: var(--icon-secondary);
+}
+.transfer-to-contacts-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 80px;
+  padding: 0 24px;
+}
+.contacts-list {
+  margin: 24px 32px 54px 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
 @media (max-width: 768px) {
   .card-title {
     font-size: 1rem;
@@ -1981,6 +2077,9 @@ td:last-child {
   }
   .dashboard-pages {
     margin-left: 64px;
+  }
+  .transfer-page-main {
+    padding: 0px;
   }
 }
 @media only screen and (max-width: 1250px) {
@@ -2137,5 +2236,25 @@ td:last-child {
     font-size: 0.5rem;
     letter-spacing: 0.7em;
     text-align: center;
+  }
+  /* transactions to contacts*/
+  .contacts-list {
+    padding: 0px;
+    grid-template-columns: 1fr;
+    margin-top: 16px;
+  }
+  .transfer-to-contacts-header h1{
+    padding: 24px 24px 24px 0px;
+  }
+  .transfer-to-contacts-header{
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+    height: unset;
+    flex-grow: 1;
+  }
+  .transfer-to-contacts-search-bar-wrapper{
+    width: unset;
+    margin-bottom: 16px;
   }
 }
