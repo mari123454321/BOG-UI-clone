@@ -9,13 +9,12 @@ import useDebounce from "../../../hooks/useDebounce";
 export default function ToContacts() {
     const { darkMode } = useDarkMode()
     const { language } = useLanguage()
+
     const [isShortened, setIsShortened] = useState(true);
     const [inputText, setInputText] = useState("")
-    const contacts = isShortened ? bankAccounts.slice(0, 21) : bankAccounts;
-    function searchContacts() {
-
-    }
-    console.log(inputText)
+    const unfilteredContacts = isShortened ? bankAccounts.slice(0, 21) : bankAccounts;
+    const filteredContacts = bankAccounts.filter((contact) => contact.name[language].toLowerCase().includes(inputText))
+    const contactsToRender = inputText === "" ? unfilteredContacts : filteredContacts
     return (
         <main className="transfer-page-main">
             <section className={`to-contacts-page-card ${darkMode ? "dark" : ""}`}>
@@ -23,11 +22,13 @@ export default function ToContacts() {
                     <h1>
                         {language === "Geo" ? "კონტაქტები" : "CONTACTS"}
                     </h1>
-                    <form className="transfer-to-contacts-search-form">
+                    <form
+                        onSubmit={(e) => e.preventDefault()}
+                        className="transfer-to-contacts-search-form">
                         <div className="transfer-to-contacts-search-bar-wrapper">
                             <Search className="transfer-to-contacts-search-icon" />
                             <input
-                                onChange={(e)=>setInputText(e.target.value)}
+                                onChange={(e) => setInputText(e.target.value)}
                                 className="transfer-to-contacts-search-input"
                                 type="text"
                                 placeholder={language === "Geo" ? "ძიება" : "Search"} />
@@ -35,9 +36,9 @@ export default function ToContacts() {
                     </form>
                 </header>
                 <div className="contacts-list">
-                    {contacts.map((contact, index) => <ContactsItem key={index} contact={contact} />)}
+                    {contactsToRender.map((contact, index) => <ContactsItem key={index} contact={contact} />)}
                 </div>
-                {isShortened &&
+                {isShortened && inputText == "" &&
                     <footer className="transfer-to-contacts-footer">
                         <ShowAllButton onClickFunction={() => setIsShortened(false)} />
                     </footer>}
