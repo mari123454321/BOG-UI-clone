@@ -157,7 +157,7 @@ body {
   color: var(--dark-text-color);
   font-size: 0.8rem;
   line-height: 1.4em;
-  transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
 }
 .tooltip-children:hover .tooltip {
   visibility: visible;
