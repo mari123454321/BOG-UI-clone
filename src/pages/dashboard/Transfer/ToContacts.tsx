@@ -36,7 +36,10 @@ export default function ToContacts() {
                     </form>
                 </header>
                 <div className="contacts-list">
-                    {contactsToRender.map((contact, index) => <ContactsItem key={index} contact={contact} />)}
+                    {contactsToRender.length > 0 ?
+                        contactsToRender.map((contact, index) => <ContactsItem key={index} contact={contact} />) :
+                        <span className="contact-not-found-text">{language === "Geo" ? "კონტაქტები ვერ მოიძებნა" : "Couldn't Find Any Contacts"}</span>
+                    }
                 </div>
                 {isShortened && inputText == "" &&
                     <footer className="transfer-to-contacts-footer">

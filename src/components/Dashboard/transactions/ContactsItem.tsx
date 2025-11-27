@@ -2,6 +2,7 @@ import { BanknoteArrowUp, User } from "lucide-react"
 import { useDarkMode } from "../../../context/DarkModeContext"
 import type { BankAccount } from "../../../info/banking info/bankAccountsInfo"
 import { useLanguage } from "../../../context/LanguageContext"
+import Tooltip from "../../common/Tooltip"
 
 type ContactsItemProps = {
     contact: BankAccount
@@ -19,11 +20,13 @@ export default function ContactsItem({ contact }: ContactsItemProps) {
                     }
                 </div>
                 <div className="contact-info">
-                    <h2 className="contact-name">{contact.name[language]}</h2>
+                    <Tooltip text={contact.name[language]}>
+                        <h2 className="contact-name">{contact.name[language]}</h2>
+                    </Tooltip>
                 </div>
             </div>
             <button className="contact-card-right">
-                <BanknoteArrowUp className="icon-primary"/>
+                <BanknoteArrowUp className="icon-primary" />
             </button>
 
         </article>
