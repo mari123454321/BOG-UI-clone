@@ -2123,8 +2123,9 @@ td:last-child {
   -webkit-line-clamp: 1;
   line-clamp: 1;
   /* width: max-content; */
-  flex: 0 0 auto;
+  /* flex: 0 0 auto; */
 }
+
 .contact-card-right {
   display: flex;
   align-items: center;
