@@ -115,8 +115,6 @@
   --cards-darker-active: #313335;
   --tooltip-background: #cacbcc;
   --dark-text-color: black;
-
-
 }
 .icon-primary {
   color: var(--icon-primary);
@@ -139,7 +137,8 @@ body {
 }
 
 /* tooltip */
-.tooltip-container, .tooltip-children{
+.tooltip-container,
+.tooltip-children {
   position: relative;
 }
 
@@ -2127,6 +2126,7 @@ td:last-child {
 }
 
 .contact-card-right {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2183,13 +2183,29 @@ td:last-child {
   margin-top: 48px;
 }
 
-@media (max-width: 768px) {
-  .card-title {
-    font-size: 1rem;
-  }
+/* TRANSFER PAGES */
+.transfer-page-footer-button {
+  border: none;
+  margin: 24px 32px 24px 16px;
+  background-color: var(--dashboard-background-color);
+  border-radius: 8px;
+  height: 56px;
+  padding: 0 24px;
+}
+.transfer-footer-button-text {
+}
+.transfer-page-footer {
+  margin-left: auto;
 }
 
+.transfer-page-form-container {
+  margin: 40px 64px;
+}
+
+
+
 /************ RESPONSIVE ************/
+
 @media only screen and (max-width: 1366px) {
   .sidebar-nav {
     position: absolute;

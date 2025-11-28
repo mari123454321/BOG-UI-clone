@@ -9,6 +9,7 @@ import ComingSoon from "./pages/ComingSoon";
 import MySpace from "./pages/dashboard/MySpace";
 import DashboardMain from "./pages/dashboard/DashboardMain";
 import ToContacts from "./pages/dashboard/Transfer/ToContacts";
+import ToOwnAccount from "./pages/dashboard/Transfer/ToOwnAccount";
 
 function App() {
 
@@ -27,7 +28,7 @@ function App() {
           <Route path="main" element={<DashboardMain />} />
           <Route path="my-space" element={<MySpace />} />
 
-          <Route path="transfer/own-account" element={<ComingSoon />} />
+          <Route path="transfer/own-account" element={<ToOwnAccount />} />
           <Route path="transfer/georgian-banks" element={<ComingSoon />} />
           <Route path="transfer/contacts" element={<ToContacts />} />
           <Route path="transfer/foreign-banks" element={<ComingSoon />} />
