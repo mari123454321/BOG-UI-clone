@@ -8,6 +8,7 @@ type TooltipChildrenProps = {
 
 export default function Tooltip({children, text}:TooltipChildrenProps){
     const {darkMode} = useDarkMode()
+    
     return(
         <div className={`tooltip-container ${darkMode ? "dark" : ""}`}>
             <div className="tooltip-children">

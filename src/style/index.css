@@ -1199,6 +1199,7 @@ img - auth-BOGlogo
 .sidebar-nav-wrapper {
   position: sticky;
   top: 72px;
+  z-index: 99999;
 }
 .sidebar-nav {
   width: var(--sidebar-width);
@@ -2120,7 +2121,9 @@ td:last-child {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
-  line-clamp: 2;
+  line-clamp: 1;
+  /* width: max-content; */
+  flex: 0 0 auto;
 }
 .contact-card-right {
   display: flex;
