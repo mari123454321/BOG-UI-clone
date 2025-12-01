@@ -1,11 +1,11 @@
-import TransferPageFooter from "../../../components/common/TransferPageCardLayout"
+import TransferPageCardLayout from "../../../components/common/TransferPageCardLayout"
 import { useDarkMode } from "../../../context/DarkModeContext"
 
 export default function ToOwnAccount() {
     const { darkMode } = useDarkMode()
     return (
-        <TransferPageFooter amount={9.99} currency="$" >
+        <TransferPageCardLayout amount={9.99} currency="$" >
             <div>children</div>
-        </TransferPageFooter>
+        </TransferPageCardLayout>
     )
 }
