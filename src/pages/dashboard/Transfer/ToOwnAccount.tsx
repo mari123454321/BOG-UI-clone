@@ -8,11 +8,12 @@ import { type Currency, currencySymbol } from "../../../info/dashboard/MainPageI
 export default function ToOwnAccount() {
     const { darkMode } = useDarkMode()
     const [currency, setCurrency] = useState<Currency>("lari")
-    
+    const [isActive, setIsActive] = useState<boolean>(false)
+    console.log(currency)
     return (
         <TransferPageCardLayout amount={9.99} currency = {currencySymbol[currency]} >
             <div className="to-own-account-layout">
-                <AccountSelector label = "From" accounts={myAccountsInfo} currency={currency} />
+                <AccountSelector label = "From" account={myAccountsInfo[0]} currency={currency} setCurrency={setCurrency} isActive= {true}/>
             </div>
         </TransferPageCardLayout>
 )

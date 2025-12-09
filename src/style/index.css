@@ -2,6 +2,7 @@
 @import url(https://db.onlinewebfonts.com/c/2211f33c5285ef3978e258240b60637b?family=Mark+GEO);
 
 :root {
+  --orange: #ff6c1d;
   --main-color: #ff5c0a;
   --dashboard-background-color: #f4f4f4;
   --dashboard-components-background-color: #fcfcfc;
@@ -66,12 +67,17 @@
   --transfer-active-button-color-active: #a83200;
   --transfer-active-button-font-color: white;
   --color-invert-component-tr-60: rgba(0, 0, 0, 0.16);
+  --account-selector-btn: #f9ede6;
+  --account-selector-btn-hover: #fae0d3;
+  --account-selector-btn-active: #fbc8ac;
+  --account-selector-btn-border: #fae0d3;
 }
 .minimized {
   --sidebar-width: 64px;
 }
 
 .dark {
+  --orange: #e0752e;
   --dashboard-background-color: #191a1a;
   --dashboard-components-background-color: #252727;
   --dashboard-components-background-color-hover: #333536;
@@ -128,6 +134,10 @@
   --transfer-active-button-color-active: #e04b00;
   --transfer-active-button-font-color: white;
   --color-invert-component-tr-60: rgba(246, 247, 248, 0.15);
+  --account-selector-btn: #332f2e;
+  --account-selector-btn-hover: #40332b;
+  --account-selector-btn-active: #5c3f2d;
+  --account-selector-btn-border: #43352d;
 }
 
 .icon-primary {
@@ -2255,9 +2265,7 @@ td:last-child {
 .to-own-account-layout:last-child {
   grid-column: 1 / 3;
 }
-.account-selector-header {
-  background-image: url(https://ibank.bog.ge/assets/images/cards/backgrounds/card_gradient_shekvetili/3.png);
-}
+
 .account-selector-header-dropdown-button {
   border: none;
   border-radius: 50%;
@@ -2271,7 +2279,7 @@ td:last-child {
   cursor: pointer;
 }
 .account-selector-header-left {
-  color: var(--text-primary);
+  color: black;
   line-height: 1.25rem;
   margin-top: 8px;
   overflow: hidden;
@@ -2283,25 +2291,113 @@ td:last-child {
   font-weight: 600;
   font-size: 0.875rem;
 }
+.account-selector-header-iban {
+  color: black;
+}
 .account-selector-header {
+  display: flex;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 16px;
+}
+.account-selector-body {
   display: block;
   overflow: hidden;
   cursor: pointer;
   border: solid 1px var(--color-invert-component-tr-60);
-  max-height: 56px;
   will-change: border, border-radius, max-height;
   transition: border 0.1s, border-radius 0.2s linear, max-height 0.4s linear;
-  padding: 0 16px;
   border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  /* height: 56px; */
+  margin-bottom: 12px;
+}
+.account-selector-body.active {
+  border: solid 2px var(--orange);
+}
+.account-selector-background-img {
+  background-image: url(https://ibank.bog.ge/assets/images/cards/backgrounds/card_gradient_shekvetili/3.png);
 }
 .account-selector-header-right {
   display: flex;
   align-items: center;
   gap: 8px;
 }
+.account-selector-amounts-wrapper {
+  padding: 0 16px 12px;
+  opacity: 1;
+  z-index: 1;
+  position: relative;
+  transition: opacity 0.4s linear;
+}
+.account-selector-amounts span:last-child {
+  margin-left: 4px;
+}
+.account-selector-amounts {
+  background-color: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  color: black;
+  border-radius: 40px;
+  box-sizing: border-box;
+  will-change: background-color, border;
+  transition: background-color 0.2s, border 0.2s;
+  margin-top: 8px;
+  margin-right: 8px;
+  padding: 0 12px;
+  height: 24px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.4em;
+}
+.account-selector-amounts:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.174);
+}
+.account-selector-amounts:active {
+  background-color: rgba(0, 0, 0, 0.179);
+  border: 1px solid rgba(0, 0, 0, 0.179);
+}
+.account-selector-amounts.active {
+  background-color: var(--account-selector-btn);
+  border: 1px solid var(--account-selector-btn-border);
+  color: var(--orange);
+}
+.account-selector-amounts.active:active {
+  background-color: var(--account-selector-btn-active);
+}
+.account-selector-amounts.active:hover {
+  background-color: var(--account-selector-btn-hover);
+}
+.account-selector-footer {
+  background-color: var(--dashboard-components-background-color);
+  padding: 0 12px;
+  opacity: 1;
+  opacity: 0.4s linear;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+}
+.account-selector-footer-text {
+  padding-right: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  line-height: 1.4em;
+  color: var(--text-primary);
+}
+.currency-selector {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  padding: 0;
+  margin: 0 0 0 6px;
+  color: var(--description-active-color);
+}
+.currency-selector span:last-child {
+  margin: 0;
+}
+
 /************ RESPONSIVE ************/
 
 @media only screen and (max-width: 1366px) {

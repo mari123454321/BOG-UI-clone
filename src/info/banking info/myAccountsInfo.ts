@@ -24,6 +24,7 @@ export const myAccountsInfo: myAccountsInfoType[] = [
     }
   }
 ];
+export const currencyArray: Currency[] = ["lari", "dollar", "euro", "pound"];
 
 export type myAccountsInfoType = {
   id: number;
