@@ -2304,17 +2304,24 @@ td:last-child {
   display: block;
   overflow: hidden;
   cursor: pointer;
-  border: solid 1px var(--color-invert-component-tr-60);
+  border: solid 2px transparent;
   will-change: border, border-radius, max-height;
-  transition: border 0.1s, border-radius 0.2s linear, max-height 0.4s linear;
+  transition: border 0.1s, border-radius 0.2s linear, max-height 0.4s linear, opacity 0.4s linear;;
   border-radius: 8px;
   margin-bottom: 12px;
+  max-height: 56px;
 }
 .account-selector-body.active {
   border: solid 2px var(--orange);
+  max-height: 160px;
 }
 .account-selector-background-img {
   background-image: url(https://ibank.bog.ge/assets/images/cards/backgrounds/card_gradient_shekvetili/3.png);
+  transition: height 0.16s linear 0.24s;
+  height: auto;
+}
+.account-selector-background-img.active {
+  height: 100%;
 }
 .account-selector-header-right {
   display: flex;
@@ -2322,11 +2329,14 @@ td:last-child {
   gap: 8px;
 }
 .account-selector-amounts-wrapper {
-  padding: 0 16px 12px;
-  opacity: 1;
-  z-index: 1;
+  opacity: 0;
   position: relative;
   transition: opacity 0.4s linear;
+  padding: 0 16px 12px;
+}
+.account-selector-amounts-wrapper.active {
+  opacity: 1;
+  /* z-index: 1; */
 }
 .account-selector-amounts span:last-child {
   margin-left: 4px;
@@ -2368,14 +2378,18 @@ td:last-child {
   background-color: var(--account-selector-btn-hover);
 }
 .account-selector-footer {
-  background-color: var(--dashboard-components-background-color);
-  padding: 0 12px;
-  opacity: 1;
-  opacity: 0.4s linear;
+  opacity: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 48px;
+  background-color: var(--dashboard-components-background-color);
+  padding: 0 12px;
+  transition: opacity 0.4s linear;
+;
+}
+.account-selector-footer.active {
+  opacity: 1;
 }
 .account-selector-footer-text {
   padding-right: 12px;
@@ -2397,7 +2411,9 @@ td:last-child {
 .currency-selector span:last-child {
   margin: 0;
 }
-
+.account-selector-label{
+  
+}
 /************ RESPONSIVE ************/
 
 @media only screen and (max-width: 1366px) {
