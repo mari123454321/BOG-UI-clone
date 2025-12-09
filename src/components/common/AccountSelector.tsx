@@ -55,7 +55,7 @@ export default function AccountSelector({ label, account, currency, setCurrency,
                     </div>
                     {isActive && <div className="account-selector-amounts-wrapper">
                         {currencyArray.map((curr) => (
-                            <AccountSelectorAmountButton amountProp={account.amounts[curr]} currencyProp={currencySymbol[curr]} isActive={curr === currency} setCurrency={setCurrency}/>
+                            <AccountSelectorAmountButton amountProp={account.amounts[curr]} currencySymbolProp={currencySymbol[curr]} currency = {curr} isActive={curr === currency} setCurrency={setCurrency}/>
                         ))}
                     </div>}
                 </div>
@@ -63,7 +63,7 @@ export default function AccountSelector({ label, account, currency, setCurrency,
                     <h3 className="account-selector-footer-text">{language === "Eng" ? "Select Currency" : "აირჩიე ვალუტა"}</h3>
                     <div className="account-selector-currencies-wrapper">
                         {currencyArray.map((curr) => (
-                            <AccountSelectorAmountButton currencyProp={currencySymbol[curr]} isActive={curr === currency} setCurrency={setCurrency}/>
+                            <AccountSelectorAmountButton currencySymbolProp={currencySymbol[curr]} currency = {curr} isActive={curr === currency} setCurrency={setCurrency}/>
                         ))}
                     </div>
                 </div>}
