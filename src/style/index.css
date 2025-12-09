@@ -2306,7 +2306,8 @@ td:last-child {
   cursor: pointer;
   border: solid 2px transparent;
   will-change: border, border-radius, max-height;
-  transition: border 0.1s, border-radius 0.2s linear, max-height 0.4s linear, opacity 0.4s linear;;
+  transition: border 0.1s, border-radius 0.2s linear, max-height 0.4s linear,
+    opacity 0.4s linear;
   border-radius: 8px;
   margin-bottom: 12px;
   max-height: 56px;
@@ -2386,7 +2387,6 @@ td:last-child {
   background-color: var(--dashboard-components-background-color);
   padding: 0 12px;
   transition: opacity 0.4s linear;
-;
 }
 .account-selector-footer.active {
   opacity: 1;
@@ -2411,8 +2411,49 @@ td:last-child {
 .currency-selector span:last-child {
   margin: 0;
 }
-.account-selector-label{
-  
+.account-selector-label {
+}
+.account-selector-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* display: none; */
+  z-index: 99999;
+}
+.account-selector-popup-wrapper {
+  /* display: none; */
+}
+.account-selector-popup-wrapper.active {
+  display: block;
+}
+.account-selector-popup {
+  position: absolute;
+  width: auto;
+  z-index: 9999099;
+  padding-top: 12px;
+  top: 12px;
+  width: calc(100% + 48px );
+  height: auto;
+}
+.ccount-selector-popup-header{
+  padding: 48px 24px 16px 24px;
+}
+.account-selector-popup-header-text {
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.to-own-account-from-account-selector{
+  position: relative;
+}
+.account-selector-input-wrapper{
+  width: 100%;
+}
+.account-selector-popup-body{
+  padding: 12px 24px 0 24px;
+  background-color: var(--dashboard-components-background-color-hover);
+}
+.transfer-page-form-container{
+  min-height: 500px;
 }
 /************ RESPONSIVE ************/
 

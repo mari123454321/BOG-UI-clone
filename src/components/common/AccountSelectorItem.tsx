@@ -4,24 +4,25 @@ import { currencyArray, type myAccountsInfoType } from "../../info/banking info/
 import { currencySymbol, type Currency } from "../../info/dashboard/MainPageInfo"
 import { useLanguage } from "../../context/LanguageContext"
 import AccountSelectorAmountButton from "./AccountSelectorAmountButton"
+import { useState } from "react"
 type AccountSelectorItemProps = {
     accounts?: myAccountsInfoType[]
     account: myAccountsInfoType
-    label: string
+    label?: string
     currency: Currency
-    setCurrency: React.Dispatch<React.SetStateAction<Currency>>
-    isDropdownActive?: boolean
-    handleClick?: () => void
+    setCurrency?: React.Dispatch<React.SetStateAction<Currency>>
 }
 
-export default function AccountSelectorItem({ label, account, currency, setCurrency, isDropdownActive, handleClick }: AccountSelectorItemProps) {
+export default function AccountSelectorItem({ label, account, currency, setCurrency }: AccountSelectorItemProps) {
     const { darkMode } = useDarkMode()
     const { language } = useLanguage()
+    const [isDropdownActive, setisDropdownActive] = useState<boolean>(false)
+
 
     return (
         <article className={` ${darkMode ? "dark" : ""}`} >
 
-            {!isDropdownActive && <span className="account-selector-label">
+            {!label && <span className="account-selector-label">
                 {label}
             </span>}
             <div className={`account-selector-body ${isDropdownActive ? 'active' : ''}`}>
@@ -46,7 +47,7 @@ export default function AccountSelectorItem({ label, account, currency, setCurre
                                 <Star fill="#aaaaaaff" stroke="#aaaaaaff" size={16} />
                             }
                             <button
-                                onClick={handleClick}
+                                onClick={()=> setisDropdownActive(prev => !prev)}
                                 className={`account-selector-header-dropdown-button ${isDropdownActive ? 'active' : ''} `}>
                                 <ChevronDown size={16} color="#5d4d45" />
                             </button>
@@ -54,16 +55,16 @@ export default function AccountSelectorItem({ label, account, currency, setCurre
                         </div>
                     </div>
                     <div className={`account-selector-amounts-wrapper ${isDropdownActive ? 'active' : ''}`}>
-                        {currencyArray.map((curr) => (
-                            <AccountSelectorAmountButton key={curr} amountProp={account.amounts[curr]} currencySymbolProp={currencySymbol[curr]} currency = {curr} isActive={curr === currency} setCurrency={setCurrency}/>
+                        {setCurrency && currencyArray.map((curr) => (
+                            <AccountSelectorAmountButton key={curr} amountProp={account.amounts[curr]} currencySymbolProp={currencySymbol[curr]} currency={curr} isActive={curr === currency} setCurrency={setCurrency} />
                         ))}
                     </div>
                 </div>
                 <div className={`account-selector-footer ${isDropdownActive ? 'active' : ''}`}>
                     <h3 className="account-selector-footer-text">{language === "Eng" ? "Select Currency" : "აირჩიე ვალუტა"}</h3>
                     <div className="account-selector-currencies-wrapper">
-                        {currencyArray.map((curr) => (
-                            <AccountSelectorAmountButton key={curr} currencySymbolProp={currencySymbol[curr]} currency = {curr} isActive={curr === currency} setCurrency={setCurrency}/>
+                        {setCurrency && currencyArray.map((curr) => (
+                            <AccountSelectorAmountButton key={curr} currencySymbolProp={currencySymbol[curr]} currency={curr} isActive={curr === currency} setCurrency={setCurrency} />
                         ))}
                     </div>
                 </div>
