@@ -5,26 +5,30 @@ import AccountSelectorPopup from "../../common/AccountSelectorPopup"
 import type { myAccountsInfoType } from "../../../info/banking info/myAccountsInfo"
 import type { Currency } from "../../../info/dashboard/MainPageInfo"
 import AccountSelectorItem from "../../common/AccountSelectorItem"
+import type { ChosenAccountType } from "../../../pages/dashboard/Transfer/ToOwnAccount"
 
 type AccountSelectorProps = {
     AccountsInfo: myAccountsInfoType[]
     label?: string
-    currency: Currency
-    setCurrency?: React.Dispatch<React.SetStateAction<Currency>>
+    chosenAccount: ChosenAccountType
+    setChosenAccount?: React.Dispatch<React.SetStateAction<ChosenAccountType>>
 }
-export default function AccountSelector({ label, AccountsInfo, currency, setCurrency }: AccountSelectorProps) {
+export default function AccountSelector({ label, AccountsInfo, chosenAccount, setChosenAccount }: AccountSelectorProps) {
     const { darkMode } = useDarkMode()
     const { language } = useLanguage()
     const [isPopupActive, setIsPopupActive] = useState<boolean>(false)
+    const id = chosenAccount.accountID !== null ? chosenAccount.accountID : 0
     return (
-        <div className={`account-selector ${label}`}>
-            <div onClick={()=>setIsPopupActive(true)}>
-                <AccountSelectorItem label={label} account={AccountsInfo[0]} currency={currency} isDropdownDisabled={true} />
+        <div className={`account-selector`}>
+            <div onClickCapture={() => setIsPopupActive(true)}>
+                <AccountSelectorItem label={label} account={AccountsInfo[id]} currency={chosenAccount.currency} isDropdownDisabled={true} chosenAccount={chosenAccount} />
             </div>
             <AccountSelectorPopup isPopupActive={isPopupActive} setIsPopupActive={setIsPopupActive}>
                 {
                     AccountsInfo.map((account) => (
-                        <AccountSelectorItem label="From" account={account} currency={currency} setCurrency={setCurrency} />
+                        <div onClick={()=>setChosenAccount && setChosenAccount({...chosenAccount, accountID: account.id})} key={account.id}>
+                            <AccountSelectorItem account={account} currency={chosenAccount.currency} chosenAccount={chosenAccount} setChosenAccount={setChosenAccount} />
+                        </div>
                     ))
                 }
 

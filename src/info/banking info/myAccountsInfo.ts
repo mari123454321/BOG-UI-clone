@@ -2,7 +2,7 @@ import type { Currency } from "../dashboard/MainPageInfo";
 
 export const myAccountsInfo: myAccountsInfoType[] = [
   {
-    id: 1,
+    id: 0,
     iban: "SK67 1713 0725 7577 3724 9654",
     isFavorite: true,
     amounts: {
@@ -14,7 +14,7 @@ export const myAccountsInfo: myAccountsInfoType[] = [
     backgroundImg: "https://ibank.bog.ge/assets/images/cards/backgrounds/card_gradient_shekvetili/3.png"
   },
   {
-    id: 2,
+    id: 1,
     iban: "FR28 9384 3753 87IC 3J10 LMR2 R44",
     isFavorite: false,
     amounts: {
