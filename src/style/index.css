@@ -2165,10 +2165,22 @@ td:last-child {
   background-color: transparent;
   transition: background-color 200ms ease-in-out;
 }
-.contact-card-right:hover {
+.x-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  transition: background-color 200ms ease-in-out;
+}
+.contact-card-right:hover,
+.x-btn:hover {
   background-color: var(--button-hover-dark);
 }
-.contact-card-right:active {
+.contact-card-right:active,
+.x-btn:active {
   background-color: var(--button-active-dark);
 }
 .contact-card-right > svg {
@@ -2274,7 +2286,7 @@ td:last-child {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.34);
   backdrop-filter: blur(5px);
   cursor: pointer;
 }
@@ -2317,7 +2329,6 @@ td:last-child {
   max-height: 160px;
 }
 .account-selector-background-img {
-  background-image: url(https://ibank.bog.ge/assets/images/cards/backgrounds/card_gradient_shekvetili/3.png);
   transition: height 0.16s linear 0.24s;
   height: auto;
 }
@@ -2421,8 +2432,9 @@ td:last-child {
   z-index: 99999;
 }
 .account-selector-popup-wrapper {
-  /* display: none; */
+  display: none;
 }
+
 .account-selector-popup-wrapper.active {
   display: block;
 }
@@ -2430,29 +2442,38 @@ td:last-child {
   position: absolute;
   width: auto;
   z-index: 9999099;
-  padding-top: 12px;
-  top: 12px;
-  width: calc(100% + 48px );
+  /* padding-top: 12px; */
+  width: 100%;
   height: auto;
 }
-.ccount-selector-popup-header{
+.account-selector {
+  position: relative;
+}
+
+.ccount-selector-popup-header {
   padding: 48px 24px 16px 24px;
+  position: relative;
+}
+.account-selector-back-btn{
+  position: absolute;
+  right: 16px;
+  top: 16px;
 }
 .account-selector-popup-header-text {
   color: var(--text-secondary);
   margin-bottom: 12px;
 }
-.to-own-account-from-account-selector{
+.to-own-account-from-account-selector {
   position: relative;
 }
-.account-selector-input-wrapper{
+.account-selector-input-wrapper {
   width: 100%;
 }
-.account-selector-popup-body{
+.account-selector-popup-body {
   padding: 12px 24px 0 24px;
   background-color: var(--dashboard-components-background-color-hover);
 }
-.transfer-page-form-container{
+.transfer-page-form-container {
   min-height: 500px;
 }
 /************ RESPONSIVE ************/

@@ -11,22 +11,25 @@ type AccountSelectorItemProps = {
     label?: string
     currency: Currency
     setCurrency?: React.Dispatch<React.SetStateAction<Currency>>
+    isDropdownDisabled?: boolean
 }
 
-export default function AccountSelectorItem({ label, account, currency, setCurrency }: AccountSelectorItemProps) {
+export default function AccountSelectorItem({ label, account, currency, setCurrency, isDropdownDisabled }: AccountSelectorItemProps) {
     const { darkMode } = useDarkMode()
     const { language } = useLanguage()
     const [isDropdownActive, setisDropdownActive] = useState<boolean>(false)
-
+    const backgroundImg = account.backgroundImg
 
     return (
-        <article className={` ${darkMode ? "dark" : ""}`} >
+        <article className={`account-selector-item-body${darkMode ? "dark" : ""}`} >
 
             {!label && <span className="account-selector-label">
                 {label}
             </span>}
             <div className={`account-selector-body ${isDropdownActive ? 'active' : ''}`}>
-                <div className="account-selector-background-img">
+                <div
+                    style={backgroundImg ? { backgroundImage: `url(${backgroundImg})` } : {}}
+                    className="account-selector-background-img">
                     <div className="account-selector-header">
                         <div className="account-selector-header-left">
                             <span className="account-selector-header-iban">
@@ -47,7 +50,7 @@ export default function AccountSelectorItem({ label, account, currency, setCurre
                                 <Star fill="#aaaaaaff" stroke="#aaaaaaff" size={16} />
                             }
                             <button
-                                onClick={()=> setisDropdownActive(prev => !prev)}
+                                onClick={() => !isDropdownDisabled && setisDropdownActive(prev => !prev)}
                                 className={`account-selector-header-dropdown-button ${isDropdownActive ? 'active' : ''} `}>
                                 <ChevronDown size={16} color="#5d4d45" />
                             </button>

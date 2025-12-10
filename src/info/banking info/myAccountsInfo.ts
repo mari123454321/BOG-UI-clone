@@ -10,7 +10,8 @@ export const myAccountsInfo: myAccountsInfoType[] = [
       dollar: 18.94,
       euro: 33.76,
       pound: 18.44
-    }
+    },
+    backgroundImg: "https://ibank.bog.ge/assets/images/cards/backgrounds/card_gradient_shekvetili/3.png"
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ export const myAccountsInfo: myAccountsInfoType[] = [
       dollar: 7.5,
       euro: 92.48,
       pound: 7.11
-    }
+    },
+    backgroundImg: "https://wallpapers.com/images/high/pastel-colors-background-0nb7lvbmzwc2mk6z.webp"
   }
 ];
 export const currencyArray: Currency[] = ["lari", "dollar", "euro", "pound"];
@@ -31,4 +33,5 @@ export type myAccountsInfoType = {
   iban: string;
   isFavorite: boolean;
   amounts: Record<Currency, number>;
+  backgroundImg?: string;
 };
