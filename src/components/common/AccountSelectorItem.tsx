@@ -64,7 +64,7 @@ export default function AccountSelectorItem({ label, account, currency, setChose
                     </div>
                     <div className={`account-selector-amounts-wrapper ${isDropdownActive ? 'active' : ''}`}>
                         {setChosenAccount && currencyArray.map((curr) => (
-                            <AccountSelectorAmountButton key={curr} amountProp={account.amounts[curr]} currencySymbolProp={currencySymbol[curr]} currency={curr} isActive={curr === currency} setChosenAccount={setChosenAccount} chosenAccount={chosenAccount}/>
+                            <AccountSelectorAmountButton key={curr} account={account} amountProp={account.amounts[curr]} currencySymbolProp={currencySymbol[curr]} currency={curr} isActive={curr === currency} setChosenAccount={setChosenAccount} chosenAccount={chosenAccount}/>
                         ))}
                     </div>
                 </div>
@@ -72,7 +72,7 @@ export default function AccountSelectorItem({ label, account, currency, setChose
                     <h3 className="account-selector-footer-text">{language === "Eng" ? "Select Currency" : "აირჩიე ვალუტა"}</h3>
                     <div className="account-selector-currencies-wrapper">
                         {setChosenAccount && currencyArray.map((curr) => (
-                            <AccountSelectorAmountButton key={curr} currencySymbolProp={currencySymbol[curr]} currency={curr} isActive={curr === currency} setChosenAccount={setChosenAccount} chosenAccount={chosenAccount}/>
+                            <AccountSelectorAmountButton key={curr} account={account} currencySymbolProp={currencySymbol[curr]} currency={curr} isActive={curr === currency} setChosenAccount={setChosenAccount} chosenAccount={chosenAccount}/>
                         ))}
                     </div>
                 </div>

@@ -3,7 +3,6 @@ import { useLanguage } from "../../../context/LanguageContext"
 import { useDarkMode } from "../../../context/DarkModeContext"
 import AccountSelectorPopup from "../../common/AccountSelectorPopup"
 import type { myAccountsInfoType } from "../../../info/banking info/myAccountsInfo"
-import type { Currency } from "../../../info/dashboard/MainPageInfo"
 import AccountSelectorItem from "../../common/AccountSelectorItem"
 import type { ChosenAccountType } from "../../../pages/dashboard/Transfer/ToOwnAccount"
 
@@ -26,7 +25,7 @@ export default function AccountSelector({ label, AccountsInfo, chosenAccount, se
             <AccountSelectorPopup isPopupActive={isPopupActive} setIsPopupActive={setIsPopupActive}>
                 {
                     AccountsInfo.map((account) => (
-                        <div onClick={()=>setChosenAccount && setChosenAccount({...chosenAccount, accountID: account.id})} key={account.id}>
+                        <div  key={account.id}>
                             <AccountSelectorItem account={account} currency={chosenAccount.currency} chosenAccount={chosenAccount} setChosenAccount={setChosenAccount} />
                         </div>
                     ))
