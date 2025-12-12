@@ -2295,33 +2295,36 @@ td:last-child {
   margin-top: 8px;
   overflow: hidden;
 }
-.account-selector-header-iban {
+.account-selector-header-iban, .form-default-text {
+  color: black;
+
   font-size: 0.75rem;
 }
 .account-selector-header-amount > span {
   font-weight: 600;
   font-size: 0.875rem;
 }
-.account-selector-header-iban {
-  color: black;
-}
+
 .account-selector-header {
   display: flex;
   justify-content: space-between;
   height: 56px;
   padding: 0 16px;
 }
-.account-selector-body {
-  display: block;
-  overflow: hidden;
-  cursor: pointer;
-  border: solid 2px transparent;
+.transactions-forms{
   will-change: border, border-radius, max-height;
   transition: border 0.1s, border-radius 0.2s linear, max-height 0.4s linear,
     opacity 0.4s linear;
   border-radius: 8px;
   margin-bottom: 12px;
   max-height: 56px;
+  border: 2px solid var(--color-invert-component-tr-60);
+}
+.account-selector-body {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: solid 2px transparent;
   border: 2px solid var(--color-invert-component-tr-60);
 
 }
@@ -2482,11 +2485,22 @@ td:last-child {
 .transfer-page-form-container {
   min-height: 300px;
 }
-.from-account-selector-wrapper{
+.from-account-selector-wrapper, .how-much-ammount-selector-wrapper, .where-account-selector-wrapper{
   grid-column: 1;
 }
-.where-account-selector-wrapper{
-  grid-column: 1;
+.sell-buy-forms, .sell-buy-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  height: 56px;
+
+}
+.sell-buy-input{
+  border:none;
+  outline: none;
+  background-color: transparent;
 }
 /************ RESPONSIVE ************/
 

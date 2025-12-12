@@ -23,7 +23,7 @@ export const myAccountsInfo: myAccountsInfoType[] = [
       euro: 92.48,
       pound: 7.11
     },
-    backgroundImg: "https://wallpapers.com/images/high/pastel-colors-background-0nb7lvbmzwc2mk6z.webp"
+    backgroundImg: "https://img.freepik.com/free-vector/abstract-paper-cut-shape-wave-background_474888-4650.jpg?semt=ais_hybrid&w=740&q=80"
   }
 ];
 export const currencyArray: Currency[] = ["lari", "dollar", "euro", "pound"];

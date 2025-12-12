@@ -14,9 +14,10 @@ type AccountSelectorItemProps = {
     setChosenAccount?: React.Dispatch<React.SetStateAction<ChosenAccountType>>
     chosenAccount: ChosenAccountType
     isDropdownDisabled?: boolean
+    btnToSkip?: Currency
 }
 
-export default function AccountSelectorItem({ label, account, currency, setChosenAccount, isDropdownDisabled, chosenAccount }: AccountSelectorItemProps) {
+export default function AccountSelectorItem({ label, account, currency, setChosenAccount, isDropdownDisabled, chosenAccount, btnToSkip }: AccountSelectorItemProps) {
     const { darkMode } = useDarkMode()
     const { language } = useLanguage()
     const [isDropdownActive, setisDropdownActive] = useState<boolean>(false)
@@ -29,7 +30,7 @@ export default function AccountSelectorItem({ label, account, currency, setChose
             </span>}
             <div 
             onClick={()=> !isDropdownDisabled && setisDropdownActive(prev => !prev)}
-            className={`account-selector-body ${isDropdownActive ? 'active' : ''}`}>
+            className={`account-selector-body transactions-forms ${isDropdownActive ? 'active' : ''}`}>
                 <div
                     style={ account.backgroundImg ? { backgroundImage: `url(${account.backgroundImg})` } : {}}
                     className="account-selector-background-img">
@@ -62,17 +63,19 @@ export default function AccountSelectorItem({ label, account, currency, setChose
 
                         </div>
                     </div>
+                    {/* big currency buttons */}
                     <div className={`account-selector-amounts-wrapper ${isDropdownActive ? 'active' : ''}`}>
                         {setChosenAccount && currencyArray.map((curr) => (
-                            <AccountSelectorAmountButton key={curr} account={account} amountProp={account.amounts[curr]} currencySymbolProp={currencySymbol[curr]} currency={curr} isActive={curr === currency} setChosenAccount={setChosenAccount} chosenAccount={chosenAccount}/>
+                            curr!==btnToSkip && <AccountSelectorAmountButton key={curr} account={account} amountProp={account.amounts[curr]} currencySymbolProp={currencySymbol[curr]} currency={curr} isActive={curr === currency} setChosenAccount={setChosenAccount} chosenAccount={chosenAccount}/>
                         ))}
                     </div>
                 </div>
                 <div className={`account-selector-footer ${isDropdownActive ? 'active' : ''}`}>
                     <h3 className="account-selector-footer-text">{language === "Eng" ? "Select Currency" : "აირჩიე ვალუტა"}</h3>
+                    {/* small currency buttons */}
                     <div className="account-selector-currencies-wrapper">
                         {setChosenAccount && currencyArray.map((curr) => (
-                            <AccountSelectorAmountButton key={curr} account={account} currencySymbolProp={currencySymbol[curr]} currency={curr} isActive={curr === currency} setChosenAccount={setChosenAccount} chosenAccount={chosenAccount}/>
+                            curr!==btnToSkip && <AccountSelectorAmountButton key={curr} account={account} currencySymbolProp={currencySymbol[curr]} currency={curr} isActive={curr === currency} setChosenAccount={setChosenAccount} chosenAccount={chosenAccount}/>
                         ))}
                     </div>
                 </div>

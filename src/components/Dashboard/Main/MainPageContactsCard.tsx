@@ -15,32 +15,34 @@ export default function MainPageContactsCard() {
     const navigate = useNavigate()
 
     // different components to render based on number of contacts
-    const cardsToRender = ():JSX.Element => {
+    const cardsToRender = (): JSX.Element => {
         if (myTemplatesInfo.info.length <= 3) {
             const contactsCards = myTemplatesInfo.info.map((_, index) => (
                 <TemplateCardItem
-                    img={contacts[index].pfp ? contacts[index].pfp : <User className="icon-primary"/>}
+                    key={index}
+                    img={contacts[index].pfp ? contacts[index].pfp : <User className="icon-primary" />}
                     title={contacts[index].name}
                 />
             ))
             return (
                 <div className="card-body">
                     {contactsCards}
-                    <ContactsToSomeoneCard/>
+                    <ContactsToSomeoneCard />
                 </div>
             )
         } else {
             const contactsCards = myTemplatesInfo.info.slice(0, 2).map((_, index) => (
                 <TemplateCardItem
-                    img={contacts[index].pfp ? contacts[index].pfp : <User className="icon-primary"/>}
+                    key={index}
+                    img={contacts[index].pfp ? contacts[index].pfp : <User className="icon-primary" />}
                     title={contacts[index].name}
                 />
             ))
             return (
                 <div className="card-body">
                     {contactsCards}
-                    <ContactsToSomeoneCard/>
-                    <ShowMoreCard infoLength={myTemplatesInfo.info.length-2} navFunc={()=>navigate("/dashboard/transfer/contacts")} />
+                    <ContactsToSomeoneCard />
+                    <ShowMoreCard infoLength={myTemplatesInfo.info.length - 2} navFunc={() => navigate("/dashboard/transfer/contacts")} />
                 </div>
             )
         }
