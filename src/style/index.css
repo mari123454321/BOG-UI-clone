@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import url(https://db.onlinewebfonts.com/c/2211f33c5285ef3978e258240b60637b?family=Mark+GEO);
+@import "tailwindcss";
 
 :root {
   --orange: #ff6c1d;
