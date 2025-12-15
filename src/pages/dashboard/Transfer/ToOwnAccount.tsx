@@ -43,7 +43,7 @@ export default function ToOwnAccount() {
                 <div className="where-account-selector-wrapper">
                     <AccountSelector label={language === "Geo" ? "სად" : "Where"} AccountsInfo={myAccountsInfo} chosenAccount={buy} setChosenAccount={setBuy} btnToSkip={sell.currency} />
                 </div>
-                <div className="how-much-ammount-selector-wrapper">
+                <div className="how-much-ammount-selector-wrapper ">
                     <AmountConvertor sell={sell} setSell={setSell} buy={buy} setBuy={setBuy} />
 
                 </div>

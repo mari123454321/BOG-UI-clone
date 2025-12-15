@@ -1,7 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import url(https://db.onlinewebfonts.com/c/2211f33c5285ef3978e258240b60637b?family=Mark+GEO);
 @import "tailwindcss";
+@font-face {
+  font-family: MarkGeo;
+  src: url(https://db.onlinewebfonts.com/c/2211f33c5285ef3978e258240b60637b?family=Mark+GEO);
+}
+@import "tailwindcss";
+@theme{
+  --font-MarkGeo: 'Mark GEO', inter, sans-serif;
+}
+@layer components {
+  .test {
+    @apply px-4 py-2 rounded-lg font-medium transition;
+  }
 
+}
 :root {
   --orange: #ff6c1d;
   --main-color: #ff5c0a;
@@ -139,6 +152,9 @@
   --account-selector-btn-hover: #40332b;
   --account-selector-btn-active: #5c3f2d;
   --account-selector-btn-border: #43352d;
+}
+input{
+  font-size: 0.75rem;
 }
 
 .icon-primary {
@@ -654,7 +670,10 @@ img - auth-BOGlogo
 .footer-download-links > a {
   padding: 8px 16px;
 }
-
+.footer-download-links{
+  display: flex;
+  flex-direction: row;
+}
 .footer-content {
   flex-wrap: wrap;
   margin-top: 48px;
@@ -957,7 +976,7 @@ img - auth-BOGlogo
   height: 40px;
   border: none;
   border-radius: 50%;
-  display: inherit;
+  display: flex;
   align-items: center;
   justify-content: center;
   transition: var(--dashboard-element-color-transition);
@@ -2274,9 +2293,10 @@ td:last-child {
   column-gap: 24px;
   row-gap: 16px;
 }
-.to-own-account-layout:last-child {
+/* .to-own-account-layout:last-child {
+  display: grid;
   grid-column: 1 / 3;
-}
+} */
 
 .account-selector-header-dropdown-button {
   border: none;
@@ -2497,12 +2517,9 @@ td:last-child {
   flex-grow: 1;
   height: 56px;
 
+
 }
-.sell-buy-input{
-  border:none;
-  outline: none;
-  background-color: transparent;
-}
+
 /************ RESPONSIVE ************/
 
 @media only screen and (max-width: 1366px) {
