@@ -13,7 +13,7 @@ export default function AmountConvertor({sell, setSell, buy, setBuy }:AmountConv
     const {language} = useLanguage()
     return (
         <div>
-            <span className="account-selector-label">
+            <span className="account-selector-label title">
                 {language === "Geo" ? "რამდენი" : "How Much"}
             </span>
             <SellBuy sell={sell} setSell={setSell} buy={buy} setBuy={setBuy}/>

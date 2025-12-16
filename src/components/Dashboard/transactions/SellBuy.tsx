@@ -9,7 +9,7 @@ export default function SellBuy(props: AmountConvertorProps) {
     const buyCurrency = props.buy.currency
 
     return (
-        <div className="transactions-forms sell-buy-forms" >
+        <div className="transactions-forms sell-buy-forms ">
             <BuySellItem placeholder={language === "Geo" ? "გასაყიდი" : "Sell"} setAmount={props.setSell} currencySymbol={currencySymbol[sellCurrency]}/>
             <BuySellItem placeholder={language === "Geo" ? "ყიდვა" : "Buy"} setAmount={ props.setBuy} currencySymbol={currencySymbol[buyCurrency]}/>
         </div>

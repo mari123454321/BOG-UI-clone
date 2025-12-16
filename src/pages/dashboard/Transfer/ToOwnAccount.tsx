@@ -6,6 +6,7 @@ import { type Currency, currencySymbol } from "../../../info/dashboard/MainPageI
 import AccountSelector from "../../../components/Dashboard/transactions/AccountSelector"
 import { useLanguage } from "../../../context/LanguageContext"
 import AmountConvertor from "./AmountConvertor"
+import NominationForm from "./NominationForm"
 
 export type ChosenAccountType = {
     defaultText?: string
@@ -16,7 +17,6 @@ export type ChosenAccountType = {
 }
 export default function ToOwnAccount() {
     const { language } = useLanguage()
-    const { darkMode } = useDarkMode()
     const [currency, setCurrency] = useState<Currency>("lari")
 
 
@@ -33,20 +33,15 @@ export default function ToOwnAccount() {
         currency: "lari",
         amount: null
     })
-
+    const [purposeMessage, setPurposeMessage] = useState<string>(language==="Geo" ? "კონვერტაცია" : "Conversion")
+    
     return (
         <TransferPageCardLayout amount={9.99} currency={currencySymbol[currency]} >
-            <div className="to-own-account-layout">
-                <div className="from-account-selector-wrapper">
-                    <AccountSelector label={language === "Geo" ? "საიდან" : "From"} AccountsInfo={myAccountsInfo} chosenAccount={sell} setChosenAccount={setSell} />
-                </div>
-                <div className="where-account-selector-wrapper">
-                    <AccountSelector label={language === "Geo" ? "სად" : "Where"} AccountsInfo={myAccountsInfo} chosenAccount={buy} setChosenAccount={setBuy} btnToSkip={sell.currency} />
-                </div>
-                <div className="how-much-ammount-selector-wrapper ">
-                    <AmountConvertor sell={sell} setSell={setSell} buy={buy} setBuy={setBuy} />
-
-                </div>
+            <div className="to-own-account-layout *:col-start-1">
+                <AccountSelector label={language === "Geo" ? "საიდან" : "From"} AccountsInfo={myAccountsInfo} chosenAccount={sell} setChosenAccount={setSell} />
+                <AccountSelector label={language === "Geo" ? "სად" : "Where"} AccountsInfo={myAccountsInfo} chosenAccount={buy} setChosenAccount={setBuy} btnToSkip={sell.currency} />
+                <AmountConvertor sell={sell} setSell={setSell} buy={buy} setBuy={setBuy} />
+                <NominationForm inputLabel={language === "Geo" ? "დანიშნულება" : "Nomination"} inputValue={purposeMessage} setInputValue={setPurposeMessage}/>
             </div>
         </TransferPageCardLayout>
     )

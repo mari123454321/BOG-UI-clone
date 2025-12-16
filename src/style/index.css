@@ -6,14 +6,17 @@
   src: url(https://db.onlinewebfonts.com/c/2211f33c5285ef3978e258240b60637b?family=Mark+GEO);
 }
 @import "tailwindcss";
-@theme{
-  --font-MarkGeo: 'Mark GEO', inter, sans-serif;
+@theme {
+  --font-MarkGeo: "Mark GEO", inter, sans-serif;
 }
 @layer components {
-  .test {
-    @apply px-4 py-2 rounded-lg font-medium transition;
+  .title {
+    @apply text-[0.875rem] font-semibold text-(--text-primary);
   }
-
+  .extra-small-text{
+    @apply text-[0.625rem] font-medium;
+  }
+  
 }
 :root {
   --orange: #ff6c1d;
@@ -153,7 +156,7 @@
   --account-selector-btn-active: #5c3f2d;
   --account-selector-btn-border: #43352d;
 }
-input{
+input {
   font-size: 0.75rem;
 }
 
@@ -663,6 +666,7 @@ img - auth-BOGlogo
 }
 .footer-social-icons > a > img {
   width: 15px;
+  height: 15px;
   padding: 0 8px;
   margin-left: 4px;
 }
@@ -670,7 +674,7 @@ img - auth-BOGlogo
 .footer-download-links > a {
   padding: 8px 16px;
 }
-.footer-download-links{
+.footer-download-links {
   display: flex;
   flex-direction: row;
 }
@@ -1707,6 +1711,7 @@ td:last-child {
   margin-left: 4px;
 }
 .loyalty-card-plus-points-in-curency {
+  display: flex;
   background-color: var(--sidebar-active-background);
   border-radius: 100px;
   align-items: center;
@@ -2316,7 +2321,8 @@ td:last-child {
   margin-top: 8px;
   overflow: hidden;
 }
-.account-selector-header-iban, .form-default-text {
+.account-selector-header-iban,
+.form-default-text {
   color: black;
 
   font-size: 0.75rem;
@@ -2332,14 +2338,13 @@ td:last-child {
   height: 56px;
   padding: 0 16px;
 }
-.transactions-forms{
+.transactions-forms {
   will-change: border, border-radius, max-height;
   transition: border 0.1s, border-radius 0.2s linear, max-height 0.4s linear,
     opacity 0.4s linear;
   border-radius: 8px;
   margin-bottom: 12px;
   max-height: 56px;
-  border: 2px solid var(--color-invert-component-tr-60);
 }
 .account-selector-body {
   display: block;
@@ -2347,7 +2352,6 @@ td:last-child {
   cursor: pointer;
   border: solid 2px transparent;
   border: 2px solid var(--color-invert-component-tr-60);
-
 }
 .account-selector-body.active {
   border: solid 2px var(--orange);
@@ -2484,7 +2488,7 @@ td:last-child {
   padding: 48px 24px 16px 24px;
   position: relative;
 }
-.account-selector-back-btn{
+.account-selector-back-btn {
   position: absolute;
   right: 16px;
   top: 16px;
@@ -2506,18 +2510,19 @@ td:last-child {
 .transfer-page-form-container {
   min-height: 300px;
 }
-.from-account-selector-wrapper, .how-much-ammount-selector-wrapper, .where-account-selector-wrapper{
-  grid-column: 1;
+.from-account-selector-wrapper,
+.how-much-ammount-selector-wrapper,
+.where-account-selector-wrapper {
+  /* grid-column: 1; */
 }
-.sell-buy-forms, .sell-buy-form{
+.sell-buy-forms,
+.sell-buy-form {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-grow: 1;
   height: 56px;
-
-
 }
 
 /************ RESPONSIVE ************/

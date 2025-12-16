@@ -25,7 +25,7 @@ export default function AccountSelectorItem({ label, account, currency, setChose
     return (
         <article className={`account-selector-item-body${darkMode ? "dark" : ""}`} >
 
-            {label && <span className="account-selector-label">
+            {label && <span className="account-selector-label text-(--text-primary)">
                 {label}
             </span>}
             <div 

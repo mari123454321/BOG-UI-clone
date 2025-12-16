@@ -21,7 +21,7 @@ export default function AccountSelector({ label, AccountsInfo, chosenAccount, se
     const [isPopupActive, setIsPopupActive] = useState<boolean>(false)
     const id = chosenAccount.accountID
     return (
-        <div className={`account-selector`}>
+        <div className={`account-selector `}>
             <div onClickCapture={() => setIsPopupActive(true)}>
                 <AccountSelectorItem label={label} account={AccountsInfo[id]} currency={chosenAccount.currency} isDropdownDisabled={true} chosenAccount={chosenAccount}  />
             </div>
