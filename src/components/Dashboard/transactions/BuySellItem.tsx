@@ -1,7 +1,7 @@
 import type { ChosenAccountType } from "../../../pages/dashboard/Transfer/ToOwnAccount"
 
 type BuySellItemProps = {
-    setAmount: React.Dispatch<React.SetStateAction<ChosenAccountType>>
+    setAmount: React.Dispatch<React.SetStateAction<number|null>>
     placeholder: string
     currencySymbol: string
 }
@@ -15,10 +15,7 @@ export default function BuySellItem({ placeholder, setAmount, currencySymbol }: 
                 type="number"
                 className="outline-none"
                 placeholder={placeholder}
-                onChange={(e) => setAmount(prev => ({
-                    ...prev,
-                    amount: Number(e.target.value),
-                }))} />
+                onChange={(e) => setAmount(Number(e.target.value))} />
             <div className="ml-4 mr-2 bg-(--button-hover-dark) w-12 h-6 rounded-sm flex justify-center items-center text-[13px] text-(--text-primary)">
                 {currencySymbol}
             </div>

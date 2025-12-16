@@ -5,7 +5,7 @@ import { myAccountsInfo } from "../../../info/banking info/myAccountsInfo"
 import { type Currency, currencySymbol } from "../../../info/dashboard/MainPageInfo"
 import AccountSelector from "../../../components/Dashboard/transactions/AccountSelector"
 import { useLanguage } from "../../../context/LanguageContext"
-import AmountConvertor from "./AmountConvertor"
+import AmountConvertorForms from "./AmountConvertorForms"
 import NominationForm from "./NominationForm"
 
 export type ChosenAccountType = {
@@ -35,12 +35,13 @@ export default function ToOwnAccount() {
     })
     const [purposeMessage, setPurposeMessage] = useState<string>(language==="Geo" ? "კონვერტაცია" : "Conversion")
     
+
     return (
         <TransferPageCardLayout amount={9.99} currency={currencySymbol[currency]} >
             <div className="to-own-account-layout *:col-start-1">
                 <AccountSelector label={language === "Geo" ? "საიდან" : "From"} AccountsInfo={myAccountsInfo} chosenAccount={sell} setChosenAccount={setSell} />
                 <AccountSelector label={language === "Geo" ? "სად" : "Where"} AccountsInfo={myAccountsInfo} chosenAccount={buy} setChosenAccount={setBuy} btnToSkip={sell.currency} />
-                <AmountConvertor sell={sell} setSell={setSell} buy={buy} setBuy={setBuy} />
+                <AmountConvertorForms sellCurrency={sell.currency} setSell={setSell} buyCurrency={buy.currency} setBuy={setBuy} />
                 <NominationForm inputLabel={language === "Geo" ? "დანიშნულება" : "Nomination"} inputValue={purposeMessage} setInputValue={setPurposeMessage}/>
             </div>
         </TransferPageCardLayout>
