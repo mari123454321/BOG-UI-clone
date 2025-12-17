@@ -7,6 +7,7 @@ import AccountSelector from "../../../components/Dashboard/transactions/AccountS
 import { useLanguage } from "../../../context/LanguageContext"
 import AmountConvertorForms from "./AmountConvertorForms"
 import NominationForm from "./NominationForm"
+import useGetRate from "../../../hooks/useGetRate"
 
 export type ChosenAccountType = {
     defaultText?: string
@@ -15,6 +16,13 @@ export type ChosenAccountType = {
     currency: Currency
     amount: number | null
 }
+export const currencyCodes: Record<Currency, string> = {
+    lari: "GEL",
+    dollar: "USD",
+    euro: "EUR",
+    pound: "GBP"
+}
+
 export default function ToOwnAccount() {
     const { language } = useLanguage()
     const [currency, setCurrency] = useState<Currency>("lari")
@@ -33,16 +41,20 @@ export default function ToOwnAccount() {
         currency: "lari",
         amount: null
     })
-    const [purposeMessage, setPurposeMessage] = useState<string>(language==="Geo" ? "კონვერტაცია" : "Conversion")
-    
+    const [purposeMessage, setPurposeMessage] = useState<string>(language === "Geo" ? "კონვერტაცია" : "Conversion")
+
+    const sellCurrency = currencyCodes[sell.currency]
+    const buyCurrency = currencyCodes[buy.currency]
+    const exchangeRate = useGetRate(sellCurrency, buyCurrency)
+
 
     return (
         <TransferPageCardLayout amount={9.99} currency={currencySymbol[currency]} >
             <div className="to-own-account-layout *:col-start-1">
                 <AccountSelector label={language === "Geo" ? "საიდან" : "From"} AccountsInfo={myAccountsInfo} chosenAccount={sell} setChosenAccount={setSell} />
                 <AccountSelector label={language === "Geo" ? "სად" : "Where"} AccountsInfo={myAccountsInfo} chosenAccount={buy} setChosenAccount={setBuy} btnToSkip={sell.currency} />
-                <AmountConvertorForms sellCurrency={sell.currency} setSell={setSell} buyCurrency={buy.currency} setBuy={setBuy} />
-                <NominationForm inputLabel={language === "Geo" ? "დანიშნულება" : "Nomination"} inputValue={purposeMessage} setInputValue={setPurposeMessage}/>
+                <AmountConvertorForms sellCurrency={sell.currency} setSell={setSell} buyCurrency={buy.currency} setBuy={setBuy} exchangeRate={exchangeRate} />
+                <NominationForm inputLabel={language === "Geo" ? "დანიშნულება" : "Nomination"} inputValue={purposeMessage} setInputValue={setPurposeMessage} />
             </div>
         </TransferPageCardLayout>
     )
