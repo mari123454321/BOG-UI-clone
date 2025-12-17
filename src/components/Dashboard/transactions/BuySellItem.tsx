@@ -15,13 +15,15 @@ export default function BuySellItem({ placeholder, onChange, currencySymbol, inp
         first:rounded-l-lg last:rounded-r-lg
         ">
             <input
-                type="number"
+                type="text"
+                inputMode ="numeric"
+                pattern="[0-9]*"
+                maxLength ={5}
                 className="outline-none"
                 placeholder={placeholder}
-                min="0.1"
                 value={inputValue}
                 onChange={onChange}
-                />
+            />
             <div className="ml-4 mr-2 bg-(--button-hover-dark) w-12 h-6 rounded-sm flex justify-center items-center text-[13px] text-(--text-primary)">
                 {currencySymbol}
             </div>

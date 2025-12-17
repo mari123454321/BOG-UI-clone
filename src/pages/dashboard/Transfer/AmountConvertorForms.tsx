@@ -29,12 +29,14 @@ export default function AmountConvertorForms({ sellCurrency, setSell, buyCurrenc
                     placeholder={language === "Geo" ? "გასაყიდი" : "Sell"}
                     inputValue={sellAmountInput}
                     onChange={e => {
+                        // filters non-number values
+                        if (isNaN(Number(e.target.value))) return
                         const newSellAmountInput = e.target.value === "" ? "" : Number(e.target.value);
                         setSellAmountInput(newSellAmountInput)
-                        if (newSellAmountInput && exchangeRate){
+                        if (newSellAmountInput && exchangeRate) {
                             const newBuyAmount = (newSellAmountInput * exchangeRate)
                             setBuyAmountInput(newBuyAmount)
-                            setBuy(prev=>({...prev, amount: newBuyAmount}))
+                            setBuy(prev => ({ ...prev, amount: newBuyAmount }))
                         }
 
                     }}
@@ -45,13 +47,15 @@ export default function AmountConvertorForms({ sellCurrency, setSell, buyCurrenc
                     placeholder={language === "Geo" ? "ყიდვა" : "Buy"}
                     inputValue={buyAmountInput}
                     onChange={e => {
-                        const newBuyAmountInput = e.target.value === "" ? "" : Number(e.target.value);
+                        // filters non-number values
+                        if (isNaN(Number(e.target.value))) return
+                        const newBuyAmountInput = e.target.value === "" ? "" : Number(e.target.value)
                         setBuyAmountInput(newBuyAmountInput)
-                        if (newBuyAmountInput && exchangeRate){
+                        if (newBuyAmountInput && exchangeRate) {
                             const newSellAmount = (newBuyAmountInput / exchangeRate)
                             setSellAmountInput(newSellAmount)
-                            setSell(prev=>({...prev, amount: newSellAmount}))
-                        
+                            setSell(prev => ({ ...prev, amount: newSellAmount }))
+
                         }
                     }}
                     currencySymbol={currencySymbol[buyCurrency]}
