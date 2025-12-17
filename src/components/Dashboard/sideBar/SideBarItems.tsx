@@ -28,7 +28,7 @@ export default function SidebarItem({ item, sidebarOpen }: Props) {
                 to={item.path}
                 className={({ isActive }) =>
                     // if the link is active or it's the main path
-                    `${isActive || item.path==="main" && pathname==="/dashboard" ? "dashboard-sidebar-active-link" : ""} sidebar-navlink ${darkMode ? "dark" : ""}`
+                    `${isActive || item.path === "main" && pathname === "/dashboard" ? "dashboard-sidebar-active-link" : ""} sidebar-navlink ${darkMode ? "dark" : ""}`
                 }
             >
                 <div className="sidebar-right">
@@ -52,7 +52,7 @@ export default function SidebarItem({ item, sidebarOpen }: Props) {
 
 
                     <span className={`sidebar-arrow ${submenuOpen ? "open" : ""} ${darkMode && "dark"} has-submenu`}>
-                        <ChevronRight width={16} height={16} className="icon-primary"/>
+                        <ChevronRight width={16} height={16} className="icon-primary" />
                     </span>
 
                 </button>
@@ -62,9 +62,8 @@ export default function SidebarItem({ item, sidebarOpen }: Props) {
             {hasSubmenu && sidebarOpen && (
                 <ul className={`submenu ${darkMode && "dark"} ${submenuOpen && "open"}`}>
                     {item.submenu!.map(sub => (
-                        <li>
+                        <li key={sub.name}>
                             <NavLink
-                                key={sub.path}
                                 to={sub.path}
                                 className={({ isActive }) =>
                                     `submenu-item ${isActive ? "dashboard-submenu-active-link" : ""} ${darkMode ? "dark" : ""} `

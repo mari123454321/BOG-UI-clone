@@ -1,22 +1,26 @@
-import { useState } from "react"
 import BuySellItem from "../../../components/Dashboard/transactions/BuySellItem"
 import { useLanguage } from "../../../context/LanguageContext"
 import { currencySymbol, type Currency } from "../../../info/dashboard/MainPageInfo"
-import type { ChosenAccountType } from "./ToOwnAccount"
+
+export type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
 
 type AmountConvertorProps = {
     sellCurrency: Currency
-    setSell: React.Dispatch<React.SetStateAction<ChosenAccountType>>
     buyCurrency: Currency
-    setBuy: React.Dispatch<React.SetStateAction<ChosenAccountType>>
-    exchangeRate: number | undefined
+    exchangeRate: number | null
+
+    sellAmountInput: number | ""; setSellAmountInput: SetState<number | "">;
+    buyAmountInput: number | ""; setBuyAmountInput: SetState<number | "">;
 }
 
-
-export default function AmountConvertorForms({ sellCurrency, setSell, buyCurrency, setBuy, exchangeRate }: AmountConvertorProps) {
+export default function AmountConvertorForms({
+    sellCurrency,
+    buyCurrency,
+    exchangeRate,
+    sellAmountInput, setSellAmountInput,
+    buyAmountInput, setBuyAmountInput
+}: AmountConvertorProps) {
     const { language } = useLanguage()
-    const [sellAmountInput, setSellAmountInput] = useState<number | "">("")
-    const [buyAmountInput, setBuyAmountInput] = useState<number | "">("")
 
     return (
         <div>
@@ -29,16 +33,12 @@ export default function AmountConvertorForms({ sellCurrency, setSell, buyCurrenc
                     placeholder={language === "Geo" ? "გასაყიდი" : "Sell"}
                     inputValue={sellAmountInput}
                     onChange={e => {
-                        // filters non-number values
-                        if (isNaN(Number(e.target.value))) return
-                        const newSellAmountInput = e.target.value === "" ? "" : Number(e.target.value);
-                        setSellAmountInput(newSellAmountInput)
-                        if (newSellAmountInput && exchangeRate) {
-                            const newBuyAmount = (newSellAmountInput * exchangeRate)
-                            setBuyAmountInput(newBuyAmount)
-                            setBuy(prev => ({ ...prev, amount: newBuyAmount }))
-                        }
-
+                        setBuySellState(
+                            e.target.value,
+                            setSellAmountInput,
+                            exchangeRate || 0,
+                            setBuyAmountInput
+                        )
                     }}
                     currencySymbol={currencySymbol[sellCurrency]}
                 />
@@ -47,20 +47,40 @@ export default function AmountConvertorForms({ sellCurrency, setSell, buyCurrenc
                     placeholder={language === "Geo" ? "ყიდვა" : "Buy"}
                     inputValue={buyAmountInput}
                     onChange={e => {
-                        // filters non-number values
-                        if (isNaN(Number(e.target.value))) return
-                        const newBuyAmountInput = e.target.value === "" ? "" : Number(e.target.value)
-                        setBuyAmountInput(newBuyAmountInput)
-                        if (newBuyAmountInput && exchangeRate) {
-                            const newSellAmount = (newBuyAmountInput / exchangeRate)
-                            setSellAmountInput(newSellAmount)
-                            setSell(prev => ({ ...prev, amount: newSellAmount }))
-
-                        }
+                        setBuySellState(
+                            e.target.value,
+                            setBuyAmountInput,
+                            1 / (exchangeRate || 0),
+                            setSellAmountInput
+                        )
                     }}
                     currencySymbol={currencySymbol[buyCurrency]}
                 />
             </div>
         </div>
     )
-}       
+}
+
+const setBuySellState = (
+    input: string,
+    setAmount: (a: number | "") => void,
+    rate: number,
+    setConvertedAmount: (a: number | "") => void,
+) => {
+    const amount = input === '' ? '' : roundNumber(input);
+    setAmount(amount)
+
+    const convertedAmount = convertAmount(amount, rate)
+    setConvertedAmount(convertedAmount)
+}
+
+export const convertAmount = (amount: string | number, rate: number) => {
+    const amountExists = typeof amount === 'number' && amount > 0
+    const rateExists = typeof rate === 'number' && rate > 0
+    const canConvert = amountExists && rateExists
+
+    return canConvert ? roundNumber(amount * rate) : ''
+}
+
+export const roundNumber = (numOrStr: number | string, digits: number = 2) =>
+    Number(Number(numOrStr).toFixed(digits));

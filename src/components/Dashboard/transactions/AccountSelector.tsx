@@ -19,17 +19,24 @@ type AccountSelectorProps = {
 export default function AccountSelector({ label, AccountsInfo, chosenAccount, setChosenAccount, btnToSkip, defaultText }: AccountSelectorProps) {
 
     const [isPopupActive, setIsPopupActive] = useState<boolean>(false)
+    const [activeAccount, setActiveAccount] = useState(Number)
     const id = chosenAccount.accountID
     return (
         <div className={`account-selector `}>
             <div onClickCapture={() => setIsPopupActive(true)}>
-                <AccountSelectorItem label={label} account={AccountsInfo[id]} currency={chosenAccount.currency} isDropdownDisabled={true} chosenAccount={chosenAccount}  />
+                <AccountSelectorItem label={label} account={AccountsInfo[id]} currency={chosenAccount.currency} isDropdownDisabled={true} chosenAccount={chosenAccount}
+                />
             </div>
             <AccountSelectorPopup isPopupActive={isPopupActive} setIsPopupActive={setIsPopupActive}>
                 {
                     AccountsInfo.map((account) => (
-                        <div  key={account.id}>
-                            <AccountSelectorItem account={account} currency={chosenAccount.currency} chosenAccount={chosenAccount} setChosenAccount={setChosenAccount} btnToSkip={btnToSkip} />
+                        <div key={account.id}>
+                            <AccountSelectorItem account={account} currency={chosenAccount.currency} chosenAccount={chosenAccount} setChosenAccount={setChosenAccount} btnToSkip={btnToSkip}
+                                onOpenDropdown={() => {
+                                    setActiveAccount(account.id);
+                                }}
+                                isDropdownOpen={activeAccount === account.id}
+                            />
                         </div>
                     ))
                 }

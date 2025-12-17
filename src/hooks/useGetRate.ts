@@ -4,11 +4,12 @@ export default function useGetRate(
   baseCurrency: string,
   quoteCurrency: string
 ) {
-  const [rate, setRate] = useState<number>();
+  const [rate, setRate] = useState<number | null>(null);
 
   useEffect(() => {
     async function fetchRate() {
       try {
+        setRate(null);
         const response = await fetch(
           `https://v6.exchangerate-api.com/v6/${
             import.meta.env.VITE_API_KEY
@@ -19,12 +20,6 @@ export default function useGetRate(
         }
 
         const data = await response.json();
-        // console.log(
-        //   "DEBUG useGetRate",
-        //   baseCurrency,
-        //   quoteCurrency,
-        //   data.conversion_rate
-        // );
         setRate(data.conversion_rate);
       } catch (err) {
         console.log(err);

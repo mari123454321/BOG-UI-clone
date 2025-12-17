@@ -2340,7 +2340,7 @@ td:last-child {
 }
 .transactions-forms {
   will-change: border, border-radius, max-height;
-  transition: border 0.1s, border-radius 0.2s linear, max-height 0.4s linear,
+  transition: border 0.1s, border-radius 0.2s linear, max-height 0.3s linear,
     opacity 0.4s linear;
   border-radius: 8px;
   margin-bottom: 12px;
@@ -2350,11 +2350,8 @@ td:last-child {
   display: block;
   overflow: hidden;
   cursor: pointer;
-  border: solid 2px transparent;
-  border: 2px solid var(--color-invert-component-tr-60);
 }
 .account-selector-body.active {
-  border: solid 2px var(--orange);
   max-height: 160px;
 }
 .account-selector-background-img {

@@ -15,11 +15,13 @@ export default function BuySellItem({ placeholder, onChange, currencySymbol, inp
         first:rounded-l-lg last:rounded-r-lg
         ">
             <input
-                type="text"
-                inputMode ="numeric"
-                pattern="[0-9]*"
-                maxLength ={5}
-                className="outline-none"
+                type="number"
+                className={
+                    `outline-none` + ' ' +
+                    // removes number input up down buttons
+                    `appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]`
+                }
+
                 placeholder={placeholder}
                 value={inputValue}
                 onChange={onChange}

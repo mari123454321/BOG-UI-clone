@@ -1,61 +1,106 @@
-import { useState } from "react"
-import TransferPageCardLayout from "../../../components/common/TransferPageCardLayout"
-import { useDarkMode } from "../../../context/DarkModeContext"
-import { myAccountsInfo } from "../../../info/banking info/myAccountsInfo"
-import { type Currency, currencySymbol } from "../../../info/dashboard/MainPageInfo"
-import AccountSelector from "../../../components/Dashboard/transactions/AccountSelector"
-import { useLanguage } from "../../../context/LanguageContext"
-import AmountConvertorForms from "./AmountConvertorForms"
-import NominationForm from "./NominationForm"
-import useGetRate from "../../../hooks/useGetRate"
+import { useEffect, useState } from "react";
+import TransferPageCardLayout from "../../../components/common/TransferPageCardLayout";
+import AccountSelector from "../../../components/Dashboard/transactions/AccountSelector";
+import { useLanguage } from "../../../context/LanguageContext";
+import useGetRate from "../../../hooks/useGetRate";
+import { myAccountsInfo } from "../../../info/banking info/myAccountsInfo";
+import {
+    currencySymbol,
+    type Currency,
+} from "../../../info/dashboard/MainPageInfo";
+import AmountConvertorForms, { convertAmount } from "./AmountConvertorForms";
+import NominationForm from "./NominationForm";
 
 export type ChosenAccountType = {
-    defaultText?: string
-    isChosenByDefault: boolean,
-    accountID: number
-    currency: Currency
-    amount: number | null
-}
+    accountID: number;
+    currency: Currency;
+};
+
 export const currencyCodes: Record<Currency, string> = {
     lari: "GEL",
     dollar: "USD",
     euro: "EUR",
-    pound: "GBP"
-}
+    pound: "GBP",
+};
 
 export default function ToOwnAccount() {
-    const { language } = useLanguage()
-    const [currency, setCurrency] = useState<Currency>("lari")
-
+    const { language } = useLanguage();
 
     const [sell, setSell] = useState<ChosenAccountType>({
-        isChosenByDefault: true,
         accountID: 0,
         currency: "lari",
-        amount: null
-    })
+    });
     const [buy, setBuy] = useState<ChosenAccountType>({
-        isChosenByDefault: false,
-        defaultText: language == "Geo" ? "ანგარიში" : "Account",
         accountID: 1,
         currency: "lari",
-        amount: null
-    })
-    const [purposeMessage, setPurposeMessage] = useState<string>(language === "Geo" ? "კონვერტაცია" : "Conversion")
+    });
+    const [purposeMessage, setPurposeMessage] = useState<string>(
+        language === "Geo" ? "კონვერტაცია" : "Conversion"
+    );
 
-    const sellCurrency = currencyCodes[sell.currency]
-    const buyCurrency = currencyCodes[buy.currency]
-    const exchangeRate = useGetRate(sellCurrency, buyCurrency)
+    const sellCurrency = currencyCodes[sell.currency];
+    const buyCurrency = currencyCodes[buy.currency];
+    const exchangeRate = useGetRate(sellCurrency, buyCurrency);
 
+    // Recalculates sell amount from buy when rate changes and sell is outdated
+    const [sellAmount, setSellAmount] = useState<number | "">("")
+    const [sellOutdated, setSellOutdated] = useState<boolean>(false);
+    useEffect(() => {
+        if (!exchangeRate || !sellOutdated) return;
+        setSellAmount(convertAmount(buyAmount, 1 / exchangeRate));
+    }, [exchangeRate, sellOutdated])
+
+    // Recalculates buy amount from sell when rate changes and buy is outdated
+    const [buyAmount, setBuyAmount] = useState<number | "">("")
+    const [buyOutdated, setBuyOutdated] = useState<boolean>(false);
+    useEffect(() => {
+        if (!exchangeRate || !buyOutdated) return;
+        setBuyAmount(convertAmount(sellAmount, exchangeRate));
+    }, [exchangeRate, buyOutdated])
 
     return (
-        <TransferPageCardLayout amount={9.99} currency={currencySymbol[currency]} >
+        <TransferPageCardLayout
+            amount={sellAmount || 0}
+            currency={currencySymbol[sell.currency]}
+        >
             <div className="to-own-account-layout *:col-start-1">
-                <AccountSelector label={language === "Geo" ? "საიდან" : "From"} AccountsInfo={myAccountsInfo} chosenAccount={sell} setChosenAccount={setSell} />
-                <AccountSelector label={language === "Geo" ? "სად" : "Where"} AccountsInfo={myAccountsInfo} chosenAccount={buy} setChosenAccount={setBuy} btnToSkip={sell.currency} />
-                <AmountConvertorForms sellCurrency={sell.currency} setSell={setSell} buyCurrency={buy.currency} setBuy={setBuy} exchangeRate={exchangeRate} />
-                <NominationForm inputLabel={language === "Geo" ? "დანიშნულება" : "Nomination"} inputValue={purposeMessage} setInputValue={setPurposeMessage} />
+                <AccountSelector
+                    label={language === "Geo" ? "საიდან" : "From"}
+                    AccountsInfo={myAccountsInfo}
+                    chosenAccount={sell}
+                    setChosenAccount={chosenAccountType => {
+                        setSell(chosenAccountType);
+                        setBuyOutdated(true)
+                    }}
+                />
+
+                <AccountSelector
+                    label={language === "Geo" ? "სად" : "Where"}
+                    AccountsInfo={myAccountsInfo}
+                    chosenAccount={buy}
+                    setChosenAccount={chosenAccountType => {
+                        setBuy(chosenAccountType);
+                        setSellOutdated(true)
+                    }}
+                    btnToSkip={sell.currency}
+                />
+
+                <AmountConvertorForms
+                    sellCurrency={sell.currency}
+                    buyCurrency={buy.currency}
+                    exchangeRate={exchangeRate}
+
+                    sellAmountInput={sellAmount} setSellAmountInput={setSellAmount}
+                    buyAmountInput={buyAmount} setBuyAmountInput={setBuyAmount}
+                />
+                {/* TODO: add exchange rate display */}
+                <pre>{JSON.stringify({ sellCurrency, buyCurrency, exchangeRate }, null, 2)}</pre>
+                <NominationForm
+                    inputLabel={language === "Geo" ? "დანიშნულება" : "Nomination"}
+                    inputValue={purposeMessage}
+                    setInputValue={setPurposeMessage}
+                />
             </div>
         </TransferPageCardLayout>
-    )
+    );
 }
