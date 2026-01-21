@@ -15,6 +15,8 @@ export default function useGetRate(
             import.meta.env.VITE_API_KEY
           }/pair/${baseCurrency}/${quoteCurrency}`
         );
+        console.log(response)
+        await console.log(response)
         if (!response.ok) {
           throw new Error("Failed to fetch exchange rate");
         }

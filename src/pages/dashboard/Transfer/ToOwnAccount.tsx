@@ -10,6 +10,7 @@ import {
 } from "../../../info/dashboard/MainPageInfo";
 import AmountConvertorForms, { convertAmount } from "./AmountConvertorForms";
 import NominationForm from "./NominationForm";
+import DisplayInfo from "./DisplayInfo";
 
 export type ChosenAccountType = {
     accountID: number;
@@ -32,7 +33,7 @@ export default function ToOwnAccount() {
     });
     const [buy, setBuy] = useState<ChosenAccountType>({
         accountID: 1,
-        currency: "lari",
+        currency: "dollar",
     });
     const [purposeMessage, setPurposeMessage] = useState<string>(
         language === "Geo" ? "კონვერტაცია" : "Conversion"
@@ -93,8 +94,8 @@ export default function ToOwnAccount() {
                     sellAmountInput={sellAmount} setSellAmountInput={setSellAmount}
                     buyAmountInput={buyAmount} setBuyAmountInput={setBuyAmount}
                 />
-                {/* TODO: add exchange rate display */}
-                <pre>{JSON.stringify({ sellCurrency, buyCurrency, exchangeRate }, null, 2)}</pre>
+                <DisplayInfo title={language==="Geo"? "ვალუტის კურსი" : "Exchange Currency"} infoToDisplay={exchangeRate}/>
+                
                 <NominationForm
                     inputLabel={language === "Geo" ? "დანიშნულება" : "Nomination"}
                     inputValue={purposeMessage}
